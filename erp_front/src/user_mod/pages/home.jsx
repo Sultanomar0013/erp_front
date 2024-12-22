@@ -22,71 +22,317 @@ import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
 import UserReport from '../components/userReport';
 import UserAccessPage from '../report/user_access_report';
+import Dashboard from "../components/dashboard";
 
 
 
 const NAVIGATION = [
   {
-    kind: 'header',
-    title: 'Main items',
+    kind: "header",
+    title: "Main items",
   },
   {
-    segment: 'dashboard',
-    title: 'Dashboard',
+    segment: "dashboard",
+    title: "Dashboard",
     icon: <DashboardIcon />,
+    path: "/dashboard",
   },
+
   {
-    segment: 'userAccess',
-    title: 'User Access Management',
+    segment: "userAccess",
+    title: "User Access Management",
     icon: <ManTwoToneIcon />,
     children: [
       {
-        segment: 'accessibility',
-        title: 'Accessibility',
+        segment: "accessibility",
+        title: "Accessibility",
         icon: <ManageAccountsTwoToneIcon />,
+        path: "/userAccess/accessibility",
       },
     ],
   },
   {
-    kind: 'divider',
-  },
-  {
-    kind: 'header',
-    title: 'Inventory/Warehouse',
-  },
-  {
-    segment: 'item',
-    title: 'Item',
-    icon: <CategoryTwoToneIcon />,
+    segment: "myAccount",
+    title: "My Account",
+    icon: <ManTwoToneIcon />,
     children: [
       {
-        segment: 'addItem',
-        title: 'Add Item',
-        icon: <AddTwoToneIcon />,
+        segment: "myProfile",
+        title: "My Profile",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/myProfile",
       },
       {
-        segment: 'itemReport',
-        title: 'Item Report',
-        icon: <BarChartIcon />,
+        segment: "updateProfile",
+        title: "Update Profile",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/updateProfile",
       },
     ],
   },
   {
-    segment: 'warehouse',
-    title: 'warehosue',
-    icon: <WarehouseTwoToneIcon />,
+    segment: "myTeam",
+    title: "My Team",
+    icon: <ManTwoToneIcon />,
     children: [
       {
-        segment: 'addWarehouse',
-        title: 'Add WareHouse',
-        icon: <AddTwoToneIcon />,
+        segment: "myTeam",
+        title: "Team Profile",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/myTeam",
       },
       {
-        segment: 'warehouseReport',
-        title: 'Warehouse Report',
-        icon: <BarChartIcon />,
+        segment: "teamAttendance",
+        title: "Team Attendance",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/teamAttendance",
+      },
+      {
+        segment: "summaryReport",
+        title: "Summary Report",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/summaryReport",
       },
     ],
+  },
+  {
+    segment: "myTeam",
+    title: "Member Basic Info",
+    icon: <ManTwoToneIcon />,
+    children: [
+      {
+        segment: "allMemberContacts",
+        title: "All Member Contacts",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/allMemberContacts",
+      },
+    ],
+  },
+  {
+    segment: "notice",
+    title: "Notice",
+    icon: <ManTwoToneIcon />,
+    children: [
+      {
+        segment: "notice",
+        title: "Notice",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/notice",
+      },
+    ],
+  },
+  {
+    segment: "attendance",
+    title: "Attendance",
+    icon: <ManTwoToneIcon />,
+    children: [
+      {
+        segment: "putAttendance",
+        title: "Put Attendance",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/putAttendance",
+      },
+    ],
+  },
+  {
+    segment: "contractualWorker",
+    title: "Contractual Worker",
+    icon: <ManTwoToneIcon />,
+    children: [
+      {
+        segment: "defineHolidays",
+        title: "Define Holidays",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/defineHolidays",
+      },
+      {
+        segment: "workerList",
+        title: "Worker List",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/workerList",
+      },
+      {
+        segment: "projectList",
+        title: "Project List",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/projectList",
+      },
+      {
+        segment: "workerAttd",
+        title: "Worker Attd.",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/workerAttd",
+      },
+      {
+        segment: "report",
+        title: "Report",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/report",
+      },
+      {
+        segment: "projectManagement",
+        title: "Project Management",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/projectManagement",
+      },
+      {
+        segment: "leaveApproval",
+        title: "Leave Approval",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/leaveApproval",
+      },
+      {
+        segment: "memberApproval",
+        title: "Member Approval",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/memberApproval",
+      },
+      {
+        segment: "salaryReport",
+        title: "Salary Report",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/salaryReport",
+      },
+      {
+        segment: "manualAtt",
+        title: "Manual Att(tmp)",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/manualAtt",
+      },
+      {
+        segment: "workerAttReport",
+        title: "Worker Att Reprort",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/workerAttReport",
+      },
+    ],
+  },
+  {
+    segment: "documentSection",
+    title: "Document Section",
+    icon: <ManTwoToneIcon />,
+    children: [
+      {
+        segment: "documentType",
+        title: "Document Type",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/documentType",
+      },
+      {
+        segment: "documentList",
+        title: "Document List",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/documentList",
+      },
+    ],
+  },
+  {
+    segment: "meetingSchedule",
+    title: "Meeting Schedule",
+    icon: <ManTwoToneIcon />,
+    children: [
+      {
+        segment: "meetingLocation",
+        title: "Meeting Location",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/meetingLocation",
+      },
+      {
+        segment: "createSchedule",
+        title: "Create Schedule",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/createSchedule",
+      },
+      {
+        segment: "scheduleLog",
+        title: "Schedule Log",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/scheduleLog",
+      },
+    ],
+  },
+  {
+    segment: "itSupport",
+    title: "It Support",
+    icon: <ManTwoToneIcon />,
+    children: [
+      {
+        segment: "supportRequest",
+        title: "Support Request",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/supportRequest",
+      },
+      {
+        segment: "myDevices",
+        title: "My Devices",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/myDevices",
+      },
+      {
+        segment: "requestStatus",
+        title: "Request Status",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/requestStatus",
+      },
+    ],
+  },
+  {
+    segment: "hrAdminSupport",
+    title: "HR & Admin Support",
+    icon: <ManTwoToneIcon />,
+    children: [
+      {
+        segment: "newRequest",
+        title: "New Request",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/newRequest",
+      },
+      {
+        segment: "requestStatus",
+        title: "Request Status",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/requestStatus",
+      },
+    ],
+  },
+  {
+    segment: "foodManagement",
+    title: "Food Management",
+    icon: <ManTwoToneIcon />,
+    children: [
+      {
+        segment: "applyForToken",
+        title: "Apply For Token",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/applyForToken",
+      },
+      {
+        segment: "myFoodReport",
+        title: "Food Report",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/myFoodReport",
+      },
+    ],
+  },
+  {
+    segment: "projectReport",
+    title: "Project Report",
+    icon: <ManTwoToneIcon />,
+    children: [
+      {
+        segment: "projectReport",
+        title: "Project Report",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/projectReport",
+      },
+    ],
+  },
+  {
+    kind: "divider",
+  },
+  {
+    kind: "header",
+    title: "My User Board",
   },
 ];
 
@@ -126,7 +372,10 @@ function DemoPageContent({ pathname }) {
   // } else if (currentPath.startsWith('/user-AccessReport/')) {
   //   return <UserAccessPage />;
   // }
-
+console.log(pathname);
+  if( pathname  == '/dashboard' ){
+      return <Dashboard/>
+  }
   return (
     <Box
       sx={{
