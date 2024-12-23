@@ -23,6 +23,7 @@ import { useDemoRouter } from '@toolpad/core/internal';
 import UserReport from '../components/userReport';
 import UserAccessPage from '../report/user_access_report';
 import Dashboard from "../components/dashboard";
+import ProfilePanel from "../components/profileComponent/myProfile"
 
 
 
@@ -354,6 +355,7 @@ const demoTheme = createTheme({
 
 
 function DemoPageContent({ pathname }) {
+  const [activePath, setActivePath] = useState(pathname);
 
   // const [currentPath, setCurrentPath] = useState(pathname);
 
@@ -372,10 +374,24 @@ function DemoPageContent({ pathname }) {
   // } else if (currentPath.startsWith('/user-AccessReport/')) {
   //   return <UserAccessPage />;
   // }
-console.log(pathname);
-  if( pathname  == '/dashboard' ){
-      return <Dashboard/>
+
+  useEffect(() => {
+    localStorage.setItem("lastPath", pathname);
+    setActivePath(pathname);
+  }, [pathname]);
+  useEffect(() => {
+    const lastPath = localStorage.getItem("lastPath");
+    if (lastPath && lastPath !== activePath) {
+      setActivePath(lastPath);
+    }
+  }, []);
+
+  if (activePath === "/dashboard") {
+    return <Dashboard />;
+  } else if (activePath === "/myAccount/myProfile") {
+    return <ProfilePanel />;
   }
+
   return (
     <Box
       sx={{
