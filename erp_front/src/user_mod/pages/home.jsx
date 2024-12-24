@@ -386,6 +386,8 @@ function DemoPageContent({ pathname }) {
     }
   }, []);
 
+  console.log(activePath);
+
   if (activePath === "/dashboard") {
     return <Dashboard />;
   } else if (activePath === "/myAccount/myProfile") {
