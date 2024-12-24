@@ -10,12 +10,9 @@ function App() {
       <Routes>
         <Route path="/" element={<LogIn />} />
           <Route
-          path="/home"
-          // path="/"
+          path="/"
           element={
-            // <PrivateRoute>
-            <Home />
-            // </PrivateRoute>
+            <LogIn />
           }
         />
         <Route
