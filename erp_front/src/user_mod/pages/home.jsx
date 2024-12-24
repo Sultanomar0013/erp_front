@@ -355,8 +355,7 @@ const demoTheme = createTheme({
 
 
 function DemoPageContent({ pathname }) {
-  const [activePath, setActivePath] = useState(pathname);
-console.log(activePath+" & "+pathname);
+
   // const [currentPath, setCurrentPath] = useState(pathname);
 
   // const handleButtonClick = (userId) => {
@@ -375,22 +374,24 @@ console.log(activePath+" & "+pathname);
   //   return <UserAccessPage />;
   // }
 
-  useEffect(() => {
-    localStorage.setItem("lastPath", pathname);
-    setActivePath(pathname);
-  }, [pathname]);
-  useEffect(() => {
-    const lastPath = localStorage.getItem("lastPath");
-    if (lastPath && lastPath !== activePath) {
-      setActivePath(lastPath);
-    }
-  }, []);
+  //   const [activePath, setActivePath] = useState(pathname);
+  // console.log(activePath+" & "+pathname);
+  // useEffect(() => {
+  //   localStorage.setItem("lastPath", pathname);
+  //   setActivePath(pathname);
+  // }, [pathname]);
+  // useEffect(() => {
+  //   const lastPath = localStorage.getItem("lastPath");
+  //   if (lastPath && lastPath !== activePath) {
+  //     setActivePath(lastPath);
+  //   }
+  // }, []);
 
   // console.log(activePath);
 
-  if (activePath === "/dashboard") {
+  if (pathname === "/dashboard") {
     return <Dashboard />;
-  } else if (activePath === "/myAccount/myProfile") {
+  } else if (pathname === "/myAccount/myProfile") {
     return <ProfilePanel />;
   }
 
