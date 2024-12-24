@@ -9,6 +9,15 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LogIn />} />
+          <Route
+          path="/home"
+          // path="/"
+          element={
+            // <PrivateRoute>
+            <Home />
+            // </PrivateRoute>
+          }
+        />
         <Route
           path="/home/*"
           // path="/"
