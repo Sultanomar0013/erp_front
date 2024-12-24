@@ -389,11 +389,11 @@ function DemoPageContent({ pathname }) {
 
   // console.log(activePath);
 
-  if (pathname === "/dashboard") {
-    return <Dashboard />;
-  } else if (pathname === "/myAccount/myProfile") {
-    return <ProfilePanel />;
-  }
+  // if (pathname === "/dashboard") {
+  //   return <Dashboard />;
+  // } else if (pathname === "/myAccount/myProfile") {
+  //   return <ProfilePanel />;
+  // }
 
   return (
     <Box
