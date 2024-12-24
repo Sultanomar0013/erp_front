@@ -368,32 +368,32 @@ function DemoPageContent({ pathname }) {
   // }, [pathname]);
 
 
-  // if (currentPath === '/userAccess/accessibility') {
-  //   return <UserReport onButtonClick={handleButtonClick} />;
-  // } else if (currentPath.startsWith('/user-AccessReport/')) {
-  //   return <UserAccessPage />;
-  // }
+  if (currentPath === '/userAccess/accessibility') {
+    return <UserReport onButtonClick={handleButtonClick} />;
+  } else if (currentPath.startsWith('/user-AccessReport/')) {
+    return <UserAccessPage />;
+  }
 
-  //   const [activePath, setActivePath] = useState(pathname);
-  // console.log(activePath+" & "+pathname);
-  // useEffect(() => {
-  //   localStorage.setItem("lastPath", pathname);
-  //   setActivePath(pathname);
-  // }, [pathname]);
-  // useEffect(() => {
-  //   const lastPath = localStorage.getItem("lastPath");
-  //   if (lastPath && lastPath !== activePath) {
-  //     setActivePath(lastPath);
-  //   }
-  // }, []);
+    const [activePath, setActivePath] = useState(pathname);
+  console.log(activePath+" & "+pathname);
+  useEffect(() => {
+    localStorage.setItem("lastPath", pathname);
+    setActivePath(pathname);
+  }, [pathname]);
+  useEffect(() => {
+    const lastPath = localStorage.getItem("lastPath");
+    if (lastPath && lastPath !== activePath) {
+      setActivePath(lastPath);
+    }
+  }, []);
 
   // console.log(activePath);
 
-  // if (pathname === "/dashboard") {
-  //   return <Dashboard />;
-  // } else if (pathname === "/myAccount/myProfile") {
-  //   return <ProfilePanel />;
-  // }
+  if (activePath === "/dashboard") {
+    return <Dashboard />;
+  } else if (activePath === "/myAccount/myProfile") {
+    return <ProfilePanel />;
+  }
 
   return (
     <Box
