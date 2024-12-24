@@ -356,7 +356,7 @@ const demoTheme = createTheme({
 
 function DemoPageContent({ pathname }) {
   const [activePath, setActivePath] = useState(pathname);
-console.log(pathname);
+console.log(activePath+" "+pathname);
   // const [currentPath, setCurrentPath] = useState(pathname);
 
   // const handleButtonClick = (userId) => {
