@@ -368,11 +368,11 @@ function DemoPageContent({ pathname }) {
   // }, [pathname]);
 
 
-  if (currentPath === '/userAccess/accessibility') {
-    return <UserReport onButtonClick={handleButtonClick} />;
-  } else if (currentPath.startsWith('/user-AccessReport/')) {
-    return <UserAccessPage />;
-  }
+  // if (currentPath === '/userAccess/accessibility') {
+  //   return <UserReport onButtonClick={handleButtonClick} />;
+  // } else if (currentPath.startsWith('/user-AccessReport/')) {
+  //   return <UserAccessPage />;
+  // }
 
     const [activePath, setActivePath] = useState(pathname);
   console.log(activePath+" & "+pathname);
