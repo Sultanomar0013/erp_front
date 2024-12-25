@@ -30,7 +30,7 @@ import ProfilePanel from "../components/profileComponent/myProfile"
 const NAVIGATION = [
   {
     kind: "header",
-    title: "Main items",
+    title: "User Moudle",
   },
   {
     segment: "dashboard",
@@ -375,7 +375,7 @@ function DemoPageContent({ pathname }) {
   // }
 
     const [activePath, setActivePath] = useState(pathname);
-  console.log(activePath+" & "+pathname);
+  // console.log(activePath+" & "+pathname);
   useEffect(() => {
     localStorage.setItem("lastPath", pathname);
     setActivePath(pathname);
@@ -416,9 +416,18 @@ DemoPageContent.propTypes = {
 };
 
 function DashboardLayoutBasic(props) {
-  const { window } = props;
 
-  const router = useDemoRouter('/dashboard');
+  const lastPath = localStorage.getItem("lastPath");
+  const router = useDemoRouter(lastPath);
+
+  useEffect(() => {
+    const lastPath = localStorage.getItem("lastPath");
+    if (lastPath && lastPath !== router.pathname) {
+      router.navigate(lastPath);
+
+  console.log('Hello:',lastPath);
+    }
+  }, [router]);
 
   return (
     <AppProvider

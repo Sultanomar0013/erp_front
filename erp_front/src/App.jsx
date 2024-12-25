@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LogIn from './user_mod/pages/login';
 import Home from './user_mod/pages/home';
+import Panel from './user_mod/components/profileComponent/myProfile';
 // import PrivateRoute from '../authenticate/private_route';
 
 function App() {
@@ -15,15 +16,15 @@ function App() {
             <LogIn />
           }
         />
-        <Route
-          path="/home/*"
-          // path="/"
+        <Route path="/home/*"
           element={
             // <PrivateRoute>
             <Home />
             // </PrivateRoute>
           }
-        />
+        >
+          <Route path="myAccount/myProfile" element={<Panel />} />
+          </Route>
 
       </Routes>
     </BrowserRouter>
