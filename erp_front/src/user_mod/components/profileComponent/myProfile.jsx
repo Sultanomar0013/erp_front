@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, CssBaseline, Toolbar, Typography, List, ListItem, ListItemText } from "@mui/material";
+import { Box, CssBaseline, Toolbar, Typography, List, ListItem, ListItemText, Grid, Paper } from "@mui/material";
 
 const drawerWidth = 240;
 
@@ -27,15 +27,61 @@ function Panel() {
       <CssBaseline />
 
       {/* Main Content Area */}
-      <Box sx={{ flexGrow: 1, p: 3, width: `calc(100% - ${drawerWidth}px)` }}>
+      <Box >
         <Toolbar />
         {selectedPanel === "Personal" && (
           <Box>
-            <Typography variant="h4">This is Personal Information</Typography>
-            <Typography>
-              This is the main content area for personal information. Use this space to
-              display data, charts, or other content.
-            </Typography>
+            <Grid sx={{
+              display:'flex',
+              flexDirection: { xs: 'column', sm: 'row' },
+              justifyContent:'center',
+              alignItems:'center',
+              width:'100%',
+            }}>
+              <Grid>
+                  <Paper elevation={6}
+                    sx={{
+                          width: 200,
+                          display:'flex',
+                          justifyContent:'center',
+                          alignItems:'center',
+                          height: 200,
+
+                          //backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)),url(${PaperOne})`,
+                          borderRadius: '50%',
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          backgroundRepeat: 'no-repeat',
+                          overflow:'hidden',
+                        }}>
+                </Paper>
+
+              </Grid>
+              <Grid>
+              <Grid
+                    sx={{
+                          width: 200,
+                          display:'flex',
+                          justifyContent:'center',
+                          alignItems:'center',
+                          height: 200,
+                          top: 0,
+                          bottom:0,
+                          //backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)),url(${PaperOne})`,
+                          borderRadius: '50%',
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          backgroundRepeat: 'no-repeat',
+                          overflow:'hidden',
+                        }}>
+                  <Typography variant="h4" sx={{ color: 'Black', textAlign:'center',}}>
+                        "We have best Emergency System"
+                  </Typography>
+                </Grid>
+
+
+              </Grid>
+            </Grid>
           </Box>
         )}
         {selectedPanel === "Education" && (
