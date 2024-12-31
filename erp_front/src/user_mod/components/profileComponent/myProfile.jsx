@@ -121,9 +121,9 @@ function Panel() {
               </Grid>
             </Grid>
             <br></br>
-            <Paper elevation={6} sx={{
-            width : '100%',
-            height : '200',
+            <Paper elevation={3} sx={{
+            width : '90%',
+            height : '250',
             }}>
             
             </Paper>
