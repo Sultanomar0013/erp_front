@@ -28,7 +28,7 @@ function Panel() {
 
       {/* Main Content Area */}
       <Box >
-        <Toolbar />
+  
         {selectedPanel === "Personal" && (
           <Box>
             <Grid sx={{
