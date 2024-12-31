@@ -140,11 +140,12 @@ function Panel() {
                     Name: Sultan Omar
                   </Typography>
             </Grid>
-            <Divider
+{/*             <Divider
                 orientation={isSmallScreen ? 'horizontal' : 'vertical'}
                 flexItem
                 sx={{ mx: 2 }}
-              />
+              /> */}
+              
             <Grid  sx={{
             width: 250,
             }}>
