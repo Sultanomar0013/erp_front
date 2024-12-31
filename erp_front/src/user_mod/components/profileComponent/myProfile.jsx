@@ -68,8 +68,9 @@ function Panel() {
               }}>
               <Grid
                     sx={{
-                          width: 200,
                           height: 200,
+                          display: 'grid', 
+                          placeItems:'center',
                           overflow:'hidden',
                         }}>
                   <Typography variant="h6" >
