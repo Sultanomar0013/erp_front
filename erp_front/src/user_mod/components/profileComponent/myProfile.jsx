@@ -29,6 +29,8 @@ function Panel() {
 
       {/* Main Content Area */}
       <Box >
+        
+        <Toolbar />
          <Box
         sx={{
           position: "fixed",
@@ -67,7 +69,6 @@ function Panel() {
           ))}
         </List>
       </Box>
-        <Toolbar />
         {selectedPanel === "Personal" && (
           <Box>
             <Grid sx={{
