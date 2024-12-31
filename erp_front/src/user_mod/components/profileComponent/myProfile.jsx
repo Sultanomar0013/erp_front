@@ -5,7 +5,7 @@ const drawerWidth = 240;
 
 function Panel() {
   const [selectedPanel, setSelectedPanel] = useState("Personal");
-
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
   useEffect(() => {
     const savedPanel = localStorage.getItem("selectedPanel");
     if (savedPanel) {
@@ -140,7 +140,7 @@ function Panel() {
                   </Typography>
             </Grid>
             <Divider
-                orientation="vertical"
+                orientation={isSmallScreen ? 'horizontal' : 'vertical'}
                 flexItem
                 sx={{ mx: 2 }}
               />
