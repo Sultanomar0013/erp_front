@@ -139,7 +139,27 @@ function Panel() {
                 <Typography variant="body1" 
                     sx={{ fontWeight: 'bold' }}
                   >
-                    Name: Sultan Omar
+                    Full Name : Sultan Omar
+                  </Typography>
+               <Typography variant="body1" 
+                    sx={{ fontWeight: 'bold' }}
+                  >
+                    Father's Name : Saleh Majumder
+                  </Typography>
+               <Typography variant="body1" 
+                    sx={{ fontWeight: 'bold' }}
+                  >
+                    Place Of Birth : Qatar
+                  </Typography>
+               <Typography variant="body1" 
+                    sx={{ fontWeight: 'bold' }}
+                  >
+                    Blood Group : O+
+                  </Typography>
+                <Typography variant="body1" 
+                    sx={{ fontWeight: 'bold' }}
+                  >
+                    Religion : Islam
                   </Typography>
             </Grid>
 {/*             <Divider
