@@ -131,7 +131,7 @@ function Panel() {
             height : 'auto',
             }}>
             <Grid sx={{
-            width: 500,
+            width: 250,
             }}>
                 <Typography variant="body1" 
                     sx={{ fontWeight: 'bold' }}
@@ -145,7 +145,7 @@ function Panel() {
                 sx={{ mx: 2 }}
               />
             <Grid  sx={{
-            width: 500,
+            width: 250,
             }}>
                 <Typography variant="body1" 
                     sx={{ fontWeight: 'bold' }}
