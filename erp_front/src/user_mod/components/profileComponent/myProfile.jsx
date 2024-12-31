@@ -24,6 +24,44 @@ function Panel() {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+         <Box
+        sx={{
+          position: "fixed",
+          bottom: 0,
+          width: "100%",
+          backgroundColor: (theme) =>
+            theme.palette.mode === "light"
+              ? theme.palette.grey[200]
+              : theme.palette.grey[800],
+          boxShadow: "0 -2px 5px rgba(0,0,0,0.1)",
+        }}
+      >
+        <List sx={{ display: "flex", justifyContent: "center" }}>
+          {["Personal", "Education"].map((text) => (
+            <ListItem
+              component="button"
+            sx={{
+              width: "auto",
+              cursor: "pointer",
+              backgroundColor: "transparent",
+              borderBottom:(theme) =>
+                selectedPanel === text ? `2px solid ${theme.palette.primary.main}` : "none",
+            }}
+            key={text}
+            onClick={() => setSelectedPanel(text)}
+          >
+            <ListItemText
+              primary={text}
+              sx={{
+                textAlign: "center",
+                color: selectedPanel === text ? "blue" : "inherit",
+              }}
+            />
+          </ListItem>
+
+          ))}
+        </List>
+      </Box>
       <CssBaseline />
 
       {/* Main Content Area */}
@@ -96,44 +134,7 @@ function Panel() {
       </Box>
 
       {/* Footer Navigation */}
-      <Box
-        sx={{
-          position: "fixed",
-          bottom: 0,
-          width: "100%",
-          backgroundColor: (theme) =>
-            theme.palette.mode === "light"
-              ? theme.palette.grey[200]
-              : theme.palette.grey[800],
-          boxShadow: "0 -2px 5px rgba(0,0,0,0.1)",
-        }}
-      >
-        <List sx={{ display: "flex", justifyContent: "center" }}>
-          {["Personal", "Education"].map((text) => (
-            <ListItem
-              component="button"
-            sx={{
-              width: "auto",
-              cursor: "pointer",
-              backgroundColor: "transparent",
-              borderBottom:(theme) =>
-                selectedPanel === text ? `2px solid ${theme.palette.primary.main}` : "none",
-            }}
-            key={text}
-            onClick={() => setSelectedPanel(text)}
-          >
-            <ListItemText
-              primary={text}
-              sx={{
-                textAlign: "center",
-                color: selectedPanel === text ? "blue" : "inherit",
-              }}
-            />
-          </ListItem>
-
-          ))}
-        </List>
-      </Box>
+   
     </Box>
   );
 }
