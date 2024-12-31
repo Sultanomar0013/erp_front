@@ -74,7 +74,7 @@ function Panel() {
                         }}>
                   <Typography variant="h6" >
                         Name : Sultan Omar
-                  </Typography><br></br>
+                  </Typography>
                    <Typography variant="h6" >
                         Emp ID : HO-0013
                   </Typography>
