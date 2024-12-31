@@ -123,10 +123,27 @@ function Panel() {
             <br></br>
             <Paper elevation={3} sx={{
             width : '90%',
-            height : '250',
+            display: 'flex',
+            flexWrap: 'wrap',
+            height : 'auto',
             }}>
-            
+            <Grid>
+                <Typography variant="body1" 
+                    sx={{ fontWeight: 'bold' }}
+                  >
+                    Name: Sultan Omar
+                  </Typography>
+            </Grid>
+            <Grid>
+                <Typography variant="body1" 
+                    sx={{ fontWeight: 'bold' }}
+                  >
+                    Name: Sultan Omar
+                  </Typography>
+            </Grid>
             </Paper>
+
+            <br></br>
           </Box>
         )}
         {selectedPanel === "Education" && (
