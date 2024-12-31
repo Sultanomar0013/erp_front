@@ -68,7 +68,9 @@ function Panel() {
         <Toolbar />
        
         {selectedPanel === "Personal" && (
-          <Box>
+          <Box sx={{
+            placeItems : 'center',
+          }}>
             <Grid sx={{
               display:'flex',
               flexDirection: { xs: 'column', sm: 'row' },
@@ -116,10 +118,15 @@ function Panel() {
                         Emp ID : HO-0013
                   </Typography>
                 </Grid>
-
-
               </Grid>
             </Grid>
+            <br></br>
+            <Paper elevation={6} sx={{
+            width : '100%',
+            height : '200',
+            }}>
+            
+            </Paper>
           </Box>
         )}
         {selectedPanel === "Education" && (
@@ -132,8 +139,6 @@ function Panel() {
           </Box>
         )}
       </Box>
-
-      {/* Footer Navigation */}
    
     </Box>
   );
