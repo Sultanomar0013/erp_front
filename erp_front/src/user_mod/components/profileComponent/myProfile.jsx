@@ -29,12 +29,8 @@ function Panel() {
 
       {/* Main Content Area */}
       <Box >
-        
-        <Toolbar />
-         <Box
+          <Box
         sx={{
-          position: "fixed",
-          top: 0,
           width: "100%",
           backgroundColor: (theme) =>
             theme.palette.mode === "light"
@@ -69,6 +65,8 @@ function Panel() {
           ))}
         </List>
       </Box>
+        <Toolbar />
+       
         {selectedPanel === "Personal" && (
           <Box>
             <Grid sx={{
