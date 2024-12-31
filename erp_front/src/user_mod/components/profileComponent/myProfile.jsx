@@ -69,17 +69,7 @@ function Panel() {
               <Grid
                     sx={{
                           width: 200,
-                          display:'flex',
-                          justifyContent:'center',
-                          alignItems:'center',
                           height: 200,
-                          top: 0,
-                          bottom:0,
-                          //backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)),url(${PaperOne})`,
-                          borderRadius: '50%',
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                          backgroundRepeat: 'no-repeat',
                           overflow:'hidden',
                         }}>
                   <Typography variant="h6" >
