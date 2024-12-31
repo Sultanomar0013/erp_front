@@ -40,6 +40,7 @@ function Panel() {
             }}>
               <Grid sx={{
               width: '50%',
+              alignItems:'center',
               }}>
                   <Paper elevation={6}
                     sx={{
@@ -61,6 +62,7 @@ function Panel() {
               </Grid>
               <Grid sx={{
               width: '50%',
+              alignItems:'center',
               }}>
               <Grid
                     sx={{
