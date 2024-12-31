@@ -67,9 +67,7 @@ function Panel() {
               placeItems:'center',
               }}>
               <Grid
-                    sx={{
-                          height: 200,
-                          display: 'grid', 
+                    sx={{ 
                           placeItems:'center',
                           overflow:'hidden',
                         }}>
