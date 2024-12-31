@@ -161,13 +161,7 @@ function Panel() {
                   >
                     Religion : Islam
                   </Typography>
-            </Grid>
-{/*             <Divider
-                orientation={isSmallScreen ? 'horizontal' : 'vertical'}
-                flexItem
-                sx={{ mx: 2 }}
-              /> */}
-              
+            </Grid>              
             <Grid  sx={{
             width: 250,
             display : 'grid',
@@ -176,8 +170,16 @@ function Panel() {
                 <Typography variant="body1" 
                     sx={{ fontWeight: 'bold' }}
                   >
-                    Name: Sultan Omar
-                  </Typography>
+                    Date of Birth : Onek Age
+                  <br></br>
+                  Mother's Name : Gulshan Ara Begum
+                  <br></br>
+                  Nationality : Bangladeshi
+                  <br></br>
+                  Gender : Male
+                  <br></br>
+                  Marital Status:	Complicated
+                </Typography>
             </Grid>
             </Paper>
 
