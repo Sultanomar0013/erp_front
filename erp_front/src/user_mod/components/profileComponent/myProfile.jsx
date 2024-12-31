@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, CssBaseline, Toolbar, Typography, List, ListItem, ListItemText, Grid, Paper } from "@mui/material";
+import { Box, CssBaseline, Toolbar, Typography, List, ListItem, ListItemText, Grid, Paper,Divider } from "@mui/material";
 
 const drawerWidth = 240;
 
@@ -122,19 +122,31 @@ function Panel() {
             </Grid>
             <br></br>
             <Paper elevation={3} sx={{
+            padding: 15;
             width : '90%',
             display: 'flex',
             flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'center',
             height : 'auto',
             }}>
-            <Grid>
+            <Grid sx={{
+            width: 500,
+            }}>
                 <Typography variant="body1" 
                     sx={{ fontWeight: 'bold' }}
                   >
                     Name: Sultan Omar
                   </Typography>
             </Grid>
-            <Grid>
+            <Divider
+                orientation="vertical"
+                flexItem
+                sx={{ mx: 2 }}
+              />
+            <Grid  sx={{
+            width: 500,
+            }}>
                 <Typography variant="body1" 
                     sx={{ fontWeight: 'bold' }}
                   >
