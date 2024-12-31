@@ -38,7 +38,9 @@ function Panel() {
               alignItems:'center',
               width:'100%',
             }}>
-              <Grid>
+              <Grid sx={{
+              width: '50%',
+              }}>
                   <Paper elevation={6}
                     sx={{
                           width: 200,
@@ -57,7 +59,9 @@ function Panel() {
                 </Paper>
 
               </Grid>
-              <Grid>
+              <Grid sx={{
+              width: '50%',
+              }}>
               <Grid
                     sx={{
                           width: 200,
