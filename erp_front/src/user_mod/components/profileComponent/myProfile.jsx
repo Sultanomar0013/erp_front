@@ -82,8 +82,8 @@ function Panel() {
                           backgroundRepeat: 'no-repeat',
                           overflow:'hidden',
                         }}>
-                  <Typography variant="h4" sx={{ color: 'Black', textAlign:'center',}}>
-                        "We have best Emergency System"
+                  <Typography variant="h6" >
+                        Name : Sultan Omar
                   </Typography>
                 </Grid>
 
