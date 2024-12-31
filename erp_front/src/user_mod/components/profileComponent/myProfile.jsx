@@ -27,7 +27,7 @@ function Panel() {
          <Box
         sx={{
           position: "fixed",
-          bottom: 0,
+          top: 0,
           width: "100%",
           backgroundColor: (theme) =>
             theme.palette.mode === "light"
