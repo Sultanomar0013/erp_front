@@ -123,16 +123,18 @@ function Panel() {
             </Grid>
             <br></br>
             <Paper elevation={3} sx={{
-            padding: 15,
+            padding: '15px',
             width : '90%',
             display: 'flex',
             flexWrap: 'wrap',
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'space-evenly',
             height : 'auto',
             }}>
             <Grid sx={{
             width: 250,
+            display : 'grid',
+            placeItems : 'center',
             }}>
                 <Typography variant="body1" 
                     sx={{ fontWeight: 'bold' }}
@@ -148,6 +150,8 @@ function Panel() {
               
             <Grid  sx={{
             width: 250,
+            display : 'grid',
+            placeItems : 'center',
             }}>
                 <Typography variant="body1" 
                     sx={{ fontWeight: 'bold' }}
