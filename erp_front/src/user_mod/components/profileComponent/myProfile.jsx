@@ -24,6 +24,11 @@ function Panel() {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+        
+      <CssBaseline />
+
+      {/* Main Content Area */}
+      <Box >
          <Box
         sx={{
           position: "fixed",
@@ -62,10 +67,6 @@ function Panel() {
           ))}
         </List>
       </Box>
-      <CssBaseline />
-
-      {/* Main Content Area */}
-      <Box >
         <Toolbar />
         {selectedPanel === "Personal" && (
           <Box>
