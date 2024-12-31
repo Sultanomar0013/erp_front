@@ -122,7 +122,7 @@ function Panel() {
             </Grid>
             <br></br>
             <Paper elevation={3} sx={{
-            padding: 15;
+            padding: 15,
             width : '90%',
             display: 'flex',
             flexWrap: 'wrap',
