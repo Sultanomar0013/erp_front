@@ -221,22 +221,69 @@ function Panel() {
             
             <br></br>
 
-            <Paper 
+              <Paper 
               elevation={4} 
               sx={{
                 padding: '20px',
                 width: '90%',
                 display: 'grid',
-                gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
-                gap: '20px',
+                gridAutoFlow: 'row',
                 alignItems: 'start',
                 justifyItems: 'center',
                 backgroundColor: '#f9f9f9',
                 borderRadius: '10px'
               }}
             >
-              <Typography variant="h6">    Personal Information </Typography>
-             
+              <Typography 
+                  variant="h6" 
+                  sx={{ fontWeight: 'bold', marginBottom: '10px' }}
+                >
+                  Employee Information
+                </Typography>
+
+             <Grid  sx={{
+                padding: '20px',
+                width: '90%',
+                display: 'grid',
+                gridAutoFlow: 'row',
+                gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
+                gap: '20px',
+                alignItems: 'start',
+                justifyItems: 'center',
+                backgroundColor: '#f9f9f9',
+                borderRadius: '10px'
+              }}>
+               <Grid 
+                container 
+                direction="column" 
+                alignItems="center"
+                sx={{
+                  width: '100%',
+                  maxWidth: '300px',
+                  padding: '10px',
+                  backgroundColor: '#ffffff',
+                  borderRadius: '10px',
+                  boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
+                }}
+              >
+               
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Code:</strong> 0013
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Membership Type:</strong> Onk beshi Premium
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Mother's Name:</strong> Gulshan Ara Begum
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Blood Group:</strong> O+
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Religion:</strong> Islam
+                </Typography>
+              </Grid>
+              
               <Grid 
                 container 
                 direction="column" 
@@ -250,6 +297,75 @@ function Panel() {
                   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
                 }}
               >
+               
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Date of Birth:</strong> Onek Age
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Place of Birth:</strong> Qatar
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Nationality:</strong> Bangladeshi
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Gender:</strong> Male
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Marital Status:</strong> Complicated
+                </Typography>
+              </Grid>
+             </Grid>
+              
+            </Paper>
+
+          <br></br>
+
+               <Paper 
+              elevation={4} 
+              sx={{
+                padding: '20px',
+                width: '90%',
+                display: 'grid',
+                gridAutoFlow: 'row',
+                alignItems: 'start',
+                justifyItems: 'center',
+                backgroundColor: '#f9f9f9',
+                borderRadius: '10px'
+              }}
+            >
+              <Typography 
+                  variant="h6" 
+                  sx={{ fontWeight: 'bold', marginBottom: '10px' }}
+                >
+                  Contact Information
+                </Typography>
+
+             <Grid  sx={{
+                padding: '20px',
+                width: '90%',
+                display: 'grid',
+                gridAutoFlow: 'row',
+                gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
+                gap: '20px',
+                alignItems: 'start',
+                justifyItems: 'center',
+                backgroundColor: '#f9f9f9',
+                borderRadius: '10px'
+              }}>
+               <Grid 
+                container 
+                direction="column" 
+                alignItems="center"
+                sx={{
+                  width: '100%',
+                  maxWidth: '300px',
+                  padding: '10px',
+                  backgroundColor: '#ffffff',
+                  borderRadius: '10px',
+                  boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
+                }}
+              >
+               
                 <Typography variant="body1" sx={{ fontWeight: 500 }}>
                   <strong>Full Name:</strong> Sultan Omar
                 </Typography>
@@ -280,7 +396,7 @@ function Panel() {
                   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
                 }}
               >
-             
+               
                 <Typography variant="body1" sx={{ fontWeight: 500 }}>
                   <strong>Date of Birth:</strong> Onek Age
                 </Typography>
@@ -297,9 +413,11 @@ function Panel() {
                   <strong>Marital Status:</strong> Complicated
                 </Typography>
               </Grid>
+             </Grid>
+              
             </Paper>
 
-          <br></br>
+            <br></br>
             
           </Box>
         )}
