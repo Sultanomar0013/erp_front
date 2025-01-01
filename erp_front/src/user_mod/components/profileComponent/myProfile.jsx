@@ -122,66 +122,93 @@ function Panel() {
               </Grid>
             </Grid>
             <br></br>
-            <Paper elevation={3} sx={{
-            padding: '15px',
-            width : '90%',
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'space-evenly',
-            height : 'auto',
-            }}>
-            <Grid sx={{
-            width: 250,
-            display : 'grid',
-            placeItems : 'center',
-            }}>
-                <Typography variant="body1" 
-                    sx={{ fontWeight: 'bold' }}
-                  >
-                    Full Name : Sultan Omar
-                  </Typography>
-               <Typography variant="body1" 
-                    sx={{ fontWeight: 'bold' }}
-                  >
-                    Father's Name : Saleh Majumder
-                  </Typography>
-               <Typography variant="body1" 
-                    sx={{ fontWeight: 'bold' }}
-                  >
-                    Place Of Birth : Qatar
-                  </Typography>
-               <Typography variant="body1" 
-                    sx={{ fontWeight: 'bold' }}
-                  >
-                    Blood Group : O+
-                  </Typography>
-                <Typography variant="body1" 
-                    sx={{ fontWeight: 'bold' }}
-                  >
-                    Religion : Islam
-                  </Typography>
-            </Grid>              
-            <Grid  sx={{
-            width: 250,
-            display : 'grid',
-            placeItems : 'center',
-            }}>
-                <Typography variant="body1" 
-                    sx={{ fontWeight: 'bold' }}
-                  >
-                    Date of Birth : Onek Age
-                  <br></br>
-                  Mother's Name : Gulshan Ara Begum
-                  <br></br>
-                  Nationality : Bangladeshi
-                  <br></br>
-                  Gender : Male
-                  <br></br>
-                  Marital Status:	Complicated
+           <Paper 
+              elevation={4} 
+              sx={{
+                padding: '20px',
+                width: '90%',
+                display: 'grid',
+                gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
+                gap: '20px',
+                alignItems: 'start',
+                justifyItems: 'center',
+                backgroundColor: '#f9f9f9',
+                borderRadius: '10px'
+              }}
+            >
+              <Grid 
+                container 
+                direction="column" 
+                alignItems="center"
+                sx={{
+                  width: '100%',
+                  maxWidth: '300px',
+                  padding: '10px',
+                  backgroundColor: '#ffffff',
+                  borderRadius: '10px',
+                  boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
+                }}
+              >
+                <Typography 
+                  variant="h6" 
+                  sx={{ fontWeight: 'bold', marginBottom: '10px' }}
+                >
+                  Personal Information
                 </Typography>
-            </Grid>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Full Name:</strong> Sultan Omar
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Father's Name:</strong> Saleh Majumder
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Place of Birth:</strong> Qatar
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Blood Group:</strong> O+
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Religion:</strong> Islam
+                </Typography>
+              </Grid>
+              
+              <Grid 
+                container 
+                direction="column" 
+                alignItems="center"
+                sx={{
+                  width: '100%',
+                  maxWidth: '300px',
+                  padding: '10px',
+                  backgroundColor: '#ffffff',
+                  borderRadius: '10px',
+                  boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
+                }}
+              >
+                <Typography 
+                  variant="h6" 
+                  sx={{ fontWeight: 'bold', marginBottom: '10px' }}
+                >
+                  Additional Details
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Date of Birth:</strong> Onek Age
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Mother's Name:</strong> Gulshan Ara Begum
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Nationality:</strong> Bangladeshi
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Gender:</strong> Male
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Marital Status:</strong> Complicated
+                </Typography>
+              </Grid>
             </Paper>
+
 
             <br></br>
           </Box>
