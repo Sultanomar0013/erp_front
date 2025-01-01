@@ -128,8 +128,7 @@ function Panel() {
                 padding: '20px',
                 width: '90%',
                 display: 'grid',
-                gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
-                gap: '20px',
+                gridAutoFlow: 'row',
                 alignItems: 'start',
                 justifyItems: 'center',
                 backgroundColor: '#f9f9f9',
@@ -142,7 +141,20 @@ function Panel() {
                 >
                   Personal Information
                 </Typography>
-              <Grid 
+
+             <Grid  sx={{
+                padding: '20px',
+                width: '90%',
+                display: 'grid',
+                gridAutoFlow: 'row',
+                gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
+                gap: '20px',
+                alignItems: 'start',
+                justifyItems: 'center',
+                backgroundColor: '#f9f9f9',
+                borderRadius: '10px'
+              }}>
+               <Grid 
                 container 
                 direction="column" 
                 alignItems="center"
@@ -203,6 +215,8 @@ function Panel() {
                   <strong>Marital Status:</strong> Complicated
                 </Typography>
               </Grid>
+             </Grid>
+              
             </Paper>
             
             <br></br>
