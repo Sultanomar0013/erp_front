@@ -136,6 +136,12 @@ function Panel() {
                 borderRadius: '10px'
               }}
             >
+              <Typography 
+                  variant="h6" 
+                  sx={{ fontWeight: 'bold', marginBottom: '10px' }}
+                >
+                  Personal Information
+                </Typography>
               <Grid 
                 container 
                 direction="column" 
@@ -149,12 +155,7 @@ function Panel() {
                   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
                 }}
               >
-                <Typography 
-                  variant="h6" 
-                  sx={{ fontWeight: 'bold', marginBottom: '10px' }}
-                >
-                  Personal Information
-                </Typography>
+               
                 <Typography variant="body1" sx={{ fontWeight: 500 }}>
                   <strong>Full Name:</strong> Sultan Omar
                 </Typography>
@@ -185,12 +186,7 @@ function Panel() {
                   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
                 }}
               >
-                <Typography 
-                  variant="h6" 
-                  sx={{ fontWeight: 'bold', marginBottom: '10px' }}
-                >
-                  Additional Details
-                </Typography>
+               
                 <Typography variant="body1" sx={{ fontWeight: 500 }}>
                   <strong>Date of Birth:</strong> Onek Age
                 </Typography>
