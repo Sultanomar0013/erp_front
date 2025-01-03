@@ -25,7 +25,7 @@ function Panel() {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-        
+
       <CssBaseline />
 
       {/* Main Content Area */}
@@ -67,7 +67,7 @@ function Panel() {
         </List>
       </Box>
         <Toolbar />
-       
+
         {selectedPanel === "Personal" && (
           <Box sx={{
             placeItems : 'center',
@@ -81,7 +81,7 @@ function Panel() {
             }}>
               <Grid sx={{
               width: '50%',
-              display: 'grid', 
+              display: 'grid',
               placeItems:'center',
               }}>
                   <Paper elevation={6}
@@ -104,11 +104,11 @@ function Panel() {
               </Grid>
               <Grid sx={{
               width: '50%',
-              display: 'grid', 
+              display: 'grid',
               placeItems:'center',
               }}>
               <Grid
-                    sx={{ 
+                    sx={{
                           placeItems:'center',
                           overflow:'hidden',
                         }}>
@@ -122,8 +122,8 @@ function Panel() {
               </Grid>
             </Grid>
             <br></br>
-           <Paper 
-              elevation={4} 
+           <Paper
+              elevation={4}
               sx={{
                 padding: '20px',
                 width: '90%',
@@ -135,28 +135,26 @@ function Panel() {
                 borderRadius: '10px'
               }}
             >
-              <Typography 
-                  variant="h6" 
+              <Typography
+                  variant="h6"
                   sx={{ fontWeight: 'bold', marginBottom: '10px' }}
                 >
                   Personal Information
                 </Typography>
 
              <Grid  sx={{
-                padding: '20px',
                 width: '90%',
                 display: 'grid',
                 gridAutoFlow: 'row',
                 gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
-                gap: '20px',
-                alignItems: 'start',
+                gap: '0px',
                 justifyItems: 'center',
                 backgroundColor: '#f9f9f9',
                 borderRadius: '10px'
               }}>
-               <Grid 
-                container 
-                direction="column" 
+               <Grid
+                container
+                direction="column"
                 alignItems="center"
                 sx={{
                   width: '100%',
@@ -167,7 +165,7 @@ function Panel() {
                   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
                 }}
               >
-               
+
                 <Typography variant="body1" sx={{ fontWeight: 500 }}>
                   <strong>Full Name:</strong> Sultan Omar
                 </Typography>
@@ -184,10 +182,10 @@ function Panel() {
                   <strong>Religion:</strong> Islam
                 </Typography>
               </Grid>
-              
-              <Grid 
-                container 
-                direction="column" 
+
+              <Grid
+                container
+                direction="column"
                 alignItems="center"
                 sx={{
                   width: '100%',
@@ -198,7 +196,7 @@ function Panel() {
                   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
                 }}
               >
-               
+
                 <Typography variant="body1" sx={{ fontWeight: 500 }}>
                   <strong>Date of Birth:</strong> Onek Age
                 </Typography>
@@ -216,13 +214,13 @@ function Panel() {
                 </Typography>
               </Grid>
              </Grid>
-              
+
             </Paper>
-            
+
             <br></br>
 
-              <Paper 
-              elevation={4} 
+              <Paper
+              elevation={4}
               sx={{
                 padding: '20px',
                 width: '90%',
@@ -234,28 +232,26 @@ function Panel() {
                 borderRadius: '10px'
               }}
             >
-              <Typography 
-                  variant="h6" 
+              <Typography
+                  variant="h6"
                   sx={{ fontWeight: 'bold', marginBottom: '10px' }}
                 >
                   Employee Information
                 </Typography>
 
              <Grid  sx={{
-                padding: '20px',
                 width: '90%',
                 display: 'grid',
                 gridAutoFlow: 'row',
                 gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
-                gap: '20px',
-                alignItems: 'start',
+                gap: '0px',
                 justifyItems: 'center',
                 backgroundColor: '#f9f9f9',
                 borderRadius: '10px'
               }}>
-               <Grid 
-                container 
-                direction="column" 
+               <Grid
+                container
+                direction="column"
                 alignItems="center"
                 sx={{
                   width: '100%',
@@ -266,7 +262,7 @@ function Panel() {
                   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
                 }}
               >
-               
+
                 <Typography variant="body1" sx={{ fontWeight: 500 }}>
                   <strong>Code:</strong> 0013
                 </Typography>
@@ -274,19 +270,19 @@ function Panel() {
                   <strong>Membership Type:</strong> Onk beshi Premium
                 </Typography>
                 <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                  <strong>Mother's Name:</strong> Gulshan Ara Begum
+                  <strong>Joining Date :</strong> 10-10-2022
                 </Typography>
                 <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                  <strong>Blood Group:</strong> O+
+                  <strong>Service Length:</strong> 2 Year, 2 mon
                 </Typography>
                 <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                  <strong>Religion:</strong> Islam
+                  <strong>Note :</strong> Notes
                 </Typography>
               </Grid>
-              
-              <Grid 
-                container 
-                direction="column" 
+
+              <Grid
+                container
+                direction="column"
                 alignItems="center"
                 sx={{
                   width: '100%',
@@ -297,31 +293,133 @@ function Panel() {
                   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
                 }}
               >
-               
+
                 <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                  <strong>Date of Birth:</strong> Onek Age
+                  <strong>Job Status:</strong> In Service
                 </Typography>
                 <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                  <strong>Place of Birth:</strong> Qatar
+                  <strong>Confirmation Date:</strong> 30-11--0001
                 </Typography>
                 <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                  <strong>Nationality:</strong> Bangladeshi
+                  <strong>Due Confirmation Date:</strong> 30-11--0001
                 </Typography>
                 <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                  <strong>Gender:</strong> Male
+                  <strong>Job Status Date:</strong> 30-11--0001
                 </Typography>
                 <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                  <strong>Marital Status:</strong> Complicated
+                  <strong>Description :</strong>
                 </Typography>
               </Grid>
              </Grid>
-              
+
             </Paper>
 
           <br></br>
 
-               <Paper 
-              elevation={4} 
+               <Paper
+              elevation={4}
+              sx={{
+                padding: '20px',
+                width: '90%',
+                height:'auto',
+                display: 'grid',
+                gridAutoFlow: 'row',
+                alignItems: 'start',
+                justifyItems: 'center',
+                backgroundColor: '#f9f9f9',
+                borderRadius: '10px'
+              }}
+            >
+              <Typography
+                  variant="h6"
+                  sx={{ fontWeight: 'bold', marginBottom: '10px' }}
+                >
+                  Contact Information
+                </Typography>
+
+             <Grid  sx={{
+                width: '90%',
+                display: 'grid',
+                gridAutoFlow: 'row',
+                gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
+                gap: '0px',
+                justifyItems: 'center',
+                backgroundColor: '#f9f9f9',
+                borderRadius: '10px'
+              }}>
+               <Grid
+                container
+                direction="column"
+                alignItems="center"
+                sx={{
+                  width: '100%',
+                  maxWidth: '300px',
+                  padding: '10px',
+                  backgroundColor: '#ffffff',
+                  borderRadius: '10px',
+                  boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
+                }}
+              >
+
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Line Manager:</strong> None
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Office Email:</strong> sultanomar756@gmail.com
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Office Extension No:</strong> 0013
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Personal Mobile :</strong> 01861330616
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Present Address :</strong>
+                </Typography>
+              </Grid>
+
+              <Grid
+                container
+                direction="column"
+                alignItems="center"
+                sx={{
+                  width: '100%',
+                  maxWidth: '300px',
+                  padding: '10px',
+                  backgroundColor: '#ffffff',
+                  borderRadius: '10px',
+                  boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
+                }}
+              >
+
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Date of Birth:</strong> National Id
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong> Personal Email:</strong> sultanomar756@gmail.com
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Office Mobile:</strong> 01303596389
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Emergency Contact:</strong>
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Permanent Address:</strong>
+                </Typography>
+              </Grid>
+            </Grid>
+
+            </Paper>
+
+            <br></br>
+
+          </Box>
+        )}
+        {selectedPanel === "Education" && (
+          <Box>
+               <Paper
+              elevation={4}
               sx={{
                 padding: '20px',
                 width: '90%',
@@ -333,105 +431,234 @@ function Panel() {
                 borderRadius: '10px'
               }}
             >
-              <Typography 
-                  variant="h6" 
+              <Typography
+                  variant="h6"
                   sx={{ fontWeight: 'bold', marginBottom: '10px' }}
                 >
-                  Contact Information
+                  MSC
                 </Typography>
 
              <Grid  sx={{
-                padding: '20px',
-                width: '90%',
+                width: '100%',
                 display: 'grid',
                 gridAutoFlow: 'row',
-                gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
-                gap: '20px',
-                alignItems: 'start',
                 justifyItems: 'center',
                 backgroundColor: '#f9f9f9',
                 borderRadius: '10px'
               }}>
-               <Grid 
-                container 
-                direction="column" 
+               <Grid
+                container
+                direction="column"
                 alignItems="center"
                 sx={{
                   width: '100%',
-                  maxWidth: '300px',
                   padding: '10px',
                   backgroundColor: '#ffffff',
                   borderRadius: '10px',
                   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
                 }}
               >
-               
+
                 <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                  <strong>Full Name:</strong> Sultan Omar
+                  <strong>Institution :</strong> GOVT. SCIENCE
                 </Typography>
                 <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                  <strong>Father's Name:</strong> Saleh Majumder
+                  <strong>Passing Year:</strong> 2015
                 </Typography>
                 <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                  <strong>Mother's Name:</strong> Gulshan Ara Begum
+                  <strong>Subject:</strong> Science
                 </Typography>
                 <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                  <strong>Blood Group:</strong> O+
-                </Typography>
-                <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                  <strong>Religion:</strong> Islam
+                  <strong>GPA:</strong> 5.00
                 </Typography>
               </Grid>
-              
-              <Grid 
-                container 
-                direction="column" 
-                alignItems="center"
-                sx={{
-                  width: '100%',
-                  maxWidth: '300px',
-                  padding: '10px',
-                  backgroundColor: '#ffffff',
-                  borderRadius: '10px',
-                  boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
-                }}
-              >
-               
-                <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                  <strong>Date of Birth:</strong> Onek Age
-                </Typography>
-                <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                  <strong>Place of Birth:</strong> Qatar
-                </Typography>
-                <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                  <strong>Nationality:</strong> Bangladeshi
-                </Typography>
-                <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                  <strong>Gender:</strong> Male
-                </Typography>
-                <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                  <strong>Marital Status:</strong> Complicated
-                </Typography>
-              </Grid>
-             </Grid>
-              
+            </Grid>
+
             </Paper>
 
             <br></br>
-            
-          </Box>
-        )}
-        {selectedPanel === "Education" && (
-          <Box>
-            <Typography variant="h4">This is Education Information</Typography>
-            <Typography>
-              This is the main content area for education information. Use this space to
-              display data, charts, or other content.
-            </Typography>
+            <Paper
+              elevation={4}
+              sx={{
+                padding: '20px',
+                width: '90%',
+                display: 'grid',
+                gridAutoFlow: 'row',
+                alignItems: 'start',
+                justifyItems: 'center',
+                backgroundColor: '#f9f9f9',
+                borderRadius: '10px'
+              }}
+            >
+              <Typography
+                  variant="h6"
+                  sx={{ fontWeight: 'bold', marginBottom: '10px' }}
+                >
+                  BSC
+                </Typography>
+
+             <Grid  sx={{
+                width: '100%',
+                display: 'grid',
+                gridAutoFlow: 'row',
+                justifyItems: 'center',
+                backgroundColor: '#f9f9f9',
+                borderRadius: '10px'
+              }}>
+               <Grid
+                container
+                direction="column"
+                alignItems="center"
+                sx={{
+                  width: '100%',
+                  padding: '10px',
+                  backgroundColor: '#ffffff',
+                  borderRadius: '10px',
+                  boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
+                }}
+              >
+
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Institution :</strong> GOVT. SCIENCE
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Passing Year:</strong> 2015
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Subject:</strong> Science
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>GPA:</strong> 5.00
+                </Typography>
+              </Grid>
+            </Grid>
+
+            </Paper>
+
+            <br></br>
+
+            <Paper
+              elevation={4}
+              sx={{
+                padding: '20px',
+                width: '90%',
+                display: 'grid',
+                gridAutoFlow: 'row',
+                alignItems: 'start',
+                justifyItems: 'center',
+                backgroundColor: '#f9f9f9',
+                borderRadius: '10px'
+              }}
+            >
+              <Typography
+                  variant="h6"
+                  sx={{ fontWeight: 'bold', marginBottom: '10px' }}
+                >
+                  HSC
+                </Typography>
+
+             <Grid  sx={{
+                width: '100%',
+                display: 'grid',
+                gridAutoFlow: 'row',
+                justifyItems: 'center',
+                backgroundColor: '#f9f9f9',
+                borderRadius: '10px'
+              }}>
+               <Grid
+                container
+                direction="column"
+                alignItems="center"
+                sx={{
+                  width: '100%',
+                  padding: '10px',
+                  backgroundColor: '#ffffff',
+                  borderRadius: '10px',
+                  boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
+                }}
+              >
+
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Institution :</strong> GOVT. SCIENCE
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Passing Year:</strong> 2015
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Subject:</strong> Science
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>GPA:</strong> 5.00
+                </Typography>
+              </Grid>
+            </Grid>
+
+            </Paper>
+
+            <br></br>
+            <Paper
+              elevation={4}
+              sx={{
+                padding: '20px',
+                width: '90%',
+                display: 'grid',
+                gridAutoFlow: 'row',
+                alignItems: 'start',
+                justifyItems: 'center',
+                backgroundColor: '#f9f9f9',
+                borderRadius: '10px'
+              }}
+            >
+              <Typography
+                  variant="h6"
+                  sx={{ fontWeight: 'bold', marginBottom: '10px' }}
+                >
+                  SSC
+                </Typography>
+
+             <Grid  sx={{
+                width: '100%',
+                display: 'grid',
+                gridAutoFlow: 'row',
+                justifyItems: 'center',
+                backgroundColor: '#f9f9f9',
+                borderRadius: '10px'
+              }}>
+               <Grid
+                container
+                direction="column"
+                alignItems="center"
+                sx={{
+                  width: '100%',
+                  padding: '10px',
+                  backgroundColor: '#ffffff',
+                  borderRadius: '10px',
+                  boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
+                }}
+              >
+
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Institution :</strong> GOVT. SCIENCE
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Passing Year:</strong> 2015
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>Subject:</strong> Science
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                  <strong>GPA:</strong> 5.00
+                </Typography>
+              </Grid>
+            </Grid>
+
+            </Paper>
+
+            <br></br>
           </Box>
         )}
       </Box>
-   
+
     </Box>
   );
 }
