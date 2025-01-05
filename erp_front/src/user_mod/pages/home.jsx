@@ -72,32 +72,7 @@ const NAVIGATION = [
     ],
   },
   {
-    segment: "myTeam",
-    title: "My Team",
-    icon: <ManTwoToneIcon />,
-    children: [
-      {
-        segment: "myTeam",
-        title: "Team Profile",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/myTeam",
-      },
-      {
-        segment: "teamAttendance",
-        title: "Team Attendance",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/teamAttendance",
-      },
-      {
-        segment: "summaryReport",
-        title: "Summary Report",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/summaryReport",
-      },
-    ],
-  },
-  {
-    segment: "myTeam",
+    segment: "Member Basic Info",
     title: "Member Basic Info",
     icon: <ManTwoToneIcon />,
     children: [
@@ -132,79 +107,6 @@ const NAVIGATION = [
         title: "Put Attendance",
         icon: <ManageAccountsTwoToneIcon />,
         path: "/putAttendance",
-      },
-    ],
-  },
-  {
-    segment: "contractualWorker",
-    title: "Contractual Worker",
-    icon: <ManTwoToneIcon />,
-    children: [
-      {
-        segment: "defineHolidays",
-        title: "Define Holidays",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/defineHolidays",
-      },
-      {
-        segment: "workerList",
-        title: "Worker List",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/workerList",
-      },
-      {
-        segment: "projectList",
-        title: "Project List",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/projectList",
-      },
-      {
-        segment: "workerAttd",
-        title: "Worker Attd.",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/workerAttd",
-      },
-      {
-        segment: "report",
-        title: "Report",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/report",
-      },
-      {
-        segment: "projectManagement",
-        title: "Project Management",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/projectManagement",
-      },
-      {
-        segment: "leaveApproval",
-        title: "Leave Approval",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/leaveApproval",
-      },
-      {
-        segment: "memberApproval",
-        title: "Member Approval",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/memberApproval",
-      },
-      {
-        segment: "salaryReport",
-        title: "Salary Report",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/salaryReport",
-      },
-      {
-        segment: "manualAtt",
-        title: "Manual Att(tmp)",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/manualAtt",
-      },
-      {
-        segment: "workerAttReport",
-        title: "Worker Att Reprort",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/workerAttReport",
       },
     ],
   },
@@ -293,38 +195,6 @@ const NAVIGATION = [
         title: "Request Status",
         icon: <ManageAccountsTwoToneIcon />,
         path: "/requestStatus",
-      },
-    ],
-  },
-  {
-    segment: "foodManagement",
-    title: "Food Management",
-    icon: <ManTwoToneIcon />,
-    children: [
-      {
-        segment: "applyForToken",
-        title: "Apply For Token",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/applyForToken",
-      },
-      {
-        segment: "myFoodReport",
-        title: "Food Report",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/myFoodReport",
-      },
-    ],
-  },
-  {
-    segment: "projectReport",
-    title: "Project Report",
-    icon: <ManTwoToneIcon />,
-    children: [
-      {
-        segment: "projectReport",
-        title: "Project Report",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/projectReport",
       },
     ],
   },
