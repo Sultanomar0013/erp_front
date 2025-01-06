@@ -24,7 +24,7 @@ import UserReport from '../components/userReport';
 import UserAccessPage from '../report/user_access_report';
 import Dashboard from "../components/dashboard";
 import ProfilePanel from "../components/profileComponent/myProfile"
-
+import Notice from "../components/noticeReport.jsx"
 
 
 const NAVIGATION = [
@@ -72,7 +72,7 @@ const NAVIGATION = [
     ],
   },
   {
-    segment: "Member Basic Info",
+    segment: "memberBasicInfo",
     title: "Member Basic Info",
     icon: <ManTwoToneIcon />,
     children: [
@@ -263,6 +263,8 @@ function DemoPageContent({ pathname }) {
     return <Dashboard />;
   } else if (activePath === "/myAccount/myProfile") {
     return <ProfilePanel />;
+  }else if (activePath === "/memberBasicInfo/allMemberContacts"){
+    <Notice />
   }
 
   return (
