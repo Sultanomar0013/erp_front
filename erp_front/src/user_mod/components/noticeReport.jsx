@@ -1,11 +1,18 @@
-
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
-import { useNavigate } from 'react-router-dom';
 
 function UserReport({ onButtonClick }) {
-  const navigate = useNavigate();
-  const [rows, setRows] = useState([]);
+  // Fake data generation
+  const fakeData = Array.from({ length: 100 }, (_, index) => ({
+    id: index + 1,
+    userName: `User_${index + 1}`,
+    email: `user${index + 1}@example.com`,
+  }));
+
+  const [rows, setRows] = useState(fakeData); // Set fake data as initial rows
+  const [loadingFetch, setLoadingFetch] = useState(false);
+  const [errorFetch, setErrorFetch] = useState(null);
+
   const columns = [
     { field: 'id', headerName: 'User Id', width: 150 },
     { field: 'userName', headerName: 'User Name', width: 120 },
@@ -44,7 +51,6 @@ function UserReport({ onButtonClick }) {
           pageSizeOptions={[10, 20, 50]}
         />
       )}
-
     </div>
   );
 }
