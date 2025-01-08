@@ -257,7 +257,7 @@ function DemoPageContent({ pathname }) {
     }
   }, []);
 
-  // console.log(activePath);
+  console.log(activePath);
 
   if (activePath === "/dashboard") {
     return <Dashboard />;
