@@ -264,7 +264,7 @@ function DemoPageContent({ pathname }) {
   } else if (activePath === "/myAccount/myProfile") {
     return <ProfilePanel />;
   }else if (activePath === "/memberBasicInfo/allMemberContacts"){
-    <Notice />
+    return <Notice />;
   }
 
   return (
