@@ -33,7 +33,9 @@ function Notice({ onButtonClick }) {
   ];
 
   return (
-    <div style={{ height: 600, width: '100%' }}>
+      <div>
+
+         <div style={{ height: 600, width: '100%' }}>
       {loadingFetch ? (
         <p>Loading...</p>
       ) : errorFetch ? (
@@ -52,6 +54,9 @@ function Notice({ onButtonClick }) {
         />
       )}
     </div>
+      <p>Heelo</p>
+      </div>
+   
   );
 }
 
