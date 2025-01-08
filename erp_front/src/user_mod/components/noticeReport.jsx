@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 
-function UserReport({ onButtonClick }) {
+function Notice({ onButtonClick }) {
   // Fake data generation
   const fakeData = Array.from({ length: 100 }, (_, index) => ({
     id: index + 1,
@@ -55,4 +55,4 @@ function UserReport({ onButtonClick }) {
   );
 }
 
-export default UserReport;
+export default Notice;
