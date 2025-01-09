@@ -24,7 +24,8 @@ import UserReport from '../components/userReport';
 import UserAccessPage from '../report/user_access_report';
 import Dashboard from "../components/dashboard";
 import ProfilePanel from "../components/profileComponent/myProfile"
-import Notice from "../components/noticeReport.jsx"
+import Notice from "../components/member_basic/noticeReport.jsx"
+import ServerPaginationGrid from "../components/member_basic/testTable.jsx"
 
 
 const NAVIGATION = [
@@ -211,7 +212,32 @@ const demoTheme = createTheme({
   cssVariables: {
     colorSchemeSelector: 'data-toolpad-color-scheme',
   },
-  colorSchemes: { light: true, dark: true },
+  colorSchemes: {
+    light: {
+      palette: {
+        mode: 'light',
+        primary: {
+          main: '#1976d2',
+        },
+        background: {
+          default: '#ffffff',
+          paper: '#f9f9f9',
+        },
+      },
+    },
+    dark: {
+      palette: {
+        mode: 'dark',
+        primary: {
+          main: '#bb86fc',
+        },
+        background: {
+          default: '#121212',
+          paper: '#1d1d1d',
+        },
+      },
+    },
+  },
   breakpoints: {
     values: {
       xs: 0,
@@ -264,7 +290,9 @@ function DemoPageContent({ pathname }) {
   } else if (activePath === "/myAccount/myProfile") {
     return <ProfilePanel />;
   }else if (activePath === "/memberBasicInfo/allMemberContacts"){
-    return <Notice />;
+    return <Notice onButtonClick={(id) => console.log("Clicked on:", id)} />
+  }else if (activePath === "/notice/notice"){
+    return <ServerPaginationGrid />
   }
 
   return (

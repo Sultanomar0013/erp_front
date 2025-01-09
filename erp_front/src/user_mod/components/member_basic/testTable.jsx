@@ -1,0 +1,43 @@
+import * as React from 'react';
+import { DataGrid } from '@mui/x-data-grid';
+import { Box } from '@mui/material';
+
+export default function ResponsiveDataGrid() {
+  const [paginationModel, setPaginationModel] = React.useState({
+    page: 0,
+    pageSize: 5,
+  });
+
+  const fakeData = Array.from({ length: 100 }, (_, index) => ({
+    id: index + 1,
+    userName: `User_${index + 1}`,
+    email: `user${index + 1}@example.com`,
+  }));
+
+  const startIndex = paginationModel.page * paginationModel.pageSize;
+  const endIndex = startIndex + paginationModel.pageSize;
+  const rows = fakeData.slice(startIndex, endIndex);
+
+  const rowCount = fakeData.length;
+
+  return (
+    <Box sx={{ height: '100%', width: '100%' }}>
+      <Box sx={{ height: 400, width: '100%' }}>
+        <DataGrid
+          rows={rows}
+          columns={[
+            { field: 'id', headerName: 'ID', width: 100 },
+            { field: 'userName', headerName: 'User Name', flex: 1 },
+            { field: 'email', headerName: 'Email', flex: 2 },
+          ]}
+          rowCount={rowCount}
+          paginationModel={paginationModel}
+          paginationMode="server"
+          onPaginationModelChange={setPaginationModel}
+          pageSizeOptions={[5, 10, 20]}
+          disableRowSelectionOnClick
+        />
+      </Box>
+    </Box>
+  );
+}
