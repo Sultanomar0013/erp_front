@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, GridToolbarQuickFilter } from '@mui/x-data-grid';
 import { Box } from '@mui/material';
 
 export default function ResponsiveDataGrid() {
@@ -38,9 +38,28 @@ export default function ResponsiveDataGrid() {
               onPaginationModelChange={setPaginationModel}
               pageSizeOptions={[5, 10, 20]}
               disableRowSelectionOnClick
+               components={{
+          Toolbar: QuickSearchToolbar,
+        }}
             />
             </Box>
         </Box>
+    </Box>
+  );
+}
+
+function QuickSearchToolbar() {
+  return (
+    <Box
+      sx={{
+        p: 1,
+        pb: 0,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+      }}
+    >
+      <GridToolbarQuickFilter />
     </Box>
   );
 }
