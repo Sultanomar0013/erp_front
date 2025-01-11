@@ -34,7 +34,7 @@ export default function ResponsiveDataGrid() {
               ]}
               rowCount={rowCount}
               paginationModel={paginationModel}
-              paginationMode="server"
+              paginationMode="client"
               onPaginationModelChange={setPaginationModel}
               pageSizeOptions={[5, 10, 20]}
               disableRowSelectionOnClick
