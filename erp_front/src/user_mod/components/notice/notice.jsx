@@ -4,10 +4,10 @@ import { Typography, Box, Button , CssBaseline, Modal,TextField,
   Grid,} from "@mui/material";
 function MemberReport({ onButtonClick }) {
 
-  const fakeData = Array.from({ length: 100 }, (_, index) => ({
+  const fakeData = Array.from({ length: 5 }, (_, index) => ({
     id: index + 1,
-    userName: `User_${index + 1}`,
-    email: `user${index + 1}@example.com`,
+    notice: `notice_${index + 1}`,
+    description: `notice desc ${index + 1}`,
   }));
 
   const [rows, setRows] = useState(fakeData); // Set fake data as initial rows
@@ -39,9 +39,9 @@ function MemberReport({ onButtonClick }) {
   };
 
   const columns = [
-    { field: 'id', headerName: 'User Id', flex: 1 },
-    { field: 'userName', headerName: 'User Name', flex: 1 },
-    { field: 'email', headerName: 'Email', flex: 2 },
+    { field: 'id', headerName: 'Id', flex: 1 },
+    { field: 'notice', headerName: 'Notice Title', flex: 1 },
+    { field: 'description', headerName: 'Notice Description', flex: 2 },
     {
       field: 'action',
       headerName: 'Action',
@@ -52,7 +52,7 @@ function MemberReport({ onButtonClick }) {
           onClick={() => onButtonClick(params.row.id)}
           style={{ padding: '4px 8px', cursor: 'pointer' }}
         >
-          Give Access
+          Expand
         </Button>
 
         </Box>
@@ -140,7 +140,7 @@ function MemberReport({ onButtonClick }) {
           </Modal>
         </box>
 
-        <Box style={{ height: 600, width: "95%"}}>
+        <Box style={{ height: 'auto', width: "95%"}}>
             {loadingFetch ? (
               <p>Loading...</p>
             ) : errorFetch ? (
