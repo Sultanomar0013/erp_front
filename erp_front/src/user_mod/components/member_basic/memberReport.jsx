@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import { Typography, Box, Button , CssBaseline} from "@mui/material";
-function Notice({ onButtonClick }) {
+
+
+
+
+
+function MemberReport({ onButtonClick }) {
 
   const fakeData = Array.from({ length: 100 }, (_, index) => ({
     id: index + 1,
@@ -37,37 +42,43 @@ function Notice({ onButtonClick }) {
   ];
 
   return (
-    <div style={{ width: "100%"}}>
-
-    <Typography variant="h6" >Member List Info</Typography>
-
-    <div style={{display:'', justifyItems:''}}>
-    <Button variant="contained" >Contained</Button>
-    </div>
+    <Box style={{ width: "100%"}}>
 
 
-      <div style={{ height: 600, width: "100%"}}>
-        {loadingFetch ? (
-          <p>Loading...</p>
-        ) : errorFetch ? (
-          <p>Error: {errorFetch}</p>
-        ) : (
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            getRowId={(row) => row.id}
-            loading={loadingFetch}
-            slots={{ toolbar: GridToolbar }}
-            initialState={{
-              pagination: { paginationModel: { pageSize: 10, page: 0 } },
-            }}
-            pageSizeOptions={[10, 20, 50]}
-          />
-        )}
-      </div>
-    </div>
+
+    <Box style={{  width: "100%", flexDirection:"column" ,display:"flex", justifyContent:"center", alignItems:"center" }}>
+
+        <Typography variant="h6" >Member List Info</Typography>
+
+        <div style={{display:'', justifyItems:''}}>
+        <Button variant="contained" >Add Member</Button>
+        </div>
+
+        <Box style={{ height: 600, width: "95%"}}>
+            {loadingFetch ? (
+              <p>Loading...</p>
+            ) : errorFetch ? (
+              <p>Error: {errorFetch}</p>
+            ) : (
+              <DataGrid
+                rows={rows}
+                columns={columns}
+                getRowId={(row) => row.id}
+                loading={loadingFetch}
+                slots={{ toolbar: GridToolbar }}
+                initialState={{
+                  pagination: { paginationModel: { pageSize: 10, page: 0 } },
+                }}
+                pageSizeOptions={[10, 20, 50]}
+              />
+            )}
+          </Box>
+
+    </Box>
+
+    </Box>
 
   );
 }
 
-export default Notice;
+export default MemberReport;

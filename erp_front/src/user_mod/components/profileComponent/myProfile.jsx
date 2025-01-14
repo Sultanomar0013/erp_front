@@ -33,10 +33,6 @@ function Panel() {
           <Box
         sx={{
           width: "100%",
-          backgroundColor: (theme) =>
-            theme.palette.mode === "light"
-              ? theme.palette.grey[200]
-              : theme.palette.grey[800],
           boxShadow: "0 -2px 5px rgba(0,0,0,0.1)",
         }}
       >
@@ -47,9 +43,6 @@ function Panel() {
             sx={{
               width: "auto",
               cursor: "pointer",
-              backgroundColor: "transparent",
-              borderBottom:(theme) =>
-                selectedPanel === text ? `2px solid ${theme.palette.primary.main}` : "none",
             }}
             key={text}
             onClick={() => setSelectedPanel(text)}
@@ -91,8 +84,6 @@ function Panel() {
                           justifyContent:'center',
                           alignItems:'center',
                           height: 200,
-
-                          //backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)),url(${PaperOne})`,
                           borderRadius: '50%',
                           backgroundSize: 'cover',
                           backgroundPosition: 'center',
@@ -115,7 +106,7 @@ function Panel() {
                   <Typography variant="h6" >
                         Name : Sultan Omar
                   </Typography>
-                   <Typography variant="h6" >
+                  <Typography variant="h6" >
                         Emp ID : HO-0013
                   </Typography>
                 </Grid>
@@ -131,7 +122,6 @@ function Panel() {
                 gridAutoFlow: 'row',
                 alignItems: 'start',
                 justifyItems: 'center',
-                backgroundColor: '#f9f9f9',
                 borderRadius: '10px'
               }}
             >
@@ -149,7 +139,6 @@ function Panel() {
                 gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
                 gap: '0px',
                 justifyItems: 'center',
-                backgroundColor: '#f9f9f9',
                 borderRadius: '10px'
               }}>
                <Grid
@@ -160,7 +149,6 @@ function Panel() {
                   width: '100%',
                   maxWidth: '300px',
                   padding: '10px',
-                  backgroundColor: '#ffffff',
                   borderRadius: '10px',
                   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
                 }}
@@ -191,7 +179,6 @@ function Panel() {
                   width: '100%',
                   maxWidth: '300px',
                   padding: '10px',
-                  backgroundColor: '#ffffff',
                   borderRadius: '10px',
                   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
                 }}
@@ -228,7 +215,6 @@ function Panel() {
                 gridAutoFlow: 'row',
                 alignItems: 'start',
                 justifyItems: 'center',
-                backgroundColor: '#f9f9f9',
                 borderRadius: '10px'
               }}
             >
@@ -246,7 +232,6 @@ function Panel() {
                 gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
                 gap: '0px',
                 justifyItems: 'center',
-                backgroundColor: '#f9f9f9',
                 borderRadius: '10px'
               }}>
                <Grid
@@ -257,7 +242,6 @@ function Panel() {
                   width: '100%',
                   maxWidth: '300px',
                   padding: '10px',
-                  backgroundColor: '#ffffff',
                   borderRadius: '10px',
                   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
                 }}
@@ -288,7 +272,6 @@ function Panel() {
                   width: '100%',
                   maxWidth: '300px',
                   padding: '10px',
-                  backgroundColor: '#ffffff',
                   borderRadius: '10px',
                   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
                 }}
@@ -326,7 +309,6 @@ function Panel() {
                 gridAutoFlow: 'row',
                 alignItems: 'start',
                 justifyItems: 'center',
-                backgroundColor: '#f9f9f9',
                 borderRadius: '10px'
               }}
             >
@@ -344,7 +326,6 @@ function Panel() {
                 gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
                 gap: '0px',
                 justifyItems: 'center',
-                backgroundColor: '#f9f9f9',
                 borderRadius: '10px'
               }}>
                <Grid
@@ -355,7 +336,6 @@ function Panel() {
                   width: '100%',
                   maxWidth: '300px',
                   padding: '10px',
-                  backgroundColor: '#ffffff',
                   borderRadius: '10px',
                   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
                 }}
@@ -386,7 +366,6 @@ function Panel() {
                   width: '100%',
                   maxWidth: '300px',
                   padding: '10px',
-                  backgroundColor: '#ffffff',
                   borderRadius: '10px',
                   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
                 }}
@@ -427,7 +406,6 @@ function Panel() {
                 gridAutoFlow: 'row',
                 alignItems: 'start',
                 justifyItems: 'center',
-                backgroundColor: '#f9f9f9',
                 borderRadius: '10px'
               }}
             >
@@ -443,7 +421,6 @@ function Panel() {
                 display: 'grid',
                 gridAutoFlow: 'row',
                 justifyItems: 'center',
-                backgroundColor: '#f9f9f9',
                 borderRadius: '10px'
               }}>
                <Grid
@@ -453,7 +430,6 @@ function Panel() {
                 sx={{
                   width: '100%',
                   padding: '10px',
-                  backgroundColor: '#ffffff',
                   borderRadius: '10px',
                   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
                 }}
@@ -486,7 +462,6 @@ function Panel() {
                 gridAutoFlow: 'row',
                 alignItems: 'start',
                 justifyItems: 'center',
-                backgroundColor: '#f9f9f9',
                 borderRadius: '10px'
               }}
             >
@@ -502,7 +477,6 @@ function Panel() {
                 display: 'grid',
                 gridAutoFlow: 'row',
                 justifyItems: 'center',
-                backgroundColor: '#f9f9f9',
                 borderRadius: '10px'
               }}>
                <Grid
@@ -512,7 +486,6 @@ function Panel() {
                 sx={{
                   width: '100%',
                   padding: '10px',
-                  backgroundColor: '#ffffff',
                   borderRadius: '10px',
                   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
                 }}
@@ -546,7 +519,6 @@ function Panel() {
                 gridAutoFlow: 'row',
                 alignItems: 'start',
                 justifyItems: 'center',
-                backgroundColor: '#f9f9f9',
                 borderRadius: '10px'
               }}
             >
@@ -562,7 +534,6 @@ function Panel() {
                 display: 'grid',
                 gridAutoFlow: 'row',
                 justifyItems: 'center',
-                backgroundColor: '#f9f9f9',
                 borderRadius: '10px'
               }}>
                <Grid
@@ -572,7 +543,6 @@ function Panel() {
                 sx={{
                   width: '100%',
                   padding: '10px',
-                  backgroundColor: '#ffffff',
                   borderRadius: '10px',
                   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
                 }}
@@ -605,7 +575,6 @@ function Panel() {
                 gridAutoFlow: 'row',
                 alignItems: 'start',
                 justifyItems: 'center',
-                backgroundColor: '#f9f9f9',
                 borderRadius: '10px'
               }}
             >
@@ -621,7 +590,6 @@ function Panel() {
                 display: 'grid',
                 gridAutoFlow: 'row',
                 justifyItems: 'center',
-                backgroundColor: '#f9f9f9',
                 borderRadius: '10px'
               }}>
                <Grid
@@ -631,7 +599,6 @@ function Panel() {
                 sx={{
                   width: '100%',
                   padding: '10px',
-                  backgroundColor: '#ffffff',
                   borderRadius: '10px',
                   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
                 }}
