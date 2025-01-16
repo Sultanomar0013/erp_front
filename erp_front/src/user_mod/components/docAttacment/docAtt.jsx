@@ -24,10 +24,19 @@ function MemberReport({ onButtonClick }) {
   const handleOpen = () => setOpenModal(true);
   const handleClose = () => setOpenModal(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted");
-    handleClose();
+  const [file, setFile] = useState(null);
+
+  const handleFileChange = (event) => {
+    setFile(event.target.files[0]);
+  };
+
+  const handleSubmit = () => {
+    if (file) {
+      console.log('File selected:', file.name);
+      // Handle file upload logic here
+    } else {
+      console.log('No file selected.');
+    }
   };
 
   const style = {
@@ -56,7 +65,7 @@ function MemberReport({ onButtonClick }) {
             onClick={() => onButtonClick(params.row.id)}
             style={{ padding: '4px 8px', cursor: 'pointer' }}
           >
-            Give Access
+            View
           </Button>
 
         </Box>
@@ -72,10 +81,10 @@ function MemberReport({ onButtonClick }) {
 
       <Box style={{ width: "100%", flexDirection: "column", display: "flex", justifyContent: "center", alignItems: "center" }}>
 
-        <Typography variant="h6" >Member List Info</Typography>
+        <Typography variant="h6" >Document List</Typography>
 
         <Box style={{ display: '', justifyItems: '' }}>
-          <Button variant="contained" onClick={handleOpen} >Add Member</Button>
+          <Button variant="contained" onClick={handleOpen} >Add Document</Button>
 
           <Modal
             open={openModal}
@@ -87,14 +96,14 @@ function MemberReport({ onButtonClick }) {
 
               <form onSubmit={handleSubmit}  >
                 <Typography id="modal-modal-title" variant="h6" component="h2" gutterBottom sx={{ paddingLeft: '10px' }}>
-                  Add Notice
+                  Add Document
                 </Typography>
                 <Grid container  >
                   <Grid item xs={12} sx={{ p: '10px' }}>
                     <TextField
                       fullWidth
-                      label="Notice"
-                      name="notice"
+                      label="Document Name"
+                      name="doc_name"
                       required
                     />
                   </Grid>
@@ -102,31 +111,21 @@ function MemberReport({ onButtonClick }) {
                   <Grid item xs={12} sx={{ p: '10px' }}>
                     <TextField
                       fullWidth
-                      label="Description"
-                      name="description"
+                      label="Note"
+                      name="note"
                       multiline
                       rows={4}
                       required
                     />
                   </Grid>
-                  <Grid item xs={6} sx={{ p: '10px' }}>
+                  <Grid item xs={12} sx={{ p: '10px' }}>
                     <TextField
                       fullWidth
-                      label="Date"
-                      name="date"
-                      type="date"
-                      InputLabelProps={{
-                        shrink: true,
-                      }}
-                      required
-                    />
-                  </Grid>
-                  <Grid item xs={6} sx={{ p: '10px' }}>
-                    <TextField
-                      fullWidth
-                      label="Time"
-                      name="time"
-                      type="time"
+                      label="Attachment"
+                      name="docAtt"
+                      type="file"
+                      inputProps={{ accept: '.pdf,.doc,.docx,.png,.jpg' }}
+                      onChange={handleFileChange}
                       InputLabelProps={{
                         shrink: true,
                       }}

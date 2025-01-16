@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
-import { Typography, Box, Button , CssBaseline, Modal,TextField,
-  Grid,} from "@mui/material";
-function MemberReport({ onButtonClick }) {
+import {
+  Typography, Box, Button, CssBaseline, Modal, TextField,
+  Grid,
+} from "@mui/material";
+function noticeReport({ onButtonClick }) {
 
   const fakeData = Array.from({ length: 5 }, (_, index) => ({
     id: index + 1,
@@ -21,7 +23,6 @@ function MemberReport({ onButtonClick }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
     console.log("Form submitted");
     handleClose();
   };
@@ -47,13 +48,13 @@ function MemberReport({ onButtonClick }) {
       headerName: 'Action',
       width: 150,
       renderCell: (params) => (
-        <Box sx={{display : 'flex',justifyContent : 'center',alignItems: 'center', height:'100%'}}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
           <Button variant="contained"
-          onClick={() => onButtonClick(params.row.id)}
-          style={{ padding: '4px 8px', cursor: 'pointer' }}
-        >
-          Expand
-        </Button>
+            onClick={() => onButtonClick(params.row.id)}
+            style={{ padding: '4px 8px', cursor: 'pointer' }}
+          >
+            Expand
+          </Button>
 
         </Box>
 
@@ -62,18 +63,18 @@ function MemberReport({ onButtonClick }) {
   ];
 
   return (
-    <Box style={{ width: "100%"}}>
+    <Box style={{ width: "100%" }}>
 
 
 
-    <Box style={{  width: "100%", flexDirection:"column" ,display:"flex", justifyContent:"center", alignItems:"center" }}>
+      <Box style={{ width: "100%", flexDirection: "column", display: "flex", justifyContent: "center", alignItems: "center" }}>
 
         <Typography variant="h6" >Notice List</Typography>
 
-        <box >
-        <Button variant="contained" onClick={handleOpen}>Add Notice</Button>
+        <Box >
+          <Button variant="contained" onClick={handleOpen}>Add Notice</Button>
 
-        <Modal
+          <Modal
             open={openModal}
             onClose={handleClose}
             aria-labelledby="modal-modal-title"
@@ -82,9 +83,9 @@ function MemberReport({ onButtonClick }) {
             <Box sx={style}>
 
               <form onSubmit={handleSubmit}  >
-              <Typography id="modal-modal-title" variant="h6" component="h2" gutterBottom sx={{ paddingLeft: '10px' }}>
-                Add Notice
-              </Typography>
+                <Typography id="modal-modal-title" variant="h6" component="h2" gutterBottom sx={{ paddingLeft: '10px' }}>
+                  Add Notice
+                </Typography>
                 <Grid container  >
                   <Grid item xs={12} sx={{ p: '10px' }}>
                     <TextField
@@ -95,7 +96,7 @@ function MemberReport({ onButtonClick }) {
                     />
                   </Grid>
 
-                  <Grid item xs={12}  sx={{ p: '10px' }}>
+                  <Grid item xs={12} sx={{ p: '10px' }}>
                     <TextField
                       fullWidth
                       label="Description"
@@ -129,7 +130,7 @@ function MemberReport({ onButtonClick }) {
                       required
                     />
                   </Grid>
-                  <Grid item xs={12}  sx={{ p: '10px' }}>
+                  <Grid item xs={12} sx={{ p: '10px' }}>
                     <Button type="submit" variant="contained" fullWidth>
                       Submit
                     </Button>
@@ -138,33 +139,33 @@ function MemberReport({ onButtonClick }) {
               </form>
             </Box>
           </Modal>
-        </box>
+        </Box>
 
-        <Box style={{ height: 'auto', width: "95%"}}>
-            {loadingFetch ? (
-              <p>Loading...</p>
-            ) : errorFetch ? (
-              <p>Error: {errorFetch}</p>
-            ) : (
-              <DataGrid
-                rows={rows}
-                columns={columns}
-                getRowId={(row) => row.id}
-                loading={loadingFetch}
-                slots={{ toolbar: GridToolbar }}
-                initialState={{
-                  pagination: { paginationModel: { pageSize: 10, page: 0 } },
-                }}
-                pageSizeOptions={[10, 20, 50]}
-              />
-            )}
-          </Box>
+        <Box style={{ height: 'auto', width: "95%" }}>
+          {loadingFetch ? (
+            <p>Loading...</p>
+          ) : errorFetch ? (
+            <p>Error: {errorFetch}</p>
+          ) : (
+            <DataGrid
+              rows={rows}
+              columns={columns}
+              getRowId={(row) => row.id}
+              loading={loadingFetch}
+              slots={{ toolbar: GridToolbar }}
+              initialState={{
+                pagination: { paginationModel: { pageSize: 10, page: 0 } },
+              }}
+              pageSizeOptions={[10, 20, 50]}
+            />
+          )}
+        </Box>
 
-    </Box>
+      </Box>
 
     </Box>
 
   );
 }
 
-export default MemberReport;
+export default noticeReport;

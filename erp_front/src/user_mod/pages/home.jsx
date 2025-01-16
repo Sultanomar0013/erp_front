@@ -27,6 +27,8 @@ import ProfilePanel from "../components/profileComponent/myProfile"
 import MemberReport from "../components/member_basic/memberReport.jsx"
 import NoticeReport from "../components/notice/notice.jsx"
 import defaultTheme from '../components/theme/theme.jsx';
+import AttendanceComponent from '../components/attendance/attendance.jsx';
+import DocAtt from '../components/docAttacment/docAtt.jsx';
 
 const NAVIGATION = [
   {
@@ -285,7 +287,7 @@ function DemoPageContent({ pathname }) {
     }
   }, []);
 
-  console.log(activePath);
+  // console.log(activePath);
 
   if (activePath === "/dashboard") {
     return <Dashboard />;
@@ -295,6 +297,10 @@ function DemoPageContent({ pathname }) {
     return <MemberReport onButtonClick={(id) => console.log("Clicked on:", id)} />
   }else if (activePath === "/notice/notice"){
     return <NoticeReport />
+  }else if( activePath === "/attendance/putAttendance"){
+    return <AttendanceComponent />
+  }else if( activePath === "/documentSection/documentList"){
+    return <DocAtt />
   }
 
   return (
@@ -326,8 +332,6 @@ function DashboardLayoutBasic(props) {
     const lastPath = localStorage.getItem("lastPath");
     if (lastPath && lastPath !== router.pathname) {
       router.navigate(lastPath);
-
-  console.log('Hello:',lastPath);
     }
   }, [router]);
 
