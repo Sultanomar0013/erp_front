@@ -17,23 +17,31 @@ function MeetLocate({ onButtonClick }) {
     locationDetails: `location details_${index + 1}`,
   }));
 
-  const [rows, setRows] = useState(fakeData); // Set fake data as initial rows
+  const [rows, setRows] = useState(fakeData);
   const [loadingFetch, setLoadingFetch] = useState(false);
   const [errorFetch, setErrorFetch] = useState(null);
   const [openModal, setOpenModal] = useState(false);
+  const [selectedRow, setSelectedRow] = useState(null);
   const handleOpen = () => setOpenModal(true);
-  const handleClose = () => setOpenModal(false);
-
-  const [secondopenModal, setsecondOpenModal] = useState(false);
-  const secondhandleOpen = () => setsecondOpenModal(true);
-  const secondhandleClose = () => setsecondOpenModal(false);
+  const handleClose = () => { setOpenModal(false); setSelectedRow(null) };
 
   const handleSubmit = () => {
 
   };
 
-  const secondhandleSubmit = () => {
-  
+  const openupdateModel = (row) => {
+    setSelectedRow(row);
+    handleOpen();
+  };
+
+  const updateModelSubmit = (e) => {
+    e.preventDefault();
+    if (setSelectedRow) {
+      setRows((prevRows) =>
+        prevRows.map((row) => (row.id === selectedRow.id ? selectedRow : row))
+      );
+      handleClose();
+    }
   };
 
   const style = {
@@ -59,8 +67,7 @@ function MeetLocate({ onButtonClick }) {
       renderCell: (params) => (
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
           <Button variant="contained"
-            // onClick={() => onButtonClick(params.row.id)}
-            onClick={secondhandleOpen}
+            onClick={() => openupdateModel(params.row)}
             style={{ padding: '4px 8px', cursor: 'pointer' }}
           >
             Update Location
@@ -82,7 +89,7 @@ function MeetLocate({ onButtonClick }) {
         <Typography variant="h6" >Location</Typography>
 
         <Box style={{ display: '', justifyItems: '' }}>
-          <Button variant="contained" onClick={handleOpen} >Add Doc Type</Button>
+          <Button variant="contained" onClick={handleOpen} >Add Meeting Type</Button>
 
           <Modal
             open={openModal}
@@ -91,26 +98,42 @@ function MeetLocate({ onButtonClick }) {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-
-              <form onSubmit={handleSubmit}  >
-                <Typography id="modal-modal-title" variant="h6" component="h2" gutterBottom sx={{ paddingLeft: '10px' }}>
-                  Add Document
+              <form onSubmit={selectedRow === null ? handleSubmit : updateModelSubmit}>
+                <Typography
+                  id="modal-modal-title"
+                  variant="h6"
+                  component="h2"
+                  gutterBottom
+                  sx={{ paddingLeft: '10px' }}
+                >
+                  {selectedRow === null ? 'Add Meeting Location' : 'Update Meeting Location'}
                 </Typography>
-                <Grid container  >
+                <Grid container>
                   <Grid item xs={12} sx={{ p: '10px' }}>
                     <TextField
                       fullWidth
                       label="Location Name"
                       name="locationName"
+                      value={selectedRow?.locationName || ''}
+                      onChange={(e) =>
+                        selectedRow
+                          ? setSelectedRow({ ...selectedRow, locationName: e.target.value })
+                          : null
+                      }
                       required
                     />
                   </Grid>
-
                   <Grid item xs={12} sx={{ p: '10px' }}>
                     <TextField
                       fullWidth
                       label="Location Details"
                       name="locationDetails"
+                      value={selectedRow?.locationDetails || ''}
+                      onChange={(e) =>
+                        selectedRow
+                          ? setSelectedRow({ ...selectedRow, locationDetails: e.target.value })
+                          : null
+                      }
                       multiline
                       rows={4}
                       required
@@ -118,7 +141,7 @@ function MeetLocate({ onButtonClick }) {
                   </Grid>
                   <Grid item xs={12} sx={{ p: '10px' }}>
                     <Button type="submit" variant="contained" fullWidth>
-                      Submit
+                      {selectedRow === null ? 'Submit' : 'Update'}
                     </Button>
                   </Grid>
                 </Grid>
@@ -126,47 +149,6 @@ function MeetLocate({ onButtonClick }) {
             </Box>
           </Modal>
 
-          <Modal
-            open={secondopenModal}
-            onClose={secondhandleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={style}>
-
-              <form onSubmit={secondhandleSubmit}  >
-                <Typography id="modal-modal-title" variant="h6" component="h2" gutterBottom sx={{ paddingLeft: '10px' }}>
-                  Add Document
-                </Typography>
-                <Grid container  >
-                  <Grid item xs={12} sx={{ p: '10px' }}>
-                    <TextField
-                      fullWidth
-                      label="Location Name"
-                      name="locationName"
-                      required
-                    />
-                  </Grid>
-
-                  <Grid item xs={12} sx={{ p: '10px' }}>
-                    <TextField
-                      fullWidth
-                      label="Location Details"
-                      name="locationDetails"
-                      multiline
-                      rows={4}
-                      required
-                    />
-                  </Grid>
-                  <Grid item xs={12} sx={{ p: '10px' }}>
-                    <Button type="submit" variant="contained" fullWidth>
-                      Submit
-                    </Button>
-                  </Grid>
-                </Grid>
-              </form>
-            </Box>
-          </Modal>
         </Box>
 
         <Box style={{ height: 600, width: "95%" }}>

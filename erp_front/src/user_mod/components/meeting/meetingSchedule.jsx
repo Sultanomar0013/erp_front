@@ -9,12 +9,12 @@ import {
 
 
 
-function NoticeReport() {
+function MeetSchedule({ onButtonClick }) {
 
   const fakeData = Array.from({ length: 15 }, (_, index) => ({
     id: index + 1,
-    notice: `Notice${index + 1}`,
-    noticeDetails: `Notice details_${index + 1}`,
+    meetingName: `Meeting name_${index + 1}`,
+    meetingDetails: `Meeting details_${index + 1}`,
   }));
 
   const [rows, setRows] = useState(fakeData);
@@ -58,8 +58,8 @@ function NoticeReport() {
 
   const columns = [
     { field: 'id', headerName: 'Id', flex: 1 },
-    { field: 'notice', headerName: 'Notice', flex: 1 },
-    { field: 'noticeDetails', headerName: 'Notice Details', flex: 2 },
+    { field: 'meetingName', headerName: 'Meeting name', flex: 1 },
+    { field: 'meetingDetails', headerName: 'Meeting Details', flex: 2 },
     {
       field: 'action',
       headerName: 'Action',
@@ -70,7 +70,7 @@ function NoticeReport() {
             onClick={() => openupdateModel(params.row)}
             style={{ padding: '4px 8px', cursor: 'pointer' }}
           >
-            View
+            Update Location
           </Button>
 
         </Box>
@@ -86,10 +86,10 @@ function NoticeReport() {
 
       <Box style={{ width: "100%", flexDirection: "column", display: "flex", justifyContent: "center", alignItems: "center" }}>
 
-        <Typography variant="h6" >Notice List</Typography>
+        <Typography variant="h6" >Location</Typography>
 
         <Box style={{ display: '', justifyItems: '' }}>
-          <Button variant="contained" onClick={handleOpen} >Add Notice Type</Button>
+          <Button variant="contained" onClick={handleOpen} >Add Metting Schedule</Button>
 
           <Modal
             open={openModal}
@@ -106,45 +106,43 @@ function NoticeReport() {
                   gutterBottom
                   sx={{ paddingLeft: '10px' }}
                 >
-                  {selectedRow === null ? 'Add Request' : 'View Request'}
+                  {selectedRow === null ? 'Add Meeting Location' : 'Update Meeting Location'}
                 </Typography>
                 <Grid container>
                   <Grid item xs={12} sx={{ p: '10px' }}>
                     <TextField
                       fullWidth
-                      label="Request Type"
-                      name="notice"
-                      value={selectedRow?.notice || ''}
+                      label="Meeting Name"
+                      name="meetingName"
+                      value={selectedRow?.meetingName || ''}
                       onChange={(e) =>
-                        setSelectedRow
-                          ? setSelectedRow({ ...selectedRow, notice: e.target.value })
+                        selectedRow
+                          ? setSelectedRow({ ...selectedRow, meetingName: e.target.value })
                           : null
                       }
-                      aria-readonly
+                      required
                     />
                   </Grid>
                   <Grid item xs={12} sx={{ p: '10px' }}>
                     <TextField
                       fullWidth
-                      label="Request Details"
-                      name="noticeDetails"
-                      value={selectedRow?.noticeDetails || ''}
+                      label="Meeting Details"
+                      name="meetingDetails"
+                      value={selectedRow?.meetingDetails || ''}
                       onChange={(e) =>
-                        setSelectedRow
-                          ? setSelectedRow({ ...selectedRow, noticeDetails: e.target.value })
+                        selectedRow
+                          ? setSelectedRow({ ...selectedRow, meetingDetails: e.target.value })
                           : null
                       }
                       multiline
                       rows={4}
-                      aria-readonly
+                      required
                     />
                   </Grid>
                   <Grid item xs={12} sx={{ p: '10px' }}>
-                    {selectedRow === null && (
-                      <Button type="submit" variant="contained" fullWidth>
-                        Submit
-                      </Button>
-                    )}
+                    <Button type="submit" variant="contained" fullWidth>
+                      {selectedRow === null ? 'Submit' : 'Update'}
+                    </Button>
                   </Grid>
                 </Grid>
               </form>
@@ -180,4 +178,4 @@ function NoticeReport() {
   );
 }
 
-export default NoticeReport;
+export default MeetSchedule;

@@ -31,6 +31,10 @@ import AttendanceComponent from '../components/attendance/attendance.jsx';
 import DocAtt from '../components/docAttacment/docAtt.jsx';
 import DocType from '../components/docAttacment/docType.jsx';
 import MeetLocate from '../components/meeting/meetLocation.jsx';
+import MeetSchedule from '../components/meeting/meetingSchedule.jsx';
+import ItSupport from '../components/itSupport/itSupport.jsx';
+import ItRequestStatus from '../components/itSupport/itRequeststatus.jsx';
+import HrRequest from '../components/hrRequest/hrRequestList.jsx';
 
 const NAVIGATION = [
   {
@@ -151,12 +155,12 @@ const NAVIGATION = [
         icon: <ManageAccountsTwoToneIcon />,
         path: "/createSchedule",
       },
-      {
-        segment: "scheduleLog",
-        title: "Schedule Log",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/scheduleLog",
-      },
+      // {
+      //   segment: "scheduleLog",
+      //   title: "Schedule Log",
+      //   icon: <ManageAccountsTwoToneIcon />,
+      //   path: "/scheduleLog",
+      // },
     ],
   },
   {
@@ -170,12 +174,12 @@ const NAVIGATION = [
         icon: <ManageAccountsTwoToneIcon />,
         path: "/supportRequest",
       },
-      {
-        segment: "myDevices",
-        title: "My Devices",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/myDevices",
-      },
+      // {
+      //   segment: "myDevices",
+      //   title: "My Devices",
+      //   icon: <ManageAccountsTwoToneIcon />,
+      //   path: "/myDevices",
+      // },
       {
         segment: "requestStatus",
         title: "Request Status",
@@ -194,12 +198,6 @@ const NAVIGATION = [
         title: "New Request",
         icon: <ManageAccountsTwoToneIcon />,
         path: "/newRequest",
-      },
-      {
-        segment: "requestStatus",
-        title: "Request Status",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/requestStatus",
       },
     ],
   },
@@ -276,7 +274,7 @@ function DemoPageContent({ pathname }) {
   //   return <UserAccessPage />;
   // }
 
-    const [activePath, setActivePath] = useState(pathname);
+  const [activePath, setActivePath] = useState(pathname);
   // console.log(activePath+" & "+pathname);
   useEffect(() => {
     localStorage.setItem("lastPath", pathname);
@@ -295,18 +293,26 @@ function DemoPageContent({ pathname }) {
     return <Dashboard />;
   } else if (activePath === "/myAccount/myProfile") {
     return <ProfilePanel />;
-  }else if (activePath === "/memberBasicInfo/allMemberContacts"){
+  } else if (activePath === "/memberBasicInfo/allMemberContacts") {
     return <MemberReport onButtonClick={(id) => console.log("Clicked on:", id)} />
-  }else if (activePath === "/notice/notice"){
+  } else if (activePath === "/notice/notice") {
     return <NoticeReport />
-  }else if( activePath === "/attendance/putAttendance"){
+  } else if (activePath === "/attendance/putAttendance") {
     return <AttendanceComponent />
-  }else if( activePath === "/documentSection/documentList"){
+  } else if (activePath === "/documentSection/documentList") {
     return <DocAtt />
-  }else if( activePath === "/documentSection/documentType"){
+  } else if (activePath === "/documentSection/documentType") {
     return <DocType />
-  }else if ( activePath === "/meetingSchedule/meetingLocation"){
+  } else if (activePath === "/meetingSchedule/meetingLocation") {
     return <MeetLocate />
+  } else if (activePath === "/meetingSchedule/createSchedule") {
+    return <MeetSchedule />
+  } else if (activePath === "/itSupport/supportRequest") {
+    return <ItSupport />
+  } else if (activePath === "/itSupport/requestStatus") {
+    return <ItRequestStatus />
+  }else if (activePath === "/hrAdminSupport/newRequest") {
+    return <HrRequest />
   }
 
   return (
