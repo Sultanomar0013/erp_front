@@ -29,6 +29,8 @@ import NoticeReport from "../components/notice/notice.jsx"
 import defaultTheme from '../components/theme/theme.jsx';
 import AttendanceComponent from '../components/attendance/attendance.jsx';
 import DocAtt from '../components/docAttacment/docAtt.jsx';
+import DocType from '../components/docAttacment/docType.jsx';
+import MeetLocate from '../components/meeting/meetLocation.jsx';
 
 const NAVIGATION = [
   {
@@ -301,6 +303,10 @@ function DemoPageContent({ pathname }) {
     return <AttendanceComponent />
   }else if( activePath === "/documentSection/documentList"){
     return <DocAtt />
+  }else if( activePath === "/documentSection/documentType"){
+    return <DocType />
+  }else if ( activePath === "/meetingSchedule/meetingLocation"){
+    return <MeetLocate />
   }
 
   return (

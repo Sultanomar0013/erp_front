@@ -9,12 +9,12 @@ import {
 
 
 
-function DocAtt({ onButtonClick }) {
+function MeetLocate({ onButtonClick }) {
 
-  const fakeData = Array.from({ length: 100 }, (_, index) => ({
+  const fakeData = Array.from({ length: 15 }, (_, index) => ({
     id: index + 1,
-    userName: `User_${index + 1}`,
-    email: `user${index + 1}@example.com`,
+    locationName: `location name_${index + 1}`,
+    locationDetails: `location details_${index + 1}`,
   }));
 
   const [rows, setRows] = useState(fakeData); // Set fake data as initial rows
@@ -24,19 +24,16 @@ function DocAtt({ onButtonClick }) {
   const handleOpen = () => setOpenModal(true);
   const handleClose = () => setOpenModal(false);
 
-  const [file, setFile] = useState(null);
-
-  const handleFileChange = (event) => {
-    setFile(event.target.files[0]);
-  };
+  const [secondopenModal, setsecondOpenModal] = useState(false);
+  const secondhandleOpen = () => setsecondOpenModal(true);
+  const secondhandleClose = () => setsecondOpenModal(false);
 
   const handleSubmit = () => {
-    if (file) {
-      console.log('File selected:', file.name);
-      // Handle file upload logic here
-    } else {
-      console.log('No file selected.');
-    }
+
+  };
+
+  const secondhandleSubmit = () => {
+  
   };
 
   const style = {
@@ -52,9 +49,9 @@ function DocAtt({ onButtonClick }) {
   };
 
   const columns = [
-    { field: 'id', headerName: 'User Id', flex: 1 },
-    { field: 'userName', headerName: 'User Name', flex: 1 },
-    { field: 'email', headerName: 'Email', flex: 2 },
+    { field: 'id', headerName: 'Id', flex: 1 },
+    { field: 'locationName', headerName: 'Location Type', flex: 1 },
+    { field: 'locationDetails', headerName: 'Location Details', flex: 2 },
     {
       field: 'action',
       headerName: 'Action',
@@ -62,10 +59,11 @@ function DocAtt({ onButtonClick }) {
       renderCell: (params) => (
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
           <Button variant="contained"
-            onClick={() => onButtonClick(params.row.id)}
+            // onClick={() => onButtonClick(params.row.id)}
+            onClick={secondhandleOpen}
             style={{ padding: '4px 8px', cursor: 'pointer' }}
           >
-            View
+            Update Location
           </Button>
 
         </Box>
@@ -81,10 +79,10 @@ function DocAtt({ onButtonClick }) {
 
       <Box style={{ width: "100%", flexDirection: "column", display: "flex", justifyContent: "center", alignItems: "center" }}>
 
-        <Typography variant="h6" >Document List</Typography>
+        <Typography variant="h6" >Location</Typography>
 
         <Box style={{ display: '', justifyItems: '' }}>
-          <Button variant="contained" onClick={handleOpen} >Add Document</Button>
+          <Button variant="contained" onClick={handleOpen} >Add Doc Type</Button>
 
           <Modal
             open={openModal}
@@ -102,8 +100,8 @@ function DocAtt({ onButtonClick }) {
                   <Grid item xs={12} sx={{ p: '10px' }}>
                     <TextField
                       fullWidth
-                      label="Document Name"
-                      name="doc_name"
+                      label="Location Name"
+                      name="locationName"
                       required
                     />
                   </Grid>
@@ -111,24 +109,52 @@ function DocAtt({ onButtonClick }) {
                   <Grid item xs={12} sx={{ p: '10px' }}>
                     <TextField
                       fullWidth
-                      label="Note"
-                      name="note"
+                      label="Location Details"
+                      name="locationDetails"
                       multiline
                       rows={4}
                       required
                     />
                   </Grid>
                   <Grid item xs={12} sx={{ p: '10px' }}>
+                    <Button type="submit" variant="contained" fullWidth>
+                      Submit
+                    </Button>
+                  </Grid>
+                </Grid>
+              </form>
+            </Box>
+          </Modal>
+
+          <Modal
+            open={secondopenModal}
+            onClose={secondhandleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+
+              <form onSubmit={secondhandleSubmit}  >
+                <Typography id="modal-modal-title" variant="h6" component="h2" gutterBottom sx={{ paddingLeft: '10px' }}>
+                  Add Document
+                </Typography>
+                <Grid container  >
+                  <Grid item xs={12} sx={{ p: '10px' }}>
                     <TextField
                       fullWidth
-                      label="Attachment"
-                      name="docAtt"
-                      type="file"
-                      inputProps={{ accept: '.pdf,.doc,.docx,.png,.jpg' }}
-                      onChange={handleFileChange}
-                      InputLabelProps={{
-                        shrink: true,
-                      }}
+                      label="Location Name"
+                      name="locationName"
+                      required
+                    />
+                  </Grid>
+
+                  <Grid item xs={12} sx={{ p: '10px' }}>
+                    <TextField
+                      fullWidth
+                      label="Location Details"
+                      name="locationDetails"
+                      multiline
+                      rows={4}
                       required
                     />
                   </Grid>
@@ -170,4 +196,4 @@ function DocAtt({ onButtonClick }) {
   );
 }
 
-export default DocAtt;
+export default MeetLocate;
