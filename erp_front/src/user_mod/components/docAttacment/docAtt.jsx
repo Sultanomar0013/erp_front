@@ -13,16 +13,17 @@ function DocAtt({ onButtonClick }) {
 
   const fakeData = Array.from({ length: 100 }, (_, index) => ({
     id: index + 1,
-    userName: `User_${index + 1}`,
-    email: `user${index + 1}@example.com`,
+    docName: `doc_${index + 1}`,
+    docNote: `doce note${index + 1}`,
   }));
 
-  const [rows, setRows] = useState(fakeData); // Set fake data as initial rows
+  const [rows, setRows] = useState(fakeData); 
   const [loadingFetch, setLoadingFetch] = useState(false);
   const [errorFetch, setErrorFetch] = useState(null);
   const [openModal, setOpenModal] = useState(false);
+  const [selectedRow, setSelectedRow] = useState(null);
   const handleOpen = () => setOpenModal(true);
-  const handleClose = () => setOpenModal(false);
+  const handleClose = () => {setOpenModal(false); setSelectedRow(null)};
 
   const [file, setFile] = useState(null);
 
@@ -39,6 +40,27 @@ function DocAtt({ onButtonClick }) {
     }
   };
 
+
+  const openupdateModel = (row) =>{
+    setSelectedRow(row);
+    handleOpen();
+  }; 
+
+  const updateModelSubmit = (e) =>{
+    e.preventDefault();
+    if(setSelectedRow){
+      setRows((prevRows) =>
+        prevRows.map((row) => (row.id === selectedRow.id ? selectedRow : row))
+      );
+      handleClose();
+    }
+  };
+
+  const updateFileChange = () =>{
+
+  };
+
+  console.log(selectedRow);
   const style = {
     position: 'absolute',
     top: '50%',
@@ -52,20 +74,27 @@ function DocAtt({ onButtonClick }) {
   };
 
   const columns = [
-    { field: 'id', headerName: 'User Id', flex: 1 },
-    { field: 'userName', headerName: 'User Name', flex: 1 },
-    { field: 'email', headerName: 'Email', flex: 2 },
+    { field: 'id', headerName: 'Id', flex: 1 },
+    { field: 'docName', headerName: 'Doc Name', flex: 1 },
+    { field: 'docNote', headerName: 'Doc Note', flex: 2 },
     {
       field: 'action',
       headerName: 'Action',
-      width: 150,
+      flex: 1,
       renderCell: (params) => (
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', height: '100%' }}>
           <Button variant="contained"
-            onClick={() => onButtonClick(params.row.id)}
+            // onClick={() => onButtonClick(params.row.id)}
             style={{ padding: '4px 8px', cursor: 'pointer' }}
           >
             View
+          </Button>
+          <br></br>
+          <Button variant="contained"
+            onClick={() => openupdateModel(params.row)}
+            style={{ padding: '4px 8px', cursor: 'pointer' }}
+          >
+            Update
           </Button>
 
         </Box>
@@ -93,52 +122,106 @@ function DocAtt({ onButtonClick }) {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
+              {selectedRow === null && (
+                  <form onSubmit={handleSubmit}  >
+                  <Typography id="modal-modal-title" variant="h6" component="h2" gutterBottom sx={{ paddingLeft: '10px' }}>
+                    Add Document
+                  </Typography>
+                  <Grid container  >
+                    <Grid item xs={12} sx={{ p: '10px' }}>
+                      <TextField
+                        fullWidth
+                        label="Document Name"
+                        name="docName"
+                        required
+                      />
+                    </Grid>
+  
+                    <Grid item xs={12} sx={{ p: '10px' }}>
+                      <TextField
+                        fullWidth
+                        label="Note"
+                        name="docNote"
+                        multiline
+                        rows={4}
+                        required
+                      />
+                    </Grid>
+                    <Grid item xs={12} sx={{ p: '10px' }}>
+                      <TextField
+                        fullWidth
+                        label="Attachment"
+                        name="docAtt"
+                        type="file"
+                        inputProps={{ accept: '.pdf,.doc,.docx,.png,.jpg' }}
+                        onChange={handleFileChange}
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
+                        required
+                      />
+                    </Grid>
+                    <Grid item xs={12} sx={{ p: '10px' }}>
+                      <Button type="submit" variant="contained" fullWidth>
+                        Submit
+                      </Button>
+                    </Grid>
+                  </Grid>
+                </form>
+              )}
+              {selectedRow != null && (
+                   <form onSubmit={updateModelSubmit}  >
+                   <Typography id="modal-modal-title" variant="h6" component="h2" gutterBottom sx={{ paddingLeft: '10px' }}>
+                     Update Document
+                   </Typography>
+                   <Grid container  >
+                     <Grid item xs={12} sx={{ p: '10px' }}>
+                       <TextField
+                         fullWidth
+                         label="Document Name"
+                         name="docName"
+                         value={selectedRow?.docName || ''}
+                         onChange={(e) => setSelectedRow({...selectedRow, docName:e.target.value})}  
+                         required
+                       />
+                     </Grid>
+   
+                     <Grid item xs={12} sx={{ p: '10px' }}>
+                       <TextField
+                         fullWidth
+                         label="Note"
+                         name="docNote"
+                         value={selectedRow?.docNote || ''}
+                         onChange={(e) => setSelectedRow({...selectedRow, docNote:e.target.value})}  
+                         multiline
+                         rows={4}
+                         required
+                       />
+                     </Grid>
+                     <Grid item xs={12} sx={{ p: '10px' }}>
+                       <TextField
+                         fullWidth
+                         label="Attachment"
+                         name="docAtt"
+                         type="file"
+                         inputProps={{ accept: '.pdf,.doc,.docx,.png,.jpg' }}
+                         onChange={updateFileChange}
+                         InputLabelProps={{
+                           shrink: true,
+                         }}
+                         required
+                       />
+                     </Grid>
+                     <Grid item xs={12} sx={{ p: '10px' }}>
+                       <Button type="submit" variant="contained" fullWidth>
+                         Update
+                       </Button>
+                     </Grid>
+                   </Grid>
+                 </form>
+              )}
 
-              <form onSubmit={handleSubmit}  >
-                <Typography id="modal-modal-title" variant="h6" component="h2" gutterBottom sx={{ paddingLeft: '10px' }}>
-                  Add Document
-                </Typography>
-                <Grid container  >
-                  <Grid item xs={12} sx={{ p: '10px' }}>
-                    <TextField
-                      fullWidth
-                      label="Document Name"
-                      name="doc_name"
-                      required
-                    />
-                  </Grid>
-
-                  <Grid item xs={12} sx={{ p: '10px' }}>
-                    <TextField
-                      fullWidth
-                      label="Note"
-                      name="note"
-                      multiline
-                      rows={4}
-                      required
-                    />
-                  </Grid>
-                  <Grid item xs={12} sx={{ p: '10px' }}>
-                    <TextField
-                      fullWidth
-                      label="Attachment"
-                      name="docAtt"
-                      type="file"
-                      inputProps={{ accept: '.pdf,.doc,.docx,.png,.jpg' }}
-                      onChange={handleFileChange}
-                      InputLabelProps={{
-                        shrink: true,
-                      }}
-                      required
-                    />
-                  </Grid>
-                  <Grid item xs={12} sx={{ p: '10px' }}>
-                    <Button type="submit" variant="contained" fullWidth>
-                      Submit
-                    </Button>
-                  </Grid>
-                </Grid>
-              </form>
+            
             </Box>
           </Modal>
         </Box>

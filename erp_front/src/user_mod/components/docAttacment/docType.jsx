@@ -13,19 +13,35 @@ function DocType({ onButtonClick }) {
 
   const fakeData = Array.from({ length: 100 }, (_, index) => ({
     id: index + 1,
-    type: `docType_${index + 1}`,
-    typeDetails: `type Details__${index + 1}`,
+    docType: `docType_${index + 1}`,
+    docTypeDetails: `type Details__${index + 1}`,
   }));
 
   const [rows, setRows] = useState(fakeData); // Set fake data as initial rows
   const [loadingFetch, setLoadingFetch] = useState(false);
   const [errorFetch, setErrorFetch] = useState(null);
   const [openModal, setOpenModal] = useState(false);
+  const [selectedRow, setSelectedRow] = useState(null);
   const handleOpen = () => setOpenModal(true);
-  const handleClose = () => setOpenModal(false);
+  const handleClose = () => {setOpenModal(false); setSelectedRow(null)};
 
   const handleSubmit = () => {
     
+  };
+
+  const openupdateModel = (row) =>{
+    setSelectedRow(row);
+    handleOpen();
+  }; 
+
+  const updateModelSubmit = (e) =>{
+    e.preventDefault();
+    if(setSelectedRow){
+      setRows((prevRows) =>
+        prevRows.map((row) => (row.id === selectedRow.id ? selectedRow : row))
+      );
+      handleClose();
+    }
   };
 
   const style = {
@@ -42,8 +58,8 @@ function DocType({ onButtonClick }) {
 
   const columns = [
     { field: 'id', headerName: 'Type Id', flex: 1 },
-    { field: 'type', headerName: 'Type', flex: 1 },
-    { field: 'typeDetails', headerName: 'Type Details', flex: 2 },
+    { field: 'docType', headerName: 'Type', flex: 1 },
+    { field: 'docTypeDetails', headerName: 'Type Details', flex: 2 },
     {
       field: 'action',
       headerName: 'Action',
@@ -51,7 +67,7 @@ function DocType({ onButtonClick }) {
       renderCell: (params) => (
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
           <Button variant="contained"
-            onClick={() => onButtonClick(params.row.id)}
+            onClick={() => openupdateModel(params.row)}
             style={{ padding: '4px 8px', cursor: 'pointer' }}
           >
             Update Type
@@ -75,15 +91,15 @@ function DocType({ onButtonClick }) {
         <Box style={{ display: '', justifyItems: '' }}>
           <Button variant="contained" onClick={handleOpen} >Add Doc Type</Button>
 
-          <Modal
+          <Modal 
             open={openModal}
             onClose={handleClose}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-
-              <form onSubmit={handleSubmit}  >
+            {selectedRow === null && (
+                <form onSubmit={handleSubmit}  >
                 <Typography id="modal-modal-title" variant="h6" component="h2" gutterBottom sx={{ paddingLeft: '10px' }}>
                   Add Document
                 </Typography>
@@ -101,7 +117,7 @@ function DocType({ onButtonClick }) {
                     <TextField
                       fullWidth
                       label="Type Details"
-                      name="typeDetails"
+                      name="docTypeDetails"
                       multiline
                       rows={4}
                       required
@@ -114,6 +130,47 @@ function DocType({ onButtonClick }) {
                   </Grid>
                 </Grid>
               </form>
+
+            ) }
+            {selectedRow != null && (
+              <form onSubmit={updateModelSubmit}  >
+              <Typography id="modal-modal-title" variant="h6" component="h2" gutterBottom sx={{ paddingLeft: '10px' }}>
+                Update Document
+              </Typography>
+              <Grid container  >
+                <Grid item xs={12} sx={{ p: '10px' }}>
+                  <TextField
+                    fullWidth
+                    label="Doc Type Name"
+                    name="docType"
+                    value={selectedRow?.docType || ''}
+                    onChange={(e) => setSelectedRow({...selectedRow, docType:e.target.value})}  
+                    required
+                  />
+                </Grid>
+
+                <Grid item xs={12} sx={{ p: '10px' }}>
+                  <TextField
+                    fullWidth
+                    label="Type Details"
+                    name="docTypeDetails"
+                    value={selectedRow?.docTypeDetails || ''}
+                    onChange={(e) => setSelectedRow({...selectedRow, docTypeDetails:e.target.value})}  
+                    multiline
+                    rows={4}
+                    required
+                  />
+                </Grid>
+                <Grid item xs={12} sx={{ p: '10px' }}>
+                  <Button type="submit" variant="contained" fullWidth>
+                    Update
+                  </Button>
+                </Grid>
+              </Grid>
+            </form>
+
+            )}
+              
             </Box>
           </Modal>
         </Box>
