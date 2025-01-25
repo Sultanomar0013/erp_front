@@ -3,14 +3,6 @@ import { useLocation, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Button from '@mui/material/Button';
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import { createTheme } from '@mui/material/styles';
 import {
   Dashboard as DashboardIcon,
@@ -275,7 +267,7 @@ function DemoPageContent({ pathname }) {
     return <ItSupport />
   } else if (activePath === "/itSupport/requestStatus") {
     return <ItRequestStatus />
-  } else if (activePath === "/hrAdminSupport/newRequest") {
+  }else if (activePath === "/hrAdminSupport/newRequest") {
     return <HrRequest />
   }
 
@@ -301,18 +293,6 @@ DemoPageContent.propTypes = {
 
 function DashboardLayoutBasic(props) {
 
-
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-
-  const handleMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
-
   const lastPath = localStorage.getItem("lastPath");
   const router = useDemoRouter(lastPath);
 
@@ -330,29 +310,7 @@ function DashboardLayoutBasic(props) {
       theme={defaultTheme}
       branding={{
         // logo: <img src={Logo} alt="Custom Logo" style={{ height: '40px' }} />,
-        title: '',
-        logo: (
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <Button
-          id="basic-button"
-          aria-controls={open ? 'basic-menu' : undefined}
-          aria-haspopup="true"
-          aria-expanded={open ? 'true' : undefined}
-          onClick={handleMenuOpen}
-        >
-          User Module
-        </Button>
-            <Menu
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleMenuClose}
-            >
-              <MenuItem onClick={() => alert('Profile clicked')}>User Module</MenuItem>
-              <MenuItem onClick={() => alert('Settings clicked')}>IT Modulw</MenuItem>
-              <MenuItem onClick={() => alert('Logout clicked')}>Logout</MenuItem>
-            </Menu>
-          </div>
-        ),
+        title: 'Inventory'
       }}
     >
       <DashboardLayout>
