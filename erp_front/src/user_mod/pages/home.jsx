@@ -3,7 +3,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-
+import { useNavigate } from 'react-router-dom'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -244,6 +244,7 @@ function DemoPageContent({ pathname }) {
     localStorage.setItem("lastPath", pathname);
     setActivePath(pathname);
   }, [pathname]);
+
   useEffect(() => {
     const lastPath = localStorage.getItem("lastPath");
     if (lastPath && lastPath !== activePath) {
@@ -253,7 +254,13 @@ function DemoPageContent({ pathname }) {
 
   // console.log(activePath);
 
-  if (activePath === "/dashboard") {
+  if(activePath == "/null"){
+    return <Dashboard />;
+  }else if(activePath == ""){
+    return <Dashboard />;
+  }else if(activePath == "/"){
+    return <Dashboard />;
+  }else if (activePath === "/dashboard") {
     return <Dashboard />;
   } else if (activePath === "/myAccount/myProfile") {
     return <ProfilePanel />;
@@ -300,6 +307,7 @@ DemoPageContent.propTypes = {
 };
 
 function DashboardLayoutBasic(props) {
+  const navigate = useNavigate();
 
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -347,9 +355,9 @@ function DashboardLayoutBasic(props) {
               open={open}
               onClose={handleMenuClose}
             >
-              <MenuItem onClick={() => alert('Profile clicked')}>User Module</MenuItem>
-              <MenuItem onClick={() => alert('Settings clicked')}>IT Modulw</MenuItem>
-              <MenuItem onClick={() => alert('Logout clicked')}>Logout</MenuItem>
+              <MenuItem onClick={() => navigate('/userMod/home') }>User Module</MenuItem>
+              <MenuItem onClick={() => navigate('/itMod/home') }>IT Module</MenuItem>
+              <MenuItem onClick={() => navigate('/userMod/Logout')}>Logout</MenuItem>
             </Menu>
           </div>
         ),

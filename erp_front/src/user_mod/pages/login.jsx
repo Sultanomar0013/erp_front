@@ -74,7 +74,7 @@ function LogIn() {
         // }
 
         // setLoading(false);
-        navigate('/home');
+        navigate('/userMod/home');
     };
 
     return (

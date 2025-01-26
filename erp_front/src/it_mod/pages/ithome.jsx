@@ -20,10 +20,10 @@ import {
 import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
-import UserReport from '../components/userReport';
-import UserAccessPage from '../report/user_access_report';
-import Dashboard from "../components/dashboard";
-import ProfilePanel from "../components/profileComponent/myProfile"
+import UserReport from '../components/userReport.jsx';
+import UserAccessPage from '../report/user_access_report.jsx';
+import Dashboard from "../components/dashboard.jsx";
+import ProfilePanel from "../components/profileComponent/myProfile.jsx"
 import MemberReport from "../components/member_basic/memberReport.jsx"
 import NoticeReport from "../components/notice/notice.jsx"
 import defaultTheme from '../components/theme/theme.jsx';
@@ -39,7 +39,7 @@ import HrRequest from '../components/hrRequest/hrRequestList.jsx';
 const NAVIGATION = [
   {
     kind: "header",
-    title: "User Moudle",
+    title: "IT Moudle",
   },
   {
     segment: "dashboard",
@@ -49,34 +49,58 @@ const NAVIGATION = [
   },
 
   {
-    segment: "userAccess",
-    title: "User Access Management",
+    segment: "roleAssign",
+    title: "Role Assign",
     icon: <ManTwoToneIcon />,
     children: [
       {
-        segment: "accessibility",
-        title: "Accessibility",
+        segment: "projectModuleROle",
+        title: "Project Module Role",
         icon: <ManageAccountsTwoToneIcon />,
-        path: "/userAccess/accessibility",
+        path: "/roleAssign/projectModuleROle",
+      },
+      {
+        segment: "accountModuleROle",
+        title: "Account Module Role",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/roleAssign/accountModuleROle",
+      },
+      {
+        segment: "inventoryModuleROle",
+        title: "Inventory Module Role",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/roleAssign/inventoryModuleROle",
+      },
+      {
+        segment: "hrModuleROle",
+        title: "HR Module Role",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/roleAssign/hrModuleROle",
       },
     ],
   },
   {
-    segment: "myAccount",
-    title: "My Account",
+    segment: "itSupport",
+    title: "It Support",
     icon: <ManTwoToneIcon />,
     children: [
       {
-        segment: "myProfile",
-        title: "My Profile",
+        segment: "supportRequest",
+        title: "Support Request",
         icon: <ManageAccountsTwoToneIcon />,
-        path: "/myProfile",
+        path: "/itSupport/supportRequest",
       },
       {
-        segment: "updateProfile",
-        title: "Update Profile",
+        segment: "deviceHardware",
+        title: "Device & Hardware",
         icon: <ManageAccountsTwoToneIcon />,
-        path: "/updateProfile",
+        path: "/itSupport/deviceHardware",
+      },
+      {
+        segment: "erpDevLog",
+        title: "ERP Dev Log",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/itSupport/erpDevLog",
       },
     ],
   },
@@ -94,110 +118,60 @@ const NAVIGATION = [
     ],
   },
   {
-    segment: "notice",
-    title: "Notice",
+    segment: "itNotice",
+    title: "IT Notice",
     icon: <ManTwoToneIcon />,
     children: [
       {
-        segment: "notice",
-        title: "Notice",
+        segment: "itNoticeList",
+        title: "IT Notice List",
         icon: <ManageAccountsTwoToneIcon />,
-        path: "/notice",
+        path: "/itNotice/itNoticeList",
       },
     ],
   },
   {
-    segment: "attendance",
-    title: "Attendance",
+    segment: "attendanceManagement",
+    title: "Attendance Management",
     icon: <ManTwoToneIcon />,
     children: [
       {
-        segment: "putAttendance",
-        title: "Put Attendance",
+        segment: "manualAttendance",
+        title: "Manual Attendance",
         icon: <ManageAccountsTwoToneIcon />,
-        path: "/putAttendance",
+        path: "/attendanceManagement/manualAttendance",
+      },
+      {
+        segment: "attendanceNotification",
+        title: "Attendance Notification",
+        icon: <ManageAccountsTwoToneIcon />,
+        path: "/attendanceManagement/attendanceNotification",
       },
     ],
   },
   {
-    segment: "documentSection",
-    title: "Document Section",
+    segment: "smsPanel",
+    title: "SMS Panel",
     icon: <ManTwoToneIcon />,
     children: [
       {
-        segment: "documentType",
-        title: "Document Type",
+        segment: "smsList",
+        title: "SMS List",
         icon: <ManageAccountsTwoToneIcon />,
-        path: "/documentType",
-      },
-      {
-        segment: "documentList",
-        title: "Document List",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/documentList",
+        path: "/smsPanel/smsList",
       },
     ],
   },
   {
-    segment: "meetingSchedule",
-    title: "Meeting Schedule",
+    segment: "emailPanel",
+    title: "Email Panel",
     icon: <ManTwoToneIcon />,
     children: [
       {
-        segment: "meetingLocation",
-        title: "Meeting Location",
+        segment: "emaiList",
+        title: "Email List",
         icon: <ManageAccountsTwoToneIcon />,
-        path: "/meetingLocation",
-      },
-      {
-        segment: "createSchedule",
-        title: "Create Schedule",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/createSchedule",
-      },
-      // {
-      //   segment: "scheduleLog",
-      //   title: "Schedule Log",
-      //   icon: <ManageAccountsTwoToneIcon />,
-      //   path: "/scheduleLog",
-      // },
-    ],
-  },
-  {
-    segment: "itSupport",
-    title: "It Support",
-    icon: <ManTwoToneIcon />,
-    children: [
-      {
-        segment: "supportRequest",
-        title: "Support Request",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/supportRequest",
-      },
-      // {
-      //   segment: "myDevices",
-      //   title: "My Devices",
-      //   icon: <ManageAccountsTwoToneIcon />,
-      //   path: "/myDevices",
-      // },
-      {
-        segment: "requestStatus",
-        title: "Request Status",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/requestStatus",
-      },
-    ],
-  },
-  {
-    segment: "hrAdminSupport",
-    title: "HR & Admin Support",
-    icon: <ManTwoToneIcon />,
-    children: [
-      {
-        segment: "newRequest",
-        title: "New Request",
-        icon: <ManageAccountsTwoToneIcon />,
-        path: "/newRequest",
+        path: "/emailPanel/emaiList",
       },
     ],
   },
@@ -206,7 +180,7 @@ const NAVIGATION = [
   },
   {
     kind: "header",
-    title: "My User Board",
+    title: "My IT Board",
   },
 ];
 
