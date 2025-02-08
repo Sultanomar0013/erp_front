@@ -32,8 +32,8 @@ import DocAtt from '../components/docAttacment/docAtt.jsx';
 import DocType from '../components/docAttacment/docType.jsx';
 import MeetLocate from '../components/meeting/meetLocation.jsx';
 import MeetSchedule from '../components/meeting/meetingSchedule.jsx';
-import ItSupport from '../components/itSupport/itSupport.jsx';
-import ItRequestStatus from '../components/itSupport/itRequeststatus.jsx';
+import ItRequestStatus from '../components/itNoticeList/itNotice.jsx';
+// import ItRequestStatus from '../components/itNoticeList/itRequeststatus.jsx';
 import HrRequest from '../components/hrRequest/hrRequestList.jsx';
 
 const NAVIGATION = [
@@ -237,11 +237,11 @@ function DemoPageContent({ pathname }) {
     return <MeetLocate />
   } else if (activePath === "/meetingSchedule/createSchedule") {
     return <MeetSchedule />
-  } else if (activePath === "/itSupport/supportRequest") {
-    return <ItSupport />
-  } else if (activePath === "/itSupport/requestStatus") {
+  } else if (activePath === "/itNotice/itNoticeList") {
     return <ItRequestStatus />
-  }else if (activePath === "/hrAdminSupport/newRequest") {
+  } else if (activePath === "/itSupport/requestStatus") {
+    // return <ItRequestStatus />
+  } else if (activePath === "/hrAdminSupport/newRequest") {
     return <HrRequest />
   }
 
@@ -265,11 +265,20 @@ DemoPageContent.propTypes = {
   pathname: PropTypes.string.isRequired,
 };
 
+
+
+
+
+
+
+
+
 function DashboardLayoutBasic(props) {
 
   const lastPath = localStorage.getItem("lastPath");
   const router = useDemoRouter(lastPath);
 
+  console.log(router);
   useEffect(() => {
     const lastPath = localStorage.getItem("lastPath");
     if (lastPath && lastPath !== router.pathname) {

@@ -59,7 +59,7 @@ function NoticeReport() {
   const columns = [
     { field: 'id', headerName: 'Id', flex: 1 },
     { field: 'notice', headerName: 'Notice', flex: 1 },
-    { field: 'noticeDetails', headerName: 'Notice Details', flex: 2 },
+    { field: 'noticeDetails', headerName: 'Notice Details', flex: 1 },
     {
       field: 'action',
       headerName: 'Action',
