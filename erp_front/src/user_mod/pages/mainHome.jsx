@@ -49,9 +49,11 @@ const MainHome = () => {
                 {/* Main content area */}
                 <Box
                     component="main"
-                    sx={{
+                    sx={{display: 'grid',
+                        placeItems: 'center',
                         height: '',
                         flexGrow: 1,
+                        width:'100%',
                         p: 3,
                         mt: 8, // Push content down so it starts below AppBar
                         transition: "margin 0.3s",
