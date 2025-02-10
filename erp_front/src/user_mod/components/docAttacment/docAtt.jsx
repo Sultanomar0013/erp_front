@@ -17,7 +17,7 @@ function DocAtt({ onButtonClick }) {
     docNote: `doce note${index + 1}`,
   }));
 
-  const [rows, setRows] = useState(fakeData); 
+  const [rows, setRows] = useState(fakeData);
   const [loadingFetch, setLoadingFetch] = useState(false);
   const [errorFetch, setErrorFetch] = useState(null);
   const [openModal, setOpenModal] = useState(false);
@@ -44,7 +44,7 @@ function DocAtt({ onButtonClick }) {
   const openupdateModel = (row) =>{
     setSelectedRow(row);
     handleOpen();
-  }; 
+  };
 
   const updateModelSubmit = (e) =>{
     e.preventDefault();
@@ -74,9 +74,9 @@ function DocAtt({ onButtonClick }) {
   };
 
   const columns = [
-    { field: 'id', headerName: 'Id', flex: 1 },
-    { field: 'docName', headerName: 'Doc Name', flex: 1 },
-    { field: 'docNote', headerName: 'Doc Note', flex: 2 },
+    { field: 'id', headerName: 'Id', width : 350 },
+    { field: 'docName', headerName: 'Doc Name',width : 350 },
+    { field: 'docNote', headerName: 'Doc Note', width : 350 },
     {
       field: 'action',
       headerName: 'Action',
@@ -136,7 +136,7 @@ function DocAtt({ onButtonClick }) {
                         required
                       />
                     </Grid>
-  
+
                     <Grid item xs={12} sx={{ p: '10px' }}>
                       <TextField
                         fullWidth
@@ -181,18 +181,18 @@ function DocAtt({ onButtonClick }) {
                          label="Document Name"
                          name="docName"
                          value={selectedRow?.docName || ''}
-                         onChange={(e) => setSelectedRow({...selectedRow, docName:e.target.value})}  
+                         onChange={(e) => setSelectedRow({...selectedRow, docName:e.target.value})}
                          required
                        />
                      </Grid>
-   
+
                      <Grid item xs={12} sx={{ p: '10px' }}>
                        <TextField
                          fullWidth
                          label="Note"
                          name="docNote"
                          value={selectedRow?.docNote || ''}
-                         onChange={(e) => setSelectedRow({...selectedRow, docNote:e.target.value})}  
+                         onChange={(e) => setSelectedRow({...selectedRow, docNote:e.target.value})}
                          multiline
                          rows={4}
                          required
@@ -221,7 +221,7 @@ function DocAtt({ onButtonClick }) {
                  </form>
               )}
 
-            
+
             </Box>
           </Modal>
         </Box>

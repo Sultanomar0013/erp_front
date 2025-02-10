@@ -26,13 +26,13 @@ function DocType({ onButtonClick }) {
   const handleClose = () => {setOpenModal(false); setSelectedRow(null)};
 
   const handleSubmit = () => {
-    
+
   };
 
   const openupdateModel = (row) =>{
     setSelectedRow(row);
     handleOpen();
-  }; 
+  };
 
   const updateModelSubmit = (e) =>{
     e.preventDefault();
@@ -57,9 +57,9 @@ function DocType({ onButtonClick }) {
   };
 
   const columns = [
-    { field: 'id', headerName: 'Type Id', flex: 1 },
-    { field: 'docType', headerName: 'Type', flex: 1 },
-    { field: 'docTypeDetails', headerName: 'Type Details', flex: 2 },
+    { field: 'id', headerName: 'Type Id', width : 350},
+    { field: 'docType', headerName: 'Type', width : 350},
+    { field: 'docTypeDetails', headerName: 'Type Details', width : 350 },
     {
       field: 'action',
       headerName: 'Action',
@@ -91,7 +91,7 @@ function DocType({ onButtonClick }) {
         <Box style={{ display: '', justifyItems: '' }}>
           <Button variant="contained" onClick={handleOpen} >Add Doc Type</Button>
 
-          <Modal 
+          <Modal
             open={openModal}
             onClose={handleClose}
             aria-labelledby="modal-modal-title"
@@ -144,7 +144,7 @@ function DocType({ onButtonClick }) {
                     label="Doc Type Name"
                     name="docType"
                     value={selectedRow?.docType || ''}
-                    onChange={(e) => setSelectedRow({...selectedRow, docType:e.target.value})}  
+                    onChange={(e) => setSelectedRow({...selectedRow, docType:e.target.value})}
                     required
                   />
                 </Grid>
@@ -155,7 +155,7 @@ function DocType({ onButtonClick }) {
                     label="Type Details"
                     name="docTypeDetails"
                     value={selectedRow?.docTypeDetails || ''}
-                    onChange={(e) => setSelectedRow({...selectedRow, docTypeDetails:e.target.value})}  
+                    onChange={(e) => setSelectedRow({...selectedRow, docTypeDetails:e.target.value})}
                     multiline
                     rows={4}
                     required
@@ -170,7 +170,7 @@ function DocType({ onButtonClick }) {
             </form>
 
             )}
-              
+
             </Box>
           </Modal>
         </Box>

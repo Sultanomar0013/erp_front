@@ -57,9 +57,9 @@ function ItRequestStatus() {
     };
 
     const columns = [
-        { field: 'id', headerName: 'Id', flex: 1 },
-        { field: 'supportName', headerName: 'Support name', flex: 1 },
-        { field: 'supportDetails', headerName: 'Support Details', flex: 2 },
+        { field: 'id', headerName: 'Id', width : 350},
+        { field: 'supportName', headerName: 'Support name', width : 350 },
+        { field: 'supportDetails', headerName: 'Support Details', width : 350 },
         {
             field: 'action',
             headerName: 'Action',

@@ -43,9 +43,9 @@ function MemberReport({ onButtonClick }) {
   };
 
   const columns = [
-    { field: 'id', headerName: 'User Id', flex: 1 },
-    { field: 'userName', headerName: 'User Name', flex: 1 },
-    { field: 'email', headerName: 'Email', flex: 2 },
+    { field: 'id', headerName: 'User Id', width : 350 },
+    { field: 'userName', headerName: 'User Name', width : 350 },
+    { field: 'email', headerName: 'Email', width : 350 },
     {
       field: 'action',
       headerName: 'Action',

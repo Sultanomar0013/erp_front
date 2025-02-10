@@ -27,8 +27,8 @@ function Panel() {
     <Box sx={{
       width: '100%',
       maxWidth: '1400px',
-      display: 'grid',
-      placeItems: 'center', flexDirection: "column", minHeight: "100vh"
+      display: 'flex',
+      justifyContent: 'center', flexDirection: "column", minHeight: "100vh"
     }}>
 
       <CssBaseline />
@@ -50,7 +50,7 @@ function Panel() {
                 sx={{
                   width: "auto",
                   cursor: "pointer",
-                  
+
                 }}
                 key={text}
                 onClick={() => setSelectedPanel(text)}

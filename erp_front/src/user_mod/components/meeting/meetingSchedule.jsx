@@ -57,9 +57,9 @@ function MeetSchedule({ onButtonClick }) {
   };
 
   const columns = [
-    { field: 'id', headerName: 'Id', flex: 1 },
-    { field: 'meetingName', headerName: 'Meeting name', flex: 1 },
-    { field: 'meetingDetails', headerName: 'Meeting Details', flex: 2 },
+    { field: 'id', headerName: 'Id', width : 350 },
+    { field: 'meetingName', headerName: 'Meeting name', width : 350 },
+    { field: 'meetingDetails', headerName: 'Meeting Details',width : 350 },
     {
       field: 'action',
       headerName: 'Action',

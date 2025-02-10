@@ -57,9 +57,9 @@ function HrRequest() {
     };
 
     const columns = [
-        { field: 'id', headerName: 'Id', flex: 1 },
-        { field: 'requestType', headerName: 'Request name', flex: 1 },
-        { field: 'requestDetails', headerName: 'Request Details', flex: 2 },
+        { field: 'id', headerName: 'Id', width : 350 },
+        { field: 'requestType', headerName: 'Request name', width : 350 },
+        { field: 'requestDetails', headerName: 'Request Details', width : 350 },
         {
             field: 'action',
             headerName: 'Action',

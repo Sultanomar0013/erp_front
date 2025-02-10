@@ -57,9 +57,9 @@ function NoticeReport() {
   };
 
   const columns = [
-    { field: 'id', headerName: 'Id', flex: 1 },
-    { field: 'notice', headerName: 'Notice', flex: 1 },
-    { field: 'noticeDetails', headerName: 'Notice Details', flex: 2 },
+    { field: 'id', headerName: 'Id' , width : 350},
+    { field: 'notice', headerName: 'Notice' , width : 350},
+    { field: 'noticeDetails', headerName: 'Notice Details', width : 350},
     {
       field: 'action',
       headerName: 'Action',

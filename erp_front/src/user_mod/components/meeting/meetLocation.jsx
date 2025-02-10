@@ -57,9 +57,9 @@ function MeetLocate({ onButtonClick }) {
   };
 
   const columns = [
-    { field: 'id', headerName: 'Id', flex: 1 },
-    { field: 'locationName', headerName: 'Location Type', flex: 1 },
-    { field: 'locationDetails', headerName: 'Location Details', flex: 2 },
+    { field: 'id', headerName: 'Id',width : 350 },
+    { field: 'locationName', headerName: 'Location Type', width : 350 },
+    { field: 'locationDetails', headerName: 'Location Details', width : 350 },
     {
       field: 'action',
       headerName: 'Action',

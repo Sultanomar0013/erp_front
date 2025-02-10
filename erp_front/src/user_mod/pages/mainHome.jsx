@@ -49,14 +49,13 @@ const MainHome = () => {
                 {/* Main content area */}
                 <Box
                     component="main"
-                    sx={{display: 'grid',
-                        placeItems: 'center',
-                        height: '',
-                        flexGrow: 1,
+                    sx={{display: 'flex',
+                        justifyContent:'center',
                         width:'100%',
                         p: 3,
-                        mt: 8, // Push content down so it starts below AppBar
+                        mt: 8,
                         transition: "margin 0.3s",
+                        overflow:'scroll',
                     }}
                 >
                     <Routes>
