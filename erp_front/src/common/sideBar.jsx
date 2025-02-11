@@ -9,59 +9,13 @@ import { getMenuItems } from "./menuOption";
 
 const drawerWidth = 240;
 
-
-
-// Menu items using 'segment' approach
-// const menuItems = [
-//   { segment: "dashboard", title: "Dashboard", icon: <DashboardIcon />, path: "/userMod/home/Dashboard" },
-//   { segment: "user_access", title: "User Access", icon: <DashboardIcon />, path: "/userMod/home/UserAccess" },
-//   {
-//     segment: "my_account",
-//     title: "My Account",
-//     icon: <CodeIcon />,
-//     children: [
-//       { segment: "profile", title: "My Profile", path: "/userMod/home/ProfilePanel", icon: <StarIcon /> },
-//       { segment: "update_profile", title: "Update Profile", path: "/userMod/home/UpdateProfile", icon: <StarIcon /> },
-//     ],
-//   },
-//   { segment: "member_info", title: "Member Basic Info", icon: <SettingsIcon />, path: "/userMod/home/MemberBasicInfo" },
-//   { segment: "notice", title: "Notice", icon: <SettingsIcon />, path: "/userMod/home/NoticeReport" },
-//   { segment: "attendance", title: "Attendance", icon: <SettingsIcon />, path: "/userMod/home/Attendance" },
-//   {
-//     segment: "document",
-//     title: "Document",
-//     icon: <CodeIcon />,
-//     children: [
-//       { segment: "doc_type", title: "Document Type", path: "/userMod/home/DocType", icon: <StarIcon /> },
-//       { segment: "doc_list", title: "Document List", path: "/userMod/home/DocAtt", icon: <StarIcon /> },
-//     ],
-//   },
-//   {
-//     segment: "meeting",
-//     title: "Meeting Schedule",
-//     icon: <CodeIcon />,
-//     children: [
-//       { segment: "meet_location", title: "Meeting Location", path: "/userMod/home/MeetLocate", icon: <StarIcon /> },
-//       { segment: "meet_schedule", title: "Create Schedule", path: "/userMod/home/MeetSchedule", icon: <StarIcon /> },
-//     ],
-//   },
-//   {
-//     segment: "it_support",
-//     title: "IT Support",
-//     icon: <CodeIcon />,
-//     children: [
-//       { segment: "it_request", title: "IT Request Status", path: "/userMod/home/ItRequestStatus", icon: <PersonIcon /> },
-//       { segment: "it_list", title: "IT Support List", path: "/userMod/home/ItSupport", icon: <SettingsIcon /> },
-//     ],
-//   },
-//   { segment: "hr_support", title: "HR & Admin Support", icon: <SettingsIcon />, path: "/userMod/home/HrRequest" },
-// ];
-
 const SideBar = ({ open, toggleSidebar }) => {
   const location = useLocation();
   const theme = useTheme();
   const [openMenus, setOpenMenus] = useState({});
+
   const menuItems = getMenuItems(location.pathname);
+
   const handleToggle = (segment) => {
     setOpenMenus((prev) => ({ ...prev, [segment]: !prev[segment] }));
   };

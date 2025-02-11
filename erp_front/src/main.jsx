@@ -5,7 +5,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 
 import './index.css'
 import App from './App'
-import defaultTheme from "./user_mod/components/theme/theme";
+import defaultTheme from "./common/theme/theme";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

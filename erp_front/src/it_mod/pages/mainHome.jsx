@@ -21,13 +21,13 @@ import DocAtt from '../components/docAttacment/docAtt.jsx';
 import DocType from '../components/docAttacment/docType.jsx';
 import MeetLocate from '../components/meeting/meetLocation.jsx';
 import MeetSchedule from '../components/meeting/meetingSchedule.jsx';
-import ItSupport from '../components/itSupport/itSupport.jsx';
-import ItRequestStatus from '../components/itSupport/itRequeststatus.jsx';
+// import ItSupport from '../components/itSupport/itSupport.jsx';
+// import ItRequestStatus from '../components/itSupport/itRequeststatus.jsx';
 import HrRequest from '../components/hrRequest/hrRequestList.jsx';
 
 
 
-const MainHome = () => {
+const ItHome = () => {
 
     const theme = useTheme();
 
@@ -81,8 +81,8 @@ const MainHome = () => {
                         <Route path="DocType" element={<DocType />} />
                         <Route path="MeetLocate" element={<MeetLocate />} />
                         <Route path="MeetSchedule" element={<MeetSchedule />} />
-                        <Route path="ItRequestStatus" element={<ItRequestStatus />} />
-                        <Route path="ItSupport" element={<ItSupport />} />
+                        {/* <Route path="ItRequestStatus" element={<ItRequestStatus />} /> */}
+                        {/* <Route path="ItSupport" element={<ItSupport />} /> */}
                         <Route path="HrRequest" element={<HrRequest />} />
                     </Routes>
                 </Box>
@@ -92,4 +92,4 @@ const MainHome = () => {
     );
 };
 
-export default MainHome;
+export default ItHome;

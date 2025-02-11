@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import LogIn from './user_mod/pages/login';
 import MainHome from './user_mod/pages/mainHome';
+import ItHome from './it_mod/pages/mainHome';
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LogIn />} />
         <Route path="/userMod/home/*" element={<MainHome />} />
+        <Route path="/itMod/home/*" element={<ItHome />} />
       </Routes>
     </BrowserRouter>
   );
