@@ -33,11 +33,13 @@ const ItHome = () => {
 
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
 
     useEffect(() => {
-        if(!isSmallScreen){
+        if (isSmallScreen == true) {
             setSidebarOpen(false);
+        }else {
+            setSidebarOpen(true);
         }
     }, [isSmallScreen])
 
@@ -73,6 +75,7 @@ const ItHome = () => {
                 >
                     <Routes>
                         <Route path="/" element={<Dashboard />} />
+                        <Route path="dashboard" element={<Dashboard />} />
                         <Route path="ProfilePanel" element={<ProfilePanel />} />
                         <Route path="MemberReport" element={<MemberReport />} />
                         <Route path="NoticeReport" element={<NoticeReport />} />

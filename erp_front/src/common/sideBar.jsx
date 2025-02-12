@@ -6,6 +6,8 @@ import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { useTheme } from "@mui/material/styles";
 import { getMenuItems } from "./menuOption";
 
+import getTheme from './theme/theme';
+
 
 const drawerWidth = 240;
 
@@ -20,11 +22,23 @@ const SideBar = ({ open, toggleSidebar }) => {
     setOpenMenus((prev) => ({ ...prev, [segment]: !prev[segment] }));
   };
 
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
+
+
+
+  const handleClick = () => {
+    if (isSmallScreen) {
+      toggleSidebar();
+      console.log("Sidebar toggled, new state:", !open);
+    }
+  };
+
 
   return (
     <Drawer
       sx={{
+
         width: open ? drawerWidth : 0,
         flexShrink: 0,
         "& .MuiDrawer-paper": {
@@ -44,18 +58,19 @@ const SideBar = ({ open, toggleSidebar }) => {
               <ListItem
                 component={Link}
                 to={path}
+                onClick={isSmallScreen ? () => handleClick() : undefined}
                 sx={{
                   backgroundColor:
                   location.pathname === path
                     ? theme.palette.mode === "dark"
                       ? theme.palette.primary.dark // Dark mode selected color
-                      : theme.palette.grey[300] // Light mode selected color
+                      : theme.palette.secondary.dark // Light mode selected color
                     : "inherit",
                 "&:hover": {
                   backgroundColor:
                     theme.palette.mode === "dark"
                       ? theme.palette.primary.light // Dark mode hover color
-                      : theme.palette.grey[200], // Light mode hover color
+                      : theme.palette.secondary.light, // Light mode hover color
                 },
                   textDecoration: "none",
                   color: "inherit",
@@ -79,19 +94,20 @@ const SideBar = ({ open, toggleSidebar }) => {
                         key={childSegment}
                         component={Link}
                         to={childPath}
+                        onClick={isSmallScreen ? () => handleClick(): undefined}
                         sx={{
                           pl: 4,
                           backgroundColor:
                               location.pathname === childPath
                                 ? theme.palette.mode === "dark"
                                   ? theme.palette.primary.dark // Dark mode selected color
-                                  : theme.palette.grey[300] // Light mode selected color
+                                  : theme.palette.secondary.dark  // Light mode selected color
                                 : "inherit",
                             "&:hover": {
                               backgroundColor:
                                 theme.palette.mode === "dark"
                                   ? theme.palette.primary.light // Dark mode hover color
-                                  : theme.palette.grey[200], // Light mode hover color
+                                  : theme.palette.secondary.light  // Light mode hover color
                             },
                           textDecoration: "none",
                           color: "inherit",

@@ -33,14 +33,18 @@ const MainHome = () => {
 
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
 
     useEffect(() => {
-        if(!isSmallScreen){
+        if (isSmallScreen == true) {
             setSidebarOpen(false);
+        }else {
+            setSidebarOpen(true);
         }
     }, [isSmallScreen])
 
+    // console.log(isSmallScreen);
+    // console.log('sidebarOpen',sidebarOpen);
 
     const [mode, setMode] = useState("light");
 
@@ -56,23 +60,25 @@ const MainHome = () => {
             <CssBaseline />
             <Box sx={{ display: "flex" }}>
                 <CssBaseline />
-                <NavBar toggleSidebar={toggleSidebar} mode={mode} toggleTheme={toggleTheme}/>
+                <NavBar toggleSidebar={toggleSidebar} mode={mode} toggleTheme={toggleTheme} />
                 <SideBar open={sidebarOpen} toggleSidebar={toggleSidebar} />
 
                 {/* Main content area */}
                 <Box
                     component="main"
-                    sx={{display: 'flex',
-                        justifyContent:'center',
-                        width:'100%',
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        width: '100%',
                         p: 3,
                         mt: 8,
                         transition: "margin 0.3s",
-                        overflow:'scroll',
+                        overflow: 'scroll',
                     }}
                 >
                     <Routes>
                         <Route path="/" element={<Dashboard />} />
+                        <Route path="dashboard" element={<Dashboard />} />
                         <Route path="ProfilePanel" element={<ProfilePanel />} />
                         <Route path="MemberReport" element={<MemberReport />} />
                         <Route path="NoticeReport" element={<NoticeReport />} />
