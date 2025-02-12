@@ -18,9 +18,26 @@ const SideBar = ({ open, toggleSidebar }) => {
 
   const menuItems = getMenuItems(location.pathname);
 
+  // const handleToggle = (segment) => {
+  //   setOpenMenus((prev) => ({ ...prev, [segment]: !prev[segment] }));
+  // };
+
   const handleToggle = (segment) => {
-    setOpenMenus((prev) => ({ ...prev, [segment]: !prev[segment] }));
+    setOpenMenus((prev) => {
+      // Close all menus except the one being clicked
+      const newOpenMenus = { [segment]: !prev[segment] };
+
+      // Optionally, collapse any other open menus
+      Object.keys(prev).forEach((key) => {
+        if (key !== segment) {
+          newOpenMenus[key] = false; // Close other menus
+        }
+      });
+
+      return newOpenMenus;
+    });
   };
+
 
 
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
@@ -63,14 +80,14 @@ const SideBar = ({ open, toggleSidebar }) => {
                   backgroundColor:
                   location.pathname === path
                     ? theme.palette.mode === "dark"
-                      ? theme.palette.primary.dark // Dark mode selected color
-                      : theme.palette.secondary.dark // Light mode selected color
+                      ? theme.palette.primary.light // Dark mode selected color
+                      : theme.palette.secondary.light // Light mode selected color
                     : "inherit",
                 "&:hover": {
                   backgroundColor:
                     theme.palette.mode === "dark"
-                      ? theme.palette.primary.light // Dark mode hover color
-                      : theme.palette.secondary.light, // Light mode hover color
+                      ? theme.palette.primary.dark // Dark mode hover color
+                      : theme.palette.secondary.dark, // Light mode hover color
                 },
                   textDecoration: "none",
                   color: "inherit",
@@ -82,7 +99,18 @@ const SideBar = ({ open, toggleSidebar }) => {
             ) : (
               // Parent menu item with children
               <>
-                <ListItem onClick={() => handleToggle(segment)}>
+                <ListItem onClick={() => handleToggle(segment)}   sx={{
+                          pl: 4,
+                          backgroundColor: "inherit",
+                            "&:hover": {
+                              backgroundColor:
+                                theme.palette.mode === "dark"
+                                  ? theme.palette.primary.dark // Dark mode hover color
+                                  : theme.palette.secondary.dark  // Light mode hover color
+                            },
+                          textDecoration: "none",
+                          color: "inherit",
+                        }}>
                   <ListItemIcon>{icon}</ListItemIcon>
                   <ListItemText primary={title} />
                   {openMenus[segment] ? <ExpandLess /> : <ExpandMore />}
@@ -100,14 +128,14 @@ const SideBar = ({ open, toggleSidebar }) => {
                           backgroundColor:
                               location.pathname === childPath
                                 ? theme.palette.mode === "dark"
-                                  ? theme.palette.primary.dark // Dark mode selected color
-                                  : theme.palette.secondary.dark  // Light mode selected color
+                                  ? theme.palette.primary.light // Dark mode selected color
+                                  : theme.palette.secondary.light  // Light mode selected color
                                 : "inherit",
                             "&:hover": {
                               backgroundColor:
                                 theme.palette.mode === "dark"
-                                  ? theme.palette.primary.light // Dark mode hover color
-                                  : theme.palette.secondary.light  // Light mode hover color
+                                  ? theme.palette.primary.dark // Dark mode hover color
+                                  : theme.palette.secondary.dark  // Light mode hover color
                             },
                           textDecoration: "none",
                           color: "inherit",
