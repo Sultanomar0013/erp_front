@@ -12,6 +12,7 @@ import getTheme from './theme/theme';
 const drawerWidth = 240;
 
 const SideBar = ({ open, toggleSidebar }) => {
+  
   const location = useLocation();
   const theme = useTheme();
   const [openMenus, setOpenMenus] = useState({});

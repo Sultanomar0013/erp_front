@@ -4,14 +4,15 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Brightness4Icon from "@mui/icons-material/Brightness4"; // Dark mode icon
 import Brightness7Icon from "@mui/icons-material/Brightness7"; // Light mode icon
 import { useLocation, useNavigate } from "react-router-dom";
-
+import { useTheme } from "@mui/material/styles";
+import { getMenuItemStyles } from "./theme/globalStyle";
 const NavBar = ({ toggleSidebar, mode, toggleTheme }) => {
 
   const location = useLocation();
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-
+  const theme = useTheme();
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -60,9 +61,9 @@ const NavBar = ({ toggleSidebar, mode, toggleTheme }) => {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={() => handleClose('userMod')}>User Module</MenuItem>
-        <MenuItem onClick={() => handleClose('itMod')}>It Module</MenuItem>
-        <MenuItem onClick={() => handleClose('accMod')}>Accounts Module</MenuItem>
+        <MenuItem onClick={() => handleClose('userMod')}  sx={getMenuItemStyles(theme)}>User Module</MenuItem>
+        <MenuItem onClick={() => handleClose('itMod')} sx={getMenuItemStyles(theme)}>It Module</MenuItem>
+        <MenuItem onClick={() => handleClose('accMod')} sx={getMenuItemStyles(theme)}>Accounts Module</MenuItem>
       </Menu>
 
         {/* Theme Toggle Button */}
