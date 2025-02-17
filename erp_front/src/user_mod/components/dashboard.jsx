@@ -80,7 +80,7 @@ function Dashboard() {
               <BarChart
                 series={[{ data: [5, 10, 15, 20] }]}
                 xAxis={[{ scaleType: "band", data: ["Q1", "Q2", "Q3", "Q4"] }]}
-                width='100%'
+                width={400}
                 height={300}
               />
             </Paper>

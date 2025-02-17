@@ -43,24 +43,43 @@ const MainHome = () => {
         }
     }, [isSmallScreen])
 
-    // console.log(isSmallScreen);
-    // console.log('sidebarOpen',sidebarOpen);
 
-    const [mode, setMode] = useState("light");
 
-    const toggleTheme = () => {
-        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+    const [customTheme, setCustomTheme] = useState(localStorage.getItem("customtheme") ? localStorage.getItem("customtheme")  : "light");
 
+    const toggleTheme = (newTheme) => {
+        setCustomTheme(newTheme);
+        localStorage.setItem("customtheme", newTheme);
     };
+
+    useEffect(() => {
+        const handleStorageChange = (event) => {
+            if (event.key === "customtheme") {
+                setCustomTheme(event.newValue || "light");
+            }
+        };
+
+        window.addEventListener("storage", handleStorageChange);
+
+        return () => {
+            window.removeEventListener("storage", handleStorageChange);
+        };
+    }, []);
+
+
+
+
+
+
 
 
     return (
 
-        <ThemeProvider theme={getTheme(mode)}>
+        <ThemeProvider theme={getTheme(customTheme)}>
             <CssBaseline />
             <Box sx={{ display: "flex" }}>
                 <CssBaseline />
-                <NavBar toggleSidebar={toggleSidebar} mode={mode} toggleTheme={toggleTheme} />
+                <NavBar toggleSidebar={toggleSidebar} mode={customTheme} toggleTheme={toggleTheme} />
                 <SideBar open={sidebarOpen} toggleSidebar={toggleSidebar} />
 
                 {/* Main content area */}

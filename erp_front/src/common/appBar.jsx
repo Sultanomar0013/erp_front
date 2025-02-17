@@ -6,6 +6,18 @@ import Brightness7Icon from "@mui/icons-material/Brightness7"; // Light mode ico
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import { getMenuItemStyles } from "./theme/globalStyle";
+
+
+import { Brightness4, Brightness7, ColorLens, ExpandMore } from "@mui/icons-material";
+
+
+const themeIcons = {
+  light: <Brightness7 />,
+  dark: <Brightness4 />,
+  green: <ColorLens />,
+};
+
+
 const NavBar = ({ toggleSidebar, mode, toggleTheme }) => {
 
   const location = useLocation();
@@ -27,6 +39,31 @@ const NavBar = ({ toggleSidebar, mode, toggleTheme }) => {
       navigate('/accMod/home');
     }
   };
+
+  const [themeanchorEl, setThemeAnchorEl] = useState(null);
+  const themeopen = Boolean(themeanchorEl);
+  const storeTheme = localStorage.getItem("customtheme") ;
+  const [selectedTheme, setSelectedTheme] = useState( themeIcons[localStorage.getItem("customtheme")] ||<Brightness7/>);
+
+  const handleThemeClick = (event) => {
+    setThemeAnchorEl(event.currentTarget);
+  };
+
+
+
+  const handleThemeClose = (theme) => {
+
+      if (localStorage.getItem("customtheme") !== theme && theme != null ) {
+        localStorage.setItem("customtheme", theme);
+        setSelectedTheme(themeIcons[theme]);
+        toggleTheme(theme);
+    }
+    setThemeAnchorEl(null);
+  };
+
+
+
+
 
   const [selectedItem, setSelectedItem] = useState("User Module");
 
@@ -66,10 +103,25 @@ const NavBar = ({ toggleSidebar, mode, toggleTheme }) => {
         <MenuItem onClick={() => handleClose('accMod')} sx={getMenuItemStyles(theme)}>Accounts Module</MenuItem>
       </Menu>
 
-        {/* Theme Toggle Button */}
-        <IconButton color="inherit" onClick={toggleTheme} >
-          {mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
-        </IconButton>
+      <IconButton color="inherit" onClick={handleThemeClick}>
+        {selectedTheme}
+      </IconButton>
+
+      <Menu anchorEl={themeanchorEl} open={themeopen} onClose={() => handleThemeClose(null)}>
+        <MenuItem onClick={() => handleThemeClose("dark")}>
+          <Brightness4 style={{ marginRight: 8 }} />
+          Dark
+        </MenuItem>
+        <MenuItem onClick={() => handleThemeClose("light")}>
+          <Brightness7 style={{ marginRight: 8 }} />
+          Light
+        </MenuItem>
+        <MenuItem onClick={() => handleThemeClose("green")}>
+          <ColorLens style={{ marginRight: 8, color: "green" }} />
+          Green
+        </MenuItem>
+      </Menu>
+
       </Toolbar>
     </AppBar>
   );
