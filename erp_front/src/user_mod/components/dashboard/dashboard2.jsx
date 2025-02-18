@@ -5,10 +5,10 @@ import { BarChart, PieChart } from "@mui/x-charts"; // Assuming you're using MUI
 import { useTheme } from "@mui/material/styles";
 
 
-import { styled } from "@mui/material/styles";
+import { styled } from "@mui/material";
 import { CalendarPicker } from "@mui/x-date-pickers";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers";
 import dayjs from "dayjs";
 
 const statusData = {
