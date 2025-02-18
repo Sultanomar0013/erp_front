@@ -1,10 +1,34 @@
 import React, { useState, useEffect } from "react";
-import { Grid, Box, Typography, Paper, Skeleton } from "@mui/material";
+import { Grid, Box, Typography, Paper, Skeleton, Badge } from "@mui/material";
 import { BarChart, PieChart } from "@mui/x-charts"; // Assuming you're using MUI X Charts
 
 import { useTheme } from "@mui/material/styles";
 
+
+import { styled } from "@mui/material/styles";
+import { CalendarPicker } from "@mui/x-date-pickers/CalendarPicker";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import dayjs from "dayjs";
+
+const statusData = {
+  "2025-02-10": "present",
+  "2025-02-11": "leave",
+  "2025-02-12": "late",
+  "2025-02-13": "off",
+};
+
+const statusStyles = {
+  present: { backgroundColor: "green", color: "white" },
+  leave: { backgroundColor: "red", color: "white" },
+  late: { backgroundColor: "orange", color: "white" },
+  off: { backgroundColor: "gray", color: "white" },
+};
+
+
 function Dashboard() {
+  const [date, setDate] = React.useState(dayjs());
+  
   const theme  = useTheme();
   const [loading, setLoading] = useState(true);
 
@@ -25,7 +49,45 @@ function Dashboard() {
       }}
     >
       <Box sx={{ width: "100%", height: { md: 'auto', lg: '20rem' }, display: "flex", justifyContent: "center", gap: 2, backgroundColor: theme.palette.secondary.main, borderRadius: 2 }}>
-        <Grid></Grid>
+        <Grid>
+        
+
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <CalendarPicker
+            date={date}
+            onChange={(newDate) => setDate(newDate)}
+            renderDay={(day, _value, DayComponentProps) => {
+              const formattedDate = day.format("YYYY-MM-DD");
+              const status = statusData[formattedDate];
+    
+              return (
+                <Badge
+                  key={formattedDate}
+                  overlap="circular"
+                  badgeContent={
+                    status ? (
+                      <Typography
+                        sx={{
+                          ...statusStyles[status],
+                          fontSize: "10px",
+                          padding: "2px 5px",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        {status}
+                      </Typography>
+                    ) : null
+                  }
+                >
+                  <DayComponentProps.DayComponent {...DayComponentProps} />
+                </Badge>
+              );
+            }}
+          />
+      </LocalizationProvider>
+
+          
+        </Grid>
         <Grid></Grid>
         <Grid></Grid>
 
