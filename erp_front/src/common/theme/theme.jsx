@@ -6,7 +6,10 @@ const defaultTheme = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "#1976d2", // Blue
+      main: "#1976d2",
+    },
+    secondary: {
+      main: "#81DAF5",
     },
     background: {
       default: "#f5f5f5",
@@ -19,7 +22,10 @@ const darkTheme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#90caf9",
+      main: "#bb86fc",
+    },
+    secondary: {
+      main: "#E3CEF6",
     },
     background: {
       default: "#121212",
@@ -34,6 +40,9 @@ const greenTheme = createTheme({
     primary: {
       main: "#008b8b", // Green
     },
+    secondary: {
+      main: "#e8f5e9",
+    },
     background: {
       default: "#e8f5e9",
       paper: "#c8e6c9",
@@ -42,13 +51,13 @@ const greenTheme = createTheme({
 });
 
 
-export const getTheme = (mode) => {
+export const getTheme = (customTheme) => {
 
-  if( mode  === "light" ){
+  if( customTheme  === "light" ){
     return defaultTheme;
-  }else if( mode  === "dark"  ){
+  }else if( customTheme  === "dark"  ){
     return darkTheme;
-  }else if( mode  === "green"  ){
+  }else if( customTheme  === "green"  ){
     return greenTheme;
   }
 };

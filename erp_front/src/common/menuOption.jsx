@@ -1,9 +1,16 @@
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import PersonIcon from "@mui/icons-material/Person";
-import SettingsIcon from "@mui/icons-material/Settings";
-import CodeIcon from "@mui/icons-material/Code";
-import StarIcon from "@mui/icons-material/Star";
-import { useLocation } from "react-router-dom";
+import PeopleIcon from "@mui/icons-material/People";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import EditIcon from "@mui/icons-material/Edit";
+import DescriptionIcon from "@mui/icons-material/Description";
+import ListAltIcon from "@mui/icons-material/ListAlt";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import EventIcon from "@mui/icons-material/Event";
+import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
+import GroupIcon from "@mui/icons-material/Group";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import TodayIcon from "@mui/icons-material/Today";
+import WorkIcon from "@mui/icons-material/Work";
 
 import SecurityIcon from "@mui/icons-material/Security";
 import LockIcon from "@mui/icons-material/Lock";
@@ -34,53 +41,54 @@ import ApiIcon from "@mui/icons-material/Api";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import FindInPageIcon from "@mui/icons-material/FindInPage";
+import PersonIcon from "@mui/icons-material/Person";
+import CodeIcon from "@mui/icons-material/Code";
 
 // Define all menu items
 const userMenuItems = [
   { segment: "dashboard", title: "Dashboard", icon: <DashboardIcon />, path: "/userMod/home/Dashboard" },
-  { segment: "user_access", title: "User Access", icon: <DashboardIcon />, path: "/userMod/home/UserAccess" },
+  { segment: "user_access", title: "User Access", icon: <PeopleIcon />, path: "/userMod/home/UserAccess" },
   {
     segment: "my_account",
     title: "My Account",
-    icon: <CodeIcon />,
+    icon: <AccountCircleIcon />,
     children: [
-      { segment: "profile", title: "My Profile", path: "/userMod/home/ProfilePanel", icon: <StarIcon /> },
-      { segment: "update_profile", title: "Update Profile", path: "/userMod/home/UpdateProfile", icon: <StarIcon /> },
+      { segment: "profile", title: "My Profile", path: "/userMod/home/ProfilePanel", icon: <AccountCircleIcon /> },
+      { segment: "update_profile", title: "Update Profile", path: "/userMod/home/UpdateProfile", icon: <EditIcon /> },
     ],
   },
-  { segment: "member_info", title: "Member Basic Info", icon: <SettingsIcon />, path: "/userMod/home/MemberBasicInfo" },
-  { segment: "notice", title: "Notice", icon: <SettingsIcon />, path: "/userMod/home/NoticeReport" },
-  { segment: "attendance", title: "Attendance", icon: <SettingsIcon />, path: "/userMod/home/Attendance" },
+  { segment: "member_info", title: "Member Basic Info", icon: <GroupIcon />, path: "/userMod/home/MemberBasicInfo" },
+  { segment: "notice", title: "Notice", icon: <NotificationsIcon />, path: "/userMod/home/NoticeReport" },
+  { segment: "attendance", title: "Attendance", icon: <TodayIcon />, path: "/userMod/home/Attendance" },
   {
     segment: "document",
     title: "Document",
-    icon: <CodeIcon />,
+    icon: <DescriptionIcon />,
     children: [
-      { segment: "doc_type", title: "Document Type", path: "/userMod/home/DocType", icon: <StarIcon /> },
-      { segment: "doc_list", title: "Document List", path: "/userMod/home/DocAtt", icon: <StarIcon /> },
+      { segment: "doc_type", title: "Document Type", path: "/userMod/home/DocType", icon: <ListAltIcon /> },
+      { segment: "doc_list", title: "Document List", path: "/userMod/home/DocAtt", icon: <ListAltIcon /> },
     ],
   },
   {
     segment: "meeting",
     title: "Meeting Schedule",
-    icon: <CodeIcon />,
+    icon: <EventIcon />,
     children: [
-      { segment: "meet_location", title: "Meeting Location", path: "/userMod/home/MeetLocate", icon: <StarIcon /> },
-      { segment: "meet_schedule", title: "Create Schedule", path: "/userMod/home/MeetSchedule", icon: <StarIcon /> },
+      { segment: "meet_location", title: "Meeting Location", path: "/userMod/home/MeetLocate", icon: <LocationOnIcon /> },
+      { segment: "meet_schedule", title: "Create Schedule", path: "/userMod/home/MeetSchedule", icon: <EventIcon /> },
     ],
   },
   {
     segment: "it_support",
     title: "IT Support",
-    icon: <CodeIcon />,
+    icon: <SupportAgentIcon />,
     children: [
-      { segment: "it_request", title: "IT Request Status", path: "/userMod/home/ItRequestStatus", icon: <PersonIcon /> },
-      { segment: "it_list", title: "IT Support List", path: "/userMod/home/ItSupport", icon: <SettingsIcon /> },
+      { segment: "it_request", title: "IT Request Status", path: "/userMod/home/ItRequestStatus", icon: <AssignmentTurnedInIcon /> },
+      { segment: "it_list", title: "IT Support List", path: "/userMod/home/ItSupport", icon: <SupportAgentIcon /> },
     ],
   },
-  { segment: "hr_support", title: "HR & Admin Support", icon: <SettingsIcon />, path: "/userMod/home/HrRequest" },
+  { segment: "hr_support", title: "HR & Admin Support", icon: <WorkIcon />, path: "/userMod/home/HrRequest" },
 ];
-
 
 
 

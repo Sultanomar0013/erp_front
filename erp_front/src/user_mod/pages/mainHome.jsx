@@ -11,8 +11,9 @@ import getTheme from '../../common/theme/theme.jsx';
 import NavBar from "../../common/appBar";
 import SideBar from "../../common/sideBar";
 import { useTheme } from "@mui/material/styles";
+
 //component Layout
-import Dashboard from "../components/dashboard";
+import Dashboard from "../components/dashboard/dashboard2";
 import ProfilePanel from "../components/profileComponent/myProfile"
 import MemberReport from "../components/member_basic/memberReport.jsx"
 import NoticeReport from "../components/notice/notice.jsx"
@@ -95,21 +96,27 @@ const MainHome = () => {
                         overflow: 'scroll',
                     }}
                 >
-                    <Routes>
-                        <Route path="/" element={<Dashboard />} />
-                        <Route path="dashboard" element={<Dashboard />} />
-                        <Route path="ProfilePanel" element={<ProfilePanel />} />
-                        <Route path="MemberReport" element={<MemberReport />} />
-                        <Route path="NoticeReport" element={<NoticeReport />} />
-                        <Route path="Attendance" element={<AttendanceComponent />} />
-                        <Route path="DocAtt" element={<DocAtt />} />
-                        <Route path="DocType" element={<DocType />} />
-                        <Route path="MeetLocate" element={<MeetLocate />} />
-                        <Route path="MeetSchedule" element={<MeetSchedule />} />
-                        <Route path="ItRequestStatus" element={<ItRequestStatus />} />
-                        <Route path="ItSupport" element={<ItSupport />} />
-                        <Route path="HrRequest" element={<HrRequest />} />
-                    </Routes>
+                    <Box sx={{  maxWidth: '1440px',
+                                display: 'flex',
+
+                                flexGrow: 1,
+                                }}>
+                        <Routes>
+                            <Route path="/" element={<Dashboard />} />
+                            <Route path="dashboard" element={<Dashboard />} />
+                            <Route path="ProfilePanel" element={<ProfilePanel />} />
+                            <Route path="MemberReport" element={<MemberReport />} />
+                            <Route path="NoticeReport" element={<NoticeReport />} />
+                            <Route path="Attendance" element={<AttendanceComponent />} />
+                            <Route path="DocAtt" element={<DocAtt />} />
+                            <Route path="DocType" element={<DocType />} />
+                            <Route path="MeetLocate" element={<MeetLocate />} />
+                            <Route path="MeetSchedule" element={<MeetSchedule />} />
+                            <Route path="ItRequestStatus" element={<ItRequestStatus />} />
+                            <Route path="ItSupport" element={<ItSupport />} />
+                            <Route path="HrRequest" element={<HrRequest />} />
+                        </Routes>
+                    </Box>
                 </Box>
             </Box>
         </ThemeProvider>

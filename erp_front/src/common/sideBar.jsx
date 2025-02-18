@@ -12,7 +12,7 @@ import getTheme from './theme/theme';
 const drawerWidth = 240;
 
 const SideBar = ({ open, toggleSidebar }) => {
-  
+
   const location = useLocation();
   const theme = useTheme();
   const [openMenus, setOpenMenus] = useState({});
@@ -80,15 +80,11 @@ const SideBar = ({ open, toggleSidebar }) => {
                 sx={{
                   backgroundColor:
                   location.pathname === path
-                    ? theme.palette.mode === "dark"
-                      ? theme.palette.primary.light // Dark mode selected color
-                      : theme.palette.secondary.light // Light mode selected color
-                    : "inherit",
+                      ? theme.palette.primary.main
+                      : "",
+
                 "&:hover": {
-                  backgroundColor:
-                    theme.palette.mode === "dark"
-                      ? theme.palette.primary.dark // Dark mode hover color
-                      : theme.palette.secondary.dark, // Light mode hover color
+                  backgroundColor: theme.palette.secondary.main
                 },
                   textDecoration: "none",
                   color: "inherit",
@@ -104,10 +100,7 @@ const SideBar = ({ open, toggleSidebar }) => {
                           pl: 4,
                           backgroundColor: "inherit",
                             "&:hover": {
-                              backgroundColor:
-                                theme.palette.mode === "dark"
-                                  ? theme.palette.primary.dark // Dark mode hover color
-                                  : theme.palette.secondary.dark  // Light mode hover color
+                              backgroundColor: theme.palette.secondary.main
                             },
                           textDecoration: "none",
                           color: "inherit",
@@ -128,15 +121,11 @@ const SideBar = ({ open, toggleSidebar }) => {
                           pl: 4,
                           backgroundColor:
                               location.pathname === childPath
-                                ? theme.palette.mode === "dark"
-                                  ? theme.palette.primary.light // Dark mode selected color
-                                  : theme.palette.secondary.light  // Light mode selected color
-                                : "inherit",
+                                  ? theme.palette.primary.main
+                                  : "",
+
                             "&:hover": {
-                              backgroundColor:
-                                theme.palette.mode === "dark"
-                                  ? theme.palette.primary.dark // Dark mode hover color
-                                  : theme.palette.secondary.dark  // Light mode hover color
+                              backgroundColor: theme.palette.secondary.main
                             },
                           textDecoration: "none",
                           color: "inherit",
