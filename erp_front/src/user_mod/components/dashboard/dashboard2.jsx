@@ -6,7 +6,7 @@ import { useTheme } from "@mui/material/styles";
 
 
 import { styled } from "@mui/material";
-import { CalendarPicker } from '@mui/x-date-pickers';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
@@ -53,7 +53,7 @@ function Dashboard() {
         
 
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <CalendarPicker
+          <DatePicker
             date={date}
             onChange={(newDate) => setDate(newDate)}
             renderDay={(day, _value, DayComponentProps) => {
