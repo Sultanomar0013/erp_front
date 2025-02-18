@@ -4,9 +4,9 @@ import { BarChart, PieChart } from "@mui/x-charts"; // Assuming you're using MUI
 
 import { useTheme } from "@mui/material/styles";
 
-
+import TextField from '@mui/material/TextField';
 import { styled } from "@mui/material";
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
@@ -27,7 +27,11 @@ const statusStyles = {
 
 
 function Dashboard() {
-  const [date, setDate] = React.useState(dayjs());
+  const [value, setValue] = React.useState(null);
+
+  const handleChange = (newValue) => {
+    setValue(newValue);
+  };
   
   const theme  = useTheme();
   const [loading, setLoading] = useState(true);
@@ -52,39 +56,15 @@ function Dashboard() {
         <Grid>
         
 
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DatePicker
-            date={date}
-            onChange={(newDate) => setDate(newDate)}
-            renderDay={(day, _value, DayComponentProps) => {
-              const formattedDate = day.format("YYYY-MM-DD");
-              const status = statusData[formattedDate];
-    
-              return (
-                <Badge
-                  key={formattedDate}
-                  overlap="circular"
-                  badgeContent={
-                    status ? (
-                      <Typography
-                        sx={{
-                          ...statusStyles[status],
-                          fontSize: "10px",
-                          padding: "2px 5px",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        {status}
-                      </Typography>
-                    ) : null
-                  }
-                >
-                  <DayComponentProps.DayComponent {...DayComponentProps} />
-                </Badge>
-              );
-            }}
-          />
-      </LocalizationProvider>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <DesktopDatePicker
+        label="Date picker"
+        inputFormat="MM/dd/yyyy"
+        value={value}
+        onChange={handleChange}
+        renderInput={(params) => <TextField {...params} />}
+      />
+    </LocalizationProvider>
 
           
         </Grid>
