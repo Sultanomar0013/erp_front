@@ -15,6 +15,10 @@ const defaultTheme = createTheme({
       default: "#f5f5f5",
       paper: "#fff",
     },
+    text: {
+      primary: "#000", // Define primary text color
+      secondary: "#FFFFFF", // Define secondary text color
+    },
   },
 });
 
@@ -31,6 +35,10 @@ const darkTheme = createTheme({
       default: "#121212",
       paper: "#1e1e1e",
     },
+    text: {
+      primary: "#FFFFFF", // Define primary text color
+      secondary: "#FFFFFF", // Define secondary text color
+    },
   },
 });
 
@@ -46,6 +54,10 @@ const greenTheme = createTheme({
     background: {
       default: "#e8f5e9",
       paper: "#c8e6c9",
+    },
+    text: {
+      primary: "#000", // Define primary text color
+      secondary: "#FFFFFF", // Define secondary text color
     },
   },
 });

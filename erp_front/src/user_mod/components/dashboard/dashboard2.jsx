@@ -1,15 +1,53 @@
 import React, { useState, useEffect } from "react";
 import { Grid, Box, Typography, Paper, Skeleton, Badge } from "@mui/material";
-import { BarChart, PieChart } from "@mui/x-charts"; // Assuming you're using MUI X Charts
+import { BarChart, PieChart } from "@mui/x-charts";
+// import './dashboard.css';
+import { styled } from '@mui/system'; // Import styled from MUI
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 import { useTheme } from "@mui/material/styles";
 
-import TextField from '@mui/material/TextField';
-import { styled } from "@mui/material";
-import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import dayjs from "dayjs";
+// const StyledCalendar = styled(Calendar)(({ theme }) => ({
+//   backgroundColor: theme.palette.primary.main,
+//   borderRadius: '15px', 
+//   padding: '1rem', 
+
+//   '.react-calendar__tile': {
+//     color: theme.palette.text.secondary,
+//   },
+// }));
+
+
+const StyledCalendar = styled(Calendar)(({ theme }) => ({
+  background: `linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, ${theme.palette.primary.main} 100%)`, // Glacier effect with gradient
+  borderRadius: '15px', 
+  padding: '1rem', 
+  boxShadow: `0 4px 20px rgba(0, 0, 0, 0.1)`, 
+
+
+  '.react-calendar__tile': {
+    color: theme.palette.text.secondary,
+    transition: 'background-color 0.3s ease', 
+  },
+  
+  '.react-calendar__tile:hover': {
+    backgroundColor: theme.palette.secondary.main, 
+    color: '#fff', 
+  },
+  '.react-calendar__tile.off-day': {
+   
+    color: 'red',
+  },
+  '.react-calendar__tile--active': {
+    background: 'white',
+  }
+
+
+}));
+
+
+
 
 const statusData = {
   "2025-02-10": "present",
@@ -17,6 +55,8 @@ const statusData = {
   "2025-02-12": "late",
   "2025-02-13": "off",
 };
+
+
 
 const statusStyles = {
   present: { backgroundColor: "green", color: "white" },
@@ -27,13 +67,22 @@ const statusStyles = {
 
 
 function Dashboard() {
-  const [value, setValue] = React.useState(null);
+  const [date, setDate] = useState(new Date());
 
-  const handleChange = (newValue) => {
-    setValue(newValue);
+  const markOffDays = ({ date, view }) => {
+    // For example, highlighting weekends
+    if (view === 'month') {
+      const day = date.getDay();
+      // Mark Saturday (6) and Sunday (0) as off days
+      if (day === 0 || day === 6) {
+        return 'off-day'; // You can style it with this class
+      }
+    }
   };
   
   const theme  = useTheme();
+
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -52,26 +101,66 @@ function Dashboard() {
         gap: 3,
       }}
     >
-      <Box sx={{ width: "100%", height: { md: 'auto', lg: '20rem' }, display: "flex", justifyContent: "center", gap: 2, backgroundColor: theme.palette.secondary.main, borderRadius: 2 }}>
-        <Grid>
+      <Box
+      sx={{
+        width: "100%",
+        height: { xs: "auto", md: "auto", lg: "20rem" },
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        //backgroundColor: theme.palette.secondary.main,
+        borderRadius: 2,
+        p: 2,
+      }}
+    >
+      <Grid 
+        container 
+        spacing={2} 
+        justifyContent="center"
+      >
         
-
-      <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <DesktopDatePicker
-        label="Date picker"
-        inputFormat="MM/dd/yyyy"
-        value={value}
-        onChange={handleChange}
-        renderInput={(params) => <TextField {...params} />}
-      />
-    </LocalizationProvider>
-
+          <Grid 
+            item 
+            xs={12} sm={6} md={4} // Responsive breakpoints
+           
+            display="flex" 
+            justifyContent="center"
+          >
           
-        </Grid>
-        <Grid></Grid>
-        <Grid></Grid>
+         
+            <StyledCalendar 
+              onChange={setDate} 
+              value={date} 
+              tileClassName={markOffDays} 
+            />
 
-      </Box>
+
+       
+         
+          </Grid>
+
+          <Grid 
+            item 
+            xs={12} sm={6} md={4} // Responsive breakpoints
+         
+            display="flex" 
+            justifyContent="center"
+          >
+           
+          </Grid>
+
+          <Grid 
+            item 
+            xs={12} sm={6} md={4} // Responsive breakpoints
+            
+            display="flex" 
+            justifyContent="center"
+          >
+           
+          </Grid>
+       
+      </Grid>
+    </Box>
       {/* 🔹 First Section: Four Paper Cards with Skeleton */}
       <Grid container spacing={2} justifyContent="center" sx={{ width: "100%" }}>
         {[1, 2, 3, 4].map((item) => (
@@ -86,7 +175,7 @@ function Dashboard() {
                   justifyContent: "center",
                   alignItems: "center",
                   height: 200,
-                  backgroundColor: "#f5f5f5",
+                
                 }}
               >
                 <Typography variant="h5">"Lorem {item}"</Typography>
@@ -103,7 +192,7 @@ function Dashboard() {
             <Box
               sx={{
                 height: 150,
-                backgroundColor: "#e3f2fd",
+                
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
