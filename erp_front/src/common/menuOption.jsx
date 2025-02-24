@@ -44,7 +44,7 @@ import FindInPageIcon from "@mui/icons-material/FindInPage";
 import PersonIcon from "@mui/icons-material/Person";
 import CodeIcon from "@mui/icons-material/Code";
 
-// Define all menu items
+// User Module
 const userMenuItems = [
   { segment: "dashboard", title: "Dashboard", icon: <DashboardIcon />, path: "/userMod/home/Dashboard" },
   { segment: "user_access", title: "User Access", icon: <PeopleIcon />, path: "/userMod/home/UserAccess" },
@@ -57,7 +57,6 @@ const userMenuItems = [
       { segment: "update_profile", title: "Update Profile", path: "/userMod/home/UpdateProfile", icon: <EditIcon /> },
     ],
   },
-  { segment: "member_info", title: "Member Basic Info", icon: <GroupIcon />, path: "/userMod/home/MemberBasicInfo" },
   { segment: "notice", title: "Notice", icon: <NotificationsIcon />, path: "/userMod/home/NoticeReport" },
   { segment: "attendance", title: "Attendance", icon: <TodayIcon />, path: "/userMod/home/Attendance" },
   {
@@ -92,6 +91,11 @@ const userMenuItems = [
 
 
 
+
+
+
+
+// It menus
 const itMenuItems = [
   { segment: "dashboard", title: "Dashboard", icon: <DashboardIcon />, path: "/itMod/home/Dashboard" },
   {
