@@ -65,11 +65,11 @@ const greenTheme = createTheme({
 
 export const getTheme = (customTheme) => {
 
-  if( customTheme  === "light" ){
+  if (customTheme === "light") {
     return defaultTheme;
-  }else if( customTheme  === "dark"  ){
+  } else if (customTheme === "dark") {
     return darkTheme;
-  }else if( customTheme  === "green"  ){
+  } else if (customTheme === "green") {
     return greenTheme;
   }
 };

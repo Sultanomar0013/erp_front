@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Grid, Box, Typography, Paper, Skeleton, Badge } from "@mui/material";
+import { Grid, Box, Typography, Paper, Skeleton, Badge,Divider } from "@mui/material";
 import { BarChart, PieChart } from "@mui/x-charts";
 // import './dashboard.css';
 import { styled } from '@mui/system'; // Import styled from MUI
@@ -8,39 +8,38 @@ import 'react-calendar/dist/Calendar.css';
 
 import { useTheme } from "@mui/material/styles";
 
-// const StyledCalendar = styled(Calendar)(({ theme }) => ({
-//   backgroundColor: theme.palette.primary.main,
-//   borderRadius: '15px', 
-//   padding: '1rem', 
 
-//   '.react-calendar__tile': {
-//     color: theme.palette.text.secondary,
-//   },
-// }));
+
+const notices = [
+  { title: "System Maintenance", date: "Feb 25, 2025", message: "The system will be under maintenance from 12 AM to 2 AM." },
+  { title: "New Feature Release", date: "Feb 20, 2025", message: "We have launched a new inventory tracking module." },
+  { title: "Holiday Notice", date: "Feb 15, 2025", message: "The office will remain closed on February 21st for International Mother Language Day." },
+];
 
 
 const StyledCalendar = styled(Calendar)(({ theme }) => ({
-  background: `linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, ${theme.palette.primary.main} 100%)`, // Glacier effect with gradient
-  borderRadius: '15px', 
-  padding: '1rem', 
-  boxShadow: `0 4px 20px rgba(0, 0, 0, 0.1)`, 
+  //background: `linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, ${theme.palette.primary.main} 100%)`, // Glacier effect with gradient
+  background: theme.palette.primary.main,
+  borderRadius: '15px',
+  padding: '1rem',
+  boxShadow: `0 4px 20px rgba(0, 0, 0, 0.1)`,
+  width:'85%',
 
 
   '.react-calendar__tile': {
-    color: theme.palette.text.secondary,
-    transition: 'background-color 0.3s ease', 
+    color: 'white',
+    transition: 'background-color 0.3s ease',
   },
-  
+
   '.react-calendar__tile:hover': {
-    backgroundColor: theme.palette.secondary.main, 
-    color: '#fff', 
+    backgroundColor: theme.palette.secondary.main,
+    color: '#fff',
   },
   '.react-calendar__tile.off-day': {
-   
     color: 'red',
   },
   '.react-calendar__tile--active': {
-    background: 'white',
+    background: 'black',
   }
 
 
@@ -79,7 +78,7 @@ function Dashboard() {
       }
     }
   };
-  
+
   const theme  = useTheme();
 
 
@@ -89,6 +88,18 @@ function Dashboard() {
     setTimeout(() => {
       setLoading(false);
     }, 2000); // Simulate loading delay
+  }, []);
+
+
+
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(new Date());
+    }, 1000); // Update every second
+
+    return () => clearInterval(interval); // Cleanup on unmount
   }, []);
 
   return (
@@ -101,6 +112,12 @@ function Dashboard() {
         gap: 3,
       }}
     >
+
+
+
+
+
+    {/* BreackPoints One : Title page */}
       <Box
       sx={{
         width: "100%",
@@ -113,54 +130,90 @@ function Dashboard() {
         p: 2,
       }}
     >
-      <Grid 
-        container 
-        spacing={2} 
+      <Grid
+        container
+        spacing={0}
         justifyContent="center"
       >
-        
-          <Grid 
-            item 
+
+          <Grid
+            item
             xs={12} sm={6} md={4} // Responsive breakpoints
-           
-            display="flex" 
+            display="flex"
             justifyContent="center"
           >
-          
-         
-            <StyledCalendar 
-              onChange={setDate} 
-              value={date} 
-              tileClassName={markOffDays} 
+            <StyledCalendar
+              onChange={setDate}
+              value={date}
+              tileClassName={markOffDays}
             />
-
-
-       
-         
           </Grid>
 
-          <Grid 
-            item 
+          <Grid
+            item
             xs={12} sm={6} md={4} // Responsive breakpoints
-         
-            display="flex" 
+            display="flex"
             justifyContent="center"
           >
-           
+            <Paper sx={{ width:'85%',height:{ xs: "20rem", md: "20rem", lg: "20rem" },overflow: "hidden", padding: '10rem', backgroundColor: theme.palette.primary.main, color: 'white', borderRadius: '15px', p: 2 }}>
+               {/* Notice Board Title */}
+                <Typography sx={{ fontSize: "22px", fontWeight: "bold", mb: 2 }}>
+                  📢 Notice Board
+                </Typography>
+
+                {/* Scrollable Notices */}
+                <Box
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    overflowY: "auto",
+                    pr: 1, // Prevents scrollbar overlap
+                    "&::-webkit-scrollbar": { width: "6px" },
+                    "&::-webkit-scrollbar-thumb": { backgroundColor: "rgba(255, 255, 255, 0.5)", borderRadius: "6px" },
+                  }}
+                >
+                  {notices.map((notice, index) => (
+                    <Box key={index} sx={{ mb: 2 }}>
+                      <Typography sx={{ fontSize: "18px", fontWeight: "bold" }}>
+                        {notice.title}
+                      </Typography>
+                      <Typography sx={{ fontSize: "14px", fontStyle: "italic", opacity: 0.8 }}>
+                        📅 {notice.date}
+                      </Typography>
+                      <Typography sx={{ fontSize: "16px", mt: 1 }}>
+                        {notice.message}
+                      </Typography>
+                      {index !== notices.length - 1 && <Divider sx={{ backgroundColor: "white", my: 1 }} />}
+                    </Box>
+                  ))}
+                </Box>
+
+            </Paper>
+
           </Grid>
 
-          <Grid 
-            item 
+          <Grid
+            item
             xs={12} sm={6} md={4} // Responsive breakpoints
-            
-            display="flex" 
+            display="flex"
             justifyContent="center"
           >
-           
+            <Paper sx={{ width:'85%',height:{ xs: "20rem", md: "20rem", lg: "20rem" }, padding: '10rem', backgroundColor: theme.palette.primary.main, color: 'white', borderRadius: '15px', p: 2 }}>
+              <Typography sx={{ fontSize: "24px", fontWeight: "bold",}}>
+                {time.toLocaleTimeString()}
+              </Typography>
+              <Typography sx={{ fontSize: "16px", mt: 1 }}>
+                🌍 Timezone: {Intl.DateTimeFormat().resolvedOptions().timeZone}
+              </Typography>
+            </Paper>
           </Grid>
-       
+
       </Grid>
     </Box>
+
+
+
+
       {/* 🔹 First Section: Four Paper Cards with Skeleton */}
       <Grid container spacing={2} justifyContent="center" sx={{ width: "100%" }}>
         {[1, 2, 3, 4].map((item) => (
@@ -175,7 +228,7 @@ function Dashboard() {
                   justifyContent: "center",
                   alignItems: "center",
                   height: 200,
-                
+
                 }}
               >
                 <Typography variant="h5">"Lorem {item}"</Typography>
@@ -185,6 +238,9 @@ function Dashboard() {
         ))}
       </Grid>
 
+
+
+
       {/* 🔹 Second Section: Four Divs */}
       <Grid container spacing={2} sx={{ width: "100%" }}>
         {[1, 2, 3, 4].map((item) => (
@@ -192,7 +248,7 @@ function Dashboard() {
             <Box
               sx={{
                 height: 150,
-                
+
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -204,6 +260,8 @@ function Dashboard() {
           </Grid>
         ))}
       </Grid>
+
+
 
       {/* 🔹 Third Section: Graphs */}
       <Box sx={{ width: "100%", display: "flex", flexDirection: "column", gap: 2 }}>
