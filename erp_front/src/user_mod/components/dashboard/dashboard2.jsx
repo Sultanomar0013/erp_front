@@ -6,6 +6,10 @@ import { styled } from '@mui/system'; // Import styled from MUI
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
+import PeopleIcon from '@mui/icons-material/People';
+import ComputerIcon from '@mui/icons-material/Computer';
+import WorkIcon from '@mui/icons-material/Work';
+
 import { useTheme } from "@mui/material/styles";
 
 
@@ -15,6 +19,13 @@ const notices = [
   { title: "New Feature Release", date: "Feb 20, 2025", message: "We have launched a new inventory tracking module." },
   { title: "Holiday Notice", date: "Feb 15, 2025", message: "The office will remain closed on February 21st for International Mother Language Day." },
 ];
+
+const Module = [
+  { title: "User Mod", icon: <PeopleIcon style={{ color: 'blue' }} /> }, // Blue color for User Mod
+  { title: "It Mod", icon: <ComputerIcon style={{ color: 'green' }} /> }, // Green color for IT Mod
+  { title: "HR Mod", icon: <WorkIcon style={{ color: 'purple' }} /> }, // Purple color for HR Mod
+];
+
 
 
 const StyledCalendar = styled(Calendar)(({ theme }) => ({
@@ -216,27 +227,28 @@ function Dashboard() {
 
       {/* 🔹 First Section: Four Paper Cards with Skeleton */}
       <Grid container spacing={2} justifyContent="center" sx={{ width: "100%" }}>
-        {[1, 2, 3, 4].map((item) => (
-          <Grid key={item} item xs={12} sm={6} md={6} lg={3}>
-            {loading ? (
-              <Skeleton variant="rectangular" height={200} />
-            ) : (
-              <Paper
-                elevation={6}
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  height: 200,
-
-                }}
-              >
-                <Typography variant="h5">"Lorem {item}"</Typography>
-              </Paper>
-            )}
-          </Grid>
-        ))}
-      </Grid>
+      {Module.map((mod, index) => (
+        <Grid key={index} item xs={12} sm={6} md={6} lg={3}>
+          {loading ? (
+            <Skeleton variant="rectangular" height={200} />
+          ) : (
+            <Paper
+              elevation={6}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: 200,
+                flexDirection: 'column', // To align icon above title
+              }}
+            >
+              {mod.icon}
+              <Typography variant="h5">{mod.title}</Typography>
+            </Paper>
+          )}
+        </Grid>
+      ))}
+    </Grid>
 
 
 
