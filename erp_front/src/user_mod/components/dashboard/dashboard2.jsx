@@ -227,7 +227,7 @@ function Dashboard() {
       {/* 🔹 First Section: Four Paper Cards with Skeleton */}
       <Grid container spacing={2} justifyContent="center" sx={{ width: "100%" }}>
       {Module.map((mod, index) => (
-        <Grid key={index} item xs={2} sm={2} md={2} lg={2}>
+        <Grid key={index} item xs={5} sm={5} md={2} lg={2}>
           {loading ? (
             <Skeleton variant="rectangular" height={200} />
           ) : (
