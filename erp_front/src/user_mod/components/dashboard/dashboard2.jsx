@@ -21,9 +21,9 @@ const notices = [
 ];
 
 const Module = [
-  { title: "User Mod", icon: <PeopleIcon style={{ color: 'blue' }} /> }, // Blue color for User Mod
-  { title: "It Mod", icon: <ComputerIcon style={{ color: 'green' }} /> }, // Green color for IT Mod
-  { title: "HR Mod", icon: <WorkIcon style={{ color: 'purple' }} /> }, // Purple color for HR Mod
+  { title: "User Mod", icon: <PeopleIcon style={{ fontSize: 50, color: 'blue' }} /> },
+  { title: "It Mod", icon: <ComputerIcon style={{ fontSize: 50, color: 'green' }} /> },
+  { title: "HR Mod", icon: <WorkIcon style={{ fontSize: 50, color: 'purple' }} /> },
 ];
 
 
@@ -33,7 +33,7 @@ const StyledCalendar = styled(Calendar)(({ theme }) => ({
   background: theme.palette.primary.main,
   borderRadius: '15px',
   padding: '1rem',
-  boxShadow: `0 4px 20px rgba(0, 0, 0, 0.1)`,
+  boxShadow: `0 4px 20px rgba(0, 0, 0, 0.3)`,
   width:'85%',
 
 
@@ -52,7 +52,6 @@ const StyledCalendar = styled(Calendar)(({ theme }) => ({
   '.react-calendar__tile--active': {
     background: 'black',
   }
-
 
 }));
 
@@ -143,7 +142,7 @@ function Dashboard() {
     >
       <Grid
         container
-        spacing={0}
+        spacing={2}
         justifyContent="center"
       >
 
@@ -166,7 +165,7 @@ function Dashboard() {
             display="flex"
             justifyContent="center"
           >
-            <Paper sx={{ width:'85%',height:{ xs: "20rem", md: "20rem", lg: "20rem" },overflow: "hidden", padding: '10rem', backgroundColor: theme.palette.primary.main, color: 'white', borderRadius: '15px', p: 2 }}>
+            <Paper  elevation={6} sx={{ width:'85%',height:{ xs: "20rem", md: "20rem", lg: "20rem" },overflow: "hidden", padding: '10rem', backgroundColor: theme.palette.primary.main, color: 'white', borderRadius: '15px', p: 2 }}>
                {/* Notice Board Title */}
                 <Typography sx={{ fontSize: "22px", fontWeight: "bold", mb: 2 }}>
                   📢 Notice Board
@@ -209,7 +208,7 @@ function Dashboard() {
             display="flex"
             justifyContent="center"
           >
-            <Paper sx={{ width:'85%',height:{ xs: "20rem", md: "20rem", lg: "20rem" }, padding: '10rem', backgroundColor: theme.palette.primary.main, color: 'white', borderRadius: '15px', p: 2 }}>
+            <Paper   elevation={6} sx={{ width:'85%',height:{ xs: "20rem", md: "20rem", lg: "20rem" }, padding: '10rem', backgroundColor: theme.palette.primary.main, color: 'white', borderRadius: '15px', p: 2 }}>
               <Typography sx={{ fontSize: "24px", fontWeight: "bold",}}>
                 {time.toLocaleTimeString()}
               </Typography>
@@ -228,7 +227,7 @@ function Dashboard() {
       {/* 🔹 First Section: Four Paper Cards with Skeleton */}
       <Grid container spacing={2} justifyContent="center" sx={{ width: "100%" }}>
       {Module.map((mod, index) => (
-        <Grid key={index} item xs={12} sm={6} md={6} lg={3}>
+        <Grid key={index} item xs={2} sm={2} md={2} lg={2}>
           {loading ? (
             <Skeleton variant="rectangular" height={200} />
           ) : (
@@ -239,7 +238,8 @@ function Dashboard() {
                 justifyContent: "center",
                 alignItems: "center",
                 height: 200,
-                flexDirection: 'column', // To align icon above title
+                flexDirection: 'column',
+                borderRadius: '20px',
               }}
             >
               {mod.icon}
