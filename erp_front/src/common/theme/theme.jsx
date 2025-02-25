@@ -18,6 +18,7 @@ const defaultTheme = createTheme({
     text: {
       primary: "#000", // Define primary text color
       secondary: "#FFFFFF", // Define secondary text color
+      third: "#000",
     },
   },
 });
@@ -38,6 +39,7 @@ const darkTheme = createTheme({
     text: {
       primary: "#FFFFFF", // Define primary text color
       secondary: "#FFFFFF", // Define secondary text color
+      third: "#000",
     },
   },
 });
@@ -58,6 +60,7 @@ const greenTheme = createTheme({
     text: {
       primary: "#000", // Define primary text color
       secondary: "#FFFFFF", // Define secondary text color
+      third: "#000",
     },
   },
 });

@@ -61,7 +61,7 @@ const SideBar = ({ open, toggleSidebar }) => {
         flexShrink: 0,
         "& .MuiDrawer-paper": {
           width: drawerWidth,
-          mt: "64px",
+          mt: "56px",
         },
       }}
       variant={isSmallScreen ? "temporary" : "persistent"}

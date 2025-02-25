@@ -6,6 +6,8 @@ import Brightness7Icon from "@mui/icons-material/Brightness7"; // Light mode ico
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import { getMenuItemStyles } from "./theme/globalStyle";
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
 
 
 import { Brightness4, Brightness7, ColorLens, ExpandMore } from "@mui/icons-material";
@@ -121,6 +123,7 @@ const NavBar = ({ toggleSidebar, mode, toggleTheme }) => {
           Green
         </MenuItem>
       </Menu>
+      <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
 
       </Toolbar>
     </AppBar>
