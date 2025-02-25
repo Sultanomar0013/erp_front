@@ -127,7 +127,7 @@ function Dashboard() {
 
 
 
-    {/* BreackPoints One : Title page */}
+    {/* zero section BreackPoints One : Title page */}
       <Box
       sx={{
         width: "100%",
@@ -254,61 +254,58 @@ function Dashboard() {
 
 
       {/* 🔹 Second Section: Four Divs */}
-      <Grid container spacing={2} justifyContent="center"  sx={{ width: "100%", }}>
-      
-      <Grid  key="salary-details" xs={12} sm={6} md={6} lg={3}>
-          <Box
-            sx={{
-              height: 150,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              borderRadius: 2,
-              bgcolor: "primary.light",
-              color: "primary.contrastText",
-              boxShadow: 2,
-            }}
-          >
-            <Typography variant="h6">Salary Details</Typography>
-          </Box>
-        </Grid>
+      <Grid container spacing={2} justifyContent="center" sx={{ width: "100%" }}>
+  <Grid item key="salary-details" xs={12} sm={6} md={6} lg={3}>
+    <Box
+      sx={{
+        height: 150,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 2,
+        bgcolor: "primary.light",
+        color: "primary.contrastText",
+        boxShadow: 2,
+      }}
+    >
+      <Typography variant="h6">Salary Details</Typography>
+    </Box>
+  </Grid>
 
-        <Grid   key="expense-claims" xs={12} sm={6} md={6} lg={3}>
-          <Box
-            sx={{
-              height: 150,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              borderRadius: 2,
-              bgcolor: "success.light",
-              color: "success.contrastText",
-              boxShadow: 2,
-            }}
-          >
-            <Typography variant="h6">Expense Claims</Typography>
-          </Box>
-        </Grid>
+  <Grid item key="expense-claims" xs={12} sm={6} md={6} lg={3}>
+    <Box
+      sx={{
+        height: 150,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 2,
+        bgcolor: "success.light",
+        color: "success.contrastText",
+        boxShadow: 2,
+      }}
+    >
+      <Typography variant="h6">Expense Claims</Typography>
+    </Box>
+  </Grid>
 
-        <Grid  key="invoice-processing"  xs={12} sm={6} md={6} lg={3}>
-          <Box
-            sx={{
-              height: 150,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              borderRadius: 2,
-              bgcolor: "warning.light",
-              color: "warning.contrastText",
-              boxShadow: 2,
-            }}
-          >
-            <Typography variant="h6">Invoice Processing Status</Typography>
-          </Box>
-        </Grid>
-
-
-      </Grid>
+  <Grid item key="invoice-processing" xs={12} sm={6} md={6} lg={3}>
+    <Box
+      sx={{
+        height: 150,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 2,
+        bgcolor: "warning.light",
+        color: "warning.contrastText",
+        boxShadow: 2,
+      }}
+    >
+      <Typography variant="h6">Invoice Processing Status</Typography>
+    </Box>
+  </Grid>
+</Grid>
 
 
 

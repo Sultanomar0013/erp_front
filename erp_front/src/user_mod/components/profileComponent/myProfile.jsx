@@ -128,96 +128,95 @@ function Panel() {
               justifyItems: 'center',
             }}>
 
-              <Paper
-                elevation={4}
+            <Paper
+              elevation={6}
+              sx={{
+                padding: "30px",
+                width: "85%",
+                display: "grid",
+                gridAutoFlow: "row",
+                alignItems: "start",
+                justifyItems: "center",
+                borderRadius: "15px",
+                backdropFilter: "blur(10px)",
+                background: "rgba(255, 255, 255, 0.6)", // Glassmorphism effect
+                boxShadow: "0 8px 20px rgba(0, 0, 0, 0.15)",
+                transition: "transform 0.3s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.02)",
+                  boxShadow: "0 12px 25px rgba(0, 0, 0, 0.2)",
+                },
+              }}
+            >
+              <Typography variant="h5" sx={{ fontWeight: "bold", marginBottom: "15px", color: "#333" }}>
+                Personal Information
+              </Typography>
+
+              <Grid
                 sx={{
-                  padding: '20px',
-                  width: '80%',
-                  display: 'grid',
-                  gridAutoFlow: 'row',
-                  alignItems: 'start',
-                  justifyItems: 'center',
-                  borderRadius: '10px'
+                  width: "95%",
+                  display: "grid",
+                  gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
+                  gap: "20px",
+                  justifyItems: "center",
                 }}
               >
-                <Typography
-                  variant="h6"
-                  sx={{ fontWeight: 'bold', marginBottom: '10px' }}
+                {/* Left Column */}
+                <Grid
+                  container
+                  direction="column"
+                  alignItems="left"
+                  sx={{
+                    width: "100%",
+                    maxWidth: "350px",
+                    padding: "15px",
+                    borderRadius: "12px",
+                    boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)",
+                    backgroundColor: "rgba(255, 255, 255, 0.85)", // Light card effect
+                  }}
                 >
-                  Personal Information
-                </Typography>
-
-                <Grid sx={{
-                  width: '90%',
-                  display: 'grid',
-                  gridAutoFlow: 'row',
-                  gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
-                  gap: '0px',
-                  justifyItems: 'center',
-                  borderRadius: '10px'
-                }}>
-                  <Grid
-                    container
-                    direction="column"
-                    alignItems="center"
-                    sx={{
-                      width: '100%',
-                      maxWidth: '300px',
-                      padding: '10px',
-                      borderRadius: '10px',
-                      boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
-                    }}
-                  >
-
-                    <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                      <strong>Full Name:</strong> Sultan Omar
+                  {[
+                    { label: "Full Name", value: "Sultan Omar" },
+                    { label: "Father's Name", value: "Saleh Majumder" },
+                    { label: "Mother's Name", value: "Gulshan Ara Begum" },
+                    { label: "Blood Group", value: "O+" },
+                    { label: "Religion", value: "Islam" },
+                  ].map((item, index) => (
+                    <Typography key={index} variant="body1" sx={{ fontWeight: 500, marginBottom: "8px" }}>
+                      <strong>{item.label}:</strong> {item.value}
                     </Typography>
-                    <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                      <strong>Father's Name:</strong> Saleh Majumder
-                    </Typography>
-                    <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                      <strong>Mother's Name:</strong> Gulshan Ara Begum
-                    </Typography>
-                    <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                      <strong>Blood Group:</strong> O+
-                    </Typography>
-                    <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                      <strong>Religion:</strong> Islam
-                    </Typography>
-                  </Grid>
-
-                  <Grid
-                    container
-                    direction="column"
-                    alignItems="center"
-                    sx={{
-                      width: '100%',
-                      maxWidth: '300px',
-                      padding: '10px',
-                      borderRadius: '10px',
-                      boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
-                    }}
-                  >
-
-                    <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                      <strong>Date of Birth:</strong> Onek Age
-                    </Typography>
-                    <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                      <strong>Place of Birth:</strong> Qatar
-                    </Typography>
-                    <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                      <strong>Nationality:</strong> Bangladeshi
-                    </Typography>
-                    <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                      <strong>Gender:</strong> Male
-                    </Typography>
-                    <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                      <strong>Marital Status:</strong> Complicated
-                    </Typography>
-                  </Grid>
+                  ))}
                 </Grid>
 
-              </Paper>
+                {/* Right Column */}
+                <Grid
+                  container
+                  direction="column"
+                  alignItems="left"
+                  sx={{
+                    width: "100%",
+                    maxWidth: "350px",
+                    padding: "15px",
+                    borderRadius: "12px",
+                    boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)",
+                    backgroundColor: "rgba(255, 255, 255, 0.85)",
+                  }}
+                >
+                  {[
+                    { label: "Date of Birth", value: "Onek Age" },
+                    { label: "Place of Birth", value: "Qatar" },
+                    { label: "Nationality", value: "Bangladeshi" },
+                    { label: "Gender", value: "Male" },
+                    { label: "Marital Status", value: "Complicated" },
+                  ].map((item, index) => (
+                    <Typography key={index} variant="body1" sx={{ fontWeight: 500, marginBottom: "8px" }}>
+                      <strong>{item.label}:</strong> {item.value}
+                    </Typography>
+                  ))}
+                </Grid>
+              </Grid>
+            </Paper>
+
 
               <br></br>
 
