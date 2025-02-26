@@ -61,7 +61,7 @@ const SideBar = ({ open, toggleSidebar }) => {
         flexShrink: 0,
         "& .MuiDrawer-paper": {
           width: drawerWidth,
-          mt: "56px",
+          mt: "64px",
         },
       }}
       variant={isSmallScreen ? "temporary" : "persistent"}
@@ -97,7 +97,7 @@ const SideBar = ({ open, toggleSidebar }) => {
               // Parent menu item with children
               <>
                 <ListItem onClick={() => handleToggle(segment)}   sx={{
-                          pl: 4,
+                          
                           backgroundColor: "inherit",
                             "&:hover": {
                               backgroundColor: theme.palette.secondary.main
