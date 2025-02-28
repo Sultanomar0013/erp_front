@@ -44,6 +44,27 @@ import FindInPageIcon from "@mui/icons-material/FindInPage";
 import PersonIcon from "@mui/icons-material/Person";
 import CodeIcon from "@mui/icons-material/Code";
 
+
+
+import EventAvailableIcon from "@mui/icons-material/EventAvailable";
+import PaymentIcon from "@mui/icons-material/Payment";
+import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
+import SchoolIcon from "@mui/icons-material/School";
+import AnnouncementIcon from "@mui/icons-material/Announcement";
+
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import TimerIcon from "@mui/icons-material/Timer";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+
+import EventNoteIcon from "@mui/icons-material/EventNote";
+import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
+
+import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
+import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
+
+
+
+
 // User Module
 const userMenuItems = [
   { segment: "dashboard", title: "Dashboard", icon: <DashboardIcon />, path: "/userMod/home/Dashboard" },
@@ -192,13 +213,72 @@ const itMenuItems = [
 
 
 
+
+const hrMenuItems = [
+  { segment: "hr_dashboard", title: "HR Dashboard", icon: <WorkIcon />, path: "/hrMod/dashboard" },
+
+  { segment: "employee_management", title: "Employee Management", icon: <PeopleIcon />, path: "/hrMod/employees" },
+
+  {
+    segment: "attendance", title: "Attendance Management", icon: <EventAvailableIcon />,
+    children: [
+      { title: "Daily Attendance", path: "/hrMod/attendance/daily", icon: <CalendarTodayIcon /> },
+      { title: "Overtime Tracking", path: "/hrMod/attendance/overtime", icon: <TimerIcon /> },
+      { title: "Late/Early Tracking", path: "/hrMod/attendance/late-early", icon: <AccessTimeIcon /> },
+    ]
+  },
+
+  {
+    segment: "leave", title: "Leave Management", icon: <EventAvailableIcon />, path: "/hrMod/leave",
+    children: [
+      { title: "Leave Requests", path: "/hrMod/leave/requests", icon: <EventNoteIcon /> },
+      { title: "Leave Balances", path: "/hrMod/leave/balance", icon: <AccountBalanceWalletIcon /> },
+      { title: "Holiday Calendar", path: "/hrMod/leave/calendar", icon: <TodayIcon /> },
+    ]
+  },
+
+  { segment: "payroll", title: "Payroll Management", icon: <PaymentIcon />, path: "/hrMod/payroll" },
+
+  {
+    segment: "recruitment", title: "Recruitment & Hiring", icon: <BusinessCenterIcon />,
+    children: [
+      { title: "Job Openings", path: "/hrMod/recruitment/jobs", icon: <WorkOutlineIcon /> },
+      { title: "Applications", path: "/hrMod/recruitment/applications", icon: <AssignmentIcon /> },
+      { title: "Interviews", path: "/hrMod/recruitment/interviews", icon: <QuestionAnswerIcon /> },
+    ]
+  },
+
+  { segment: "performance", title: "Performance Management", icon: <AssessmentIcon />, path: "/hrMod/performance" },
+
+  {
+    segment: "training", title: "Training & Development", icon: <SchoolIcon />,
+    children: [
+      { title: "Job Openings", path: "/hrMod/recruitment/jobs", icon: <WorkOutlineIcon /> },
+      { title: "Applications", path: "/hrMod/recruitment/applications", icon: <AssignmentIcon /> },
+      { title: "Interviews", path: "/hrMod/recruitment/interviews", icon: <QuestionAnswerIcon /> },
+    ]
+  },
+
+  { segment: "documents", title: "Document Management", icon: <DescriptionIcon />, path: "/hrMod/documents" },
+
+  { segment: "assets", title: "Asset Management", icon: <DevicesIcon />, path: "/hrMod/assets" },
+
+  { segment: "self_service", title: "Employee Self-Service", icon: <AccountCircleIcon />, path: "/hrMod/self-service" },
+
+  { segment: "announcements", title: "Company Policies & Announcements", icon: <AnnouncementIcon />, path: "/hrMod/announcements" },
+];
+
+
+
 // Function to get filtered menu items based on location
 export const getMenuItems = (pathname) => {
 
-  if( pathname.startsWith("/userMod") ){
+  if (pathname.startsWith("/userMod")) {
     return userMenuItems;
-  }else if( pathname.startsWith("/itMod") ){
+  } else if (pathname.startsWith("/itMod")) {
     return itMenuItems;
+  } else if (pathname.startsWith("/hrMod")) {
+    return hrMenuItems;
   }
 };
 
@@ -213,33 +293,3 @@ const MyComponent = () => {
 };
 
 export default MyComponent;
-
-
-// const getTheme = (mode) =>
-//   createTheme({
-//     palette: {
-//       mode, // "light" or "dark" mode
-//       primary: {
-//         main: mode === "dark" ? "#bb86fc" : "#008b8b",
-//       },
-//       secondary: {
-//         main:
-//             mode === "dark" ? "#bb86fc"
-//           : mode === "light" ? alpha("#96f2d7", 0.8)
-//           : "#000000",
-//       },
-//       background: {
-//         default: mode === "dark" ? "#121212" : "#ffffff",
-//         paper: mode === "dark" ? "#1d1d1d" : "#f9f9f9",
-//       },
-//     },
-//     breakpoints: {
-//       values: {
-//         xs: 0,
-//         sm: 600,
-//         md: 900, // fixed md breakpoint (was the same as sm)
-//         lg: 1200,
-//         xl: 1536,
-//       },
-//     },
-//   });

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { AppBar, Toolbar, IconButton, Typography,Button, Menu, MenuItem } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Typography, Button, Menu, MenuItem } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Brightness4Icon from "@mui/icons-material/Brightness4"; // Dark mode icon
 import Brightness7Icon from "@mui/icons-material/Brightness7"; // Light mode icon
@@ -31,21 +31,12 @@ const NavBar = ({ toggleSidebar, mode, toggleTheme }) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = (mod) => {
-    setAnchorEl(null);
-    if(mod === 'userMod'){
-      navigate('/userMod/home');
-    }else if(mod === 'itMod'){
-      navigate('/itMod/home');
-    }else if(mod === 'accMod'){
-      navigate('/accMod/home');
-    }
-  };
+
 
   const [themeanchorEl, setThemeAnchorEl] = useState(null);
   const themeopen = Boolean(themeanchorEl);
-  const storeTheme = localStorage.getItem("customtheme") ;
-  const [selectedTheme, setSelectedTheme] = useState( themeIcons[localStorage.getItem("customtheme")] ||<Brightness7/>);
+  const storeTheme = localStorage.getItem("customtheme");
+  const [selectedTheme, setSelectedTheme] = useState(themeIcons[localStorage.getItem("customtheme")] || <Brightness7 />);
 
   const handleThemeClick = (event) => {
     setThemeAnchorEl(event.currentTarget);
@@ -55,10 +46,10 @@ const NavBar = ({ toggleSidebar, mode, toggleTheme }) => {
 
   const handleThemeClose = (theme) => {
 
-      if (localStorage.getItem("customtheme") !== theme && theme != null ) {
-        localStorage.setItem("customtheme", theme);
-        setSelectedTheme(themeIcons[theme]);
-        toggleTheme(theme);
+    if (localStorage.getItem("customtheme") !== theme && theme != null) {
+      localStorage.setItem("customtheme", theme);
+      setSelectedTheme(themeIcons[theme]);
+      toggleTheme(theme);
     }
     setThemeAnchorEl(null);
   };
@@ -70,15 +61,29 @@ const NavBar = ({ toggleSidebar, mode, toggleTheme }) => {
   const [selectedItem, setSelectedItem] = useState("User Module");
 
   useEffect(() => {
-    if(   location.pathname.startsWith("/userMod")){
+    if (location.pathname.startsWith("/userMod")) {
       setSelectedItem("User Module");
-    }else if(   location.pathname.startsWith("/itMod")){
+    } else if (location.pathname.startsWith("/itMod")) {
       setSelectedItem("It Module");
-    }else if(   location.pathname.startsWith("/accMod")){
+    } else if (location.pathname.startsWith("/accMod")) {
       setSelectedItem("Acc Module");
+    } else if (location.pathname.startsWith("/hrMod")) {
+      setSelectedItem("HR Module");
     }
   }, [])
+  const handleClose = (mod) => {
+    setAnchorEl(null);
+    if (mod === 'userMod') {
+      navigate('/userMod/home');
+    } else if (mod === 'itMod') {
+      navigate('/itMod/home');
+    } else if (mod === 'accMod') {
+      navigate('/accMod/home');
+    } else if (mod === 'hrMod') {
+      navigate('/hrMod/home');
+    }
 
+  };
 
 
   return (
@@ -89,41 +94,42 @@ const NavBar = ({ toggleSidebar, mode, toggleTheme }) => {
         </IconButton>
 
         <Button
-        variant="contained"
-        onClick={handleClick}
-        sx={{marginLeft: 'auto'}}
-      >
-      { selectedItem }
-      </Button>
-      <Menu
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-      >
-        <MenuItem onClick={() => handleClose('userMod')}  sx={getMenuItemStyles(theme)}>User Module</MenuItem>
-        <MenuItem onClick={() => handleClose('itMod')} sx={getMenuItemStyles(theme)}>It Module</MenuItem>
-        <MenuItem onClick={() => handleClose('accMod')} sx={getMenuItemStyles(theme)}>Accounts Module</MenuItem>
-      </Menu>
+          variant="contained"
+          onClick={handleClick}
+          sx={{ marginLeft: 'auto' }}
+        >
+          {selectedItem}
+        </Button>
+        <Menu
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+        >
+          <MenuItem onClick={() => handleClose('userMod')} sx={getMenuItemStyles(theme)}>User Module</MenuItem>
+          <MenuItem onClick={() => handleClose('itMod')} sx={getMenuItemStyles(theme)}>It Module</MenuItem>
+          <MenuItem onClick={() => handleClose('hrMod')} sx={getMenuItemStyles(theme)}>HR Module</MenuItem>
+          <MenuItem onClick={() => handleClose('accMod')} sx={getMenuItemStyles(theme)}>Accounts Module</MenuItem>
+        </Menu>
 
-      <IconButton color="inherit" onClick={handleThemeClick}>
-        {selectedTheme}
-      </IconButton>
+        <IconButton color="inherit" onClick={handleThemeClick}>
+          {selectedTheme}
+        </IconButton>
 
-      <Menu anchorEl={themeanchorEl} open={themeopen} onClose={() => handleThemeClose(null)}>
-        <MenuItem onClick={() => handleThemeClose("dark")}>
-          <Brightness4 style={{ marginRight: 8 }} />
-          Dark
-        </MenuItem>
-        <MenuItem onClick={() => handleThemeClose("light")}>
-          <Brightness7 style={{ marginRight: 8 }} />
-          Light
-        </MenuItem>
-        <MenuItem onClick={() => handleThemeClose("green")}>
-          <ColorLens style={{ marginRight: 8, color: "green" }} />
-          Green
-        </MenuItem>
-      </Menu>
-      <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+        <Menu anchorEl={themeanchorEl} open={themeopen} onClose={() => handleThemeClose(null)}>
+          <MenuItem onClick={() => handleThemeClose("dark")}>
+            <Brightness4 style={{ marginRight: 8 }} />
+            Dark
+          </MenuItem>
+          <MenuItem onClick={() => handleThemeClose("light")}>
+            <Brightness7 style={{ marginRight: 8 }} />
+            Light
+          </MenuItem>
+          <MenuItem onClick={() => handleThemeClose("green")}>
+            <ColorLens style={{ marginRight: 8, color: "green" }} />
+            Green
+          </MenuItem>
+        </Menu>
+        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
 
       </Toolbar>
     </AppBar>
