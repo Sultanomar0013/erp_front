@@ -152,27 +152,27 @@ function NoticeReport() {
           </Modal>
 
         </Box>
-
-        <Box style={{ height: 600, width: "95%" }}>
-          {loadingFetch ? (
-            <p>Loading...</p>
-          ) : errorFetch ? (
-            <p>Error: {errorFetch}</p>
-          ) : (
-            <DataGrid
-              rows={rows}
-              columns={columns}
-              getRowId={(row) => row.id}
-              loading={loadingFetch}
-              slots={{ toolbar: GridToolbar }}
-              initialState={{
-                pagination: { paginationModel: { pageSize: 10, page: 0 } },
-              }}
-              pageSizeOptions={[10, 20, 50]}
-            />
-          )}
+      <Box sx={{ width: '100%', overflowX: 'auto' }}>
+          <Box style={{ height: 600, width: "95%" }}>
+            {loadingFetch ? (
+              <p>Loading...</p>
+            ) : errorFetch ? (
+              <p>Error: {errorFetch}</p>
+            ) : (
+              <DataGrid
+                rows={rows}
+                columns={columns}
+                getRowId={(row) => row.id}
+                loading={loadingFetch}
+                slots={{ toolbar: GridToolbar }}
+                initialState={{
+                  pagination: { paginationModel: { pageSize: 10, page: 0 } },
+                }}
+                pageSizeOptions={[10, 20, 50]}
+              />
+            )}
+          </Box>
         </Box>
-
       </Box>
 
     </Box>
