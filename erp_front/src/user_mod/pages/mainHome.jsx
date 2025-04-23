@@ -93,7 +93,6 @@ const MainHome = () => {
                         p: 3,
                         mt: 8,
                         transition: "margin 0.3s",
-                        overflow: 'scroll',
                     }}
                 >
                     <Box sx={{  maxWidth: '1440px',
