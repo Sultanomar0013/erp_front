@@ -130,7 +130,7 @@ function NoticeReport() {
       </Modal>
 
       {/* DataGrid Section (outside layout container) */}
-      <Box sx={{ width: '100%', overflowX: 'auto' }}>
+{/*       <Box sx={{ width: '100%', overflowX: 'auto' }}> */}
         <Box sx={{ minWidth: '1100px', height: 600 }}>
           {loadingFetch ? (
             <Typography>Loading...</Typography>
@@ -149,7 +149,7 @@ function NoticeReport() {
               pageSizeOptions={[10, 20, 50]}
             />
           )}
-        </Box>
+{/*         </Box> */}
       </Box>
     </Box>
   );
