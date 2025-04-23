@@ -87,7 +87,6 @@ const MainHome = () => {
                 <Box
                     component="main"
                     sx={{
-                        display: 'flex',
                         justifyContent: 'center',
                         width: '100%',
                         p: 3,
