@@ -37,11 +37,10 @@ Built using modern web technologies to ensure scalability, security, and perform
 
 ## 📸 Screenshots
 
-| Dashboard | Accounting Module |
-|----------|-----------------|-------------------|
-| ![Dashboard](screenshots/dashboard.png) | ![Accounts](screenshots/accounts.png) |
-
-
+| Dashboard | 
+| ![Dashboard](screenshots/dashboard.png) |
+|Accounting Module |
+| ![Accounts](screenshots/accounts.png) |
 ---
 
 ## 🔐 Features
