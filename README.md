@@ -39,7 +39,7 @@ Built using modern web technologies to ensure scalability, security, and perform
 
 | Dashboard | Employee Module | Accounting Module |
 |----------|-----------------|-------------------|
-| ![Dashboard](src/assets/images/dashboard.png) | ![Accounts](src/assets/images/accounts.png) |
+| ![Dashboard](screenshots/dashboard.png) | ![Accounts](screenshots/accounts.png) |
 
 
 ---
