@@ -38,9 +38,9 @@ Built using modern web technologies to ensure scalability, security, and perform
 ## 📸 Screenshots
 
 Dashboard 
-(screenshots/dashboard.png)
+| ![Dashboard](screenshots/dashboard.png) |
 Accounting Module
-(screenshots/accounts.png)
+| ![Accounts](screenshots/accounts.png) |
 ---
 
 ## 🔐 Features
